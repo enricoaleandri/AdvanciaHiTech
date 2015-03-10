@@ -143,7 +143,7 @@
             <h1>Contact Form</h1>
         </div>
         <div class="contact_form">
-            <form action="#" method="post" class="um_form">
+            <form action="#" method="post"  class="um_form">
                 <div class="person_info">
                     <p>
                         <label for="name">Nome</label>

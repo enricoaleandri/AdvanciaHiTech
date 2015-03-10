@@ -138,14 +138,6 @@
             </div>
         </div>
     </div>
-    <script>
-        jQuery(document).ready(function(){
-            $(".um_form").submit(function(){
-                var $var = $('[name="umbheadfld_Name"]').val();
-                alert($var);
-            });
-        });
-    </script>
     <div class="contact_form_field col_02">
         <div class="contact_title">
             <h1>Contact Form</h1>

@@ -192,7 +192,7 @@
                     <textarea data-required="1" name="umbheadfld_Message" id="umbheadfld_Message" placeholder="your message goes here..."></textarea>
                 </div>
                 <div class="buttons">
-                    <input type="submit" onclick="alert('prova')" value="Send Message"/>
+                    <input type="submit"  value="Send Message"/>
                     <input type="reset" value="Reset">
                 </div>
             </form>

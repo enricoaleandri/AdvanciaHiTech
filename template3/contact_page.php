@@ -19,7 +19,7 @@
     ?>
 
     <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?v=3.exp&#038;sensor=false&#038;ver=1.0'></script>
-
+    <script type="text/javascript" src="js/contact_script.js"></script>
 </head>
 <body class="home page page-id-8 page-template page-template-template-home page-template-template-home-php regular_typo">
 <script>

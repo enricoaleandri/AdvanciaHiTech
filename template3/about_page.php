@@ -85,7 +85,7 @@ $activePage = "about";
                             attraverso tecnologie di produttività individuale, incontrano il mondo della Business Intelligence e del System Integration
                             Advancia Technology, una società creata con la missione di agevolare i manager e gli imprenditori
                             nel portare avanti lo sviluppo delle loro idee in maniera efficace.<br/>
-                            Caratteristiche distintive di <a class="company" href="#">Advancia Technology</a> sono:
+                            Caratteristiche distintive di <a class="company" href="#">Advancia Technology </a> sono:
                             <ul>
                                 <li>
                                     Una struttura flessibile, in grado di anticipare le evoluzioni del mercato,

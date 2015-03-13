@@ -1,3 +1,41 @@
-function validatorForm() {
+$ = jQuery;
+jQuery(document).ready(function () {
+    $.validate({
+        form: '#contact_form',
+        validateOnBlur : false,
+        modules: 'security',
+        onError: function () {
+        },
+        onSuccess: function () {
+            jQuery.ajax({
+                dataType: "json",
+                url: host+'/ajax/sendemail/',
+                data: $('#contact_form').serialize(),
+                success: function (data) {
+                    $valid = data.result;
+                    if($valid){
+                        $("#message_sent").show(500);
+                    }else {
+                        $("#message_sent_error").show(500);
+                    }
+                },
+                error: function (){
+                    $("#message_sent_error").show(500);
+                }
+            });
+            /* $.ajax({
+             type: 'post',
+             url: host+'/ajax/sendemail/',
+             data: $('#contact_form').serialize(),
+             success: function () {
 
-}
+             $("#message_sent").show(500);
+             },
+             error: function (){
+             $("#message_sent_error").show(500);
+             }
+             }); */
+            return false;
+        }
+    });
+});

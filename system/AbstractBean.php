@@ -6,7 +6,7 @@
  * Time: 19.04
  * To change this template use File | Settings | File Templates.
  */
-abstract class AbstractBean
+abstract class AbstractBean implements InterfaceBean
 {
     protected $settings;
     protected function initBean()

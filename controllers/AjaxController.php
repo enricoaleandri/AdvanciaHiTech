@@ -23,6 +23,39 @@ class AjaxController extends  AbstractController
             $this->livelloPagina = self::$LIVELLO_PUB;
         }
     }
+
+    function sendemailAction (Request $request){
+        $form = new contactBean();
+        $name = $request->get("umbheadfld_Name");
+        $surname = $request->get("umbheadfld_Surname");
+        $mail = $request->get("umbheadfld_E-mail");
+        $phone = $request->get("umbheadfld_phone");
+        $company = $request->get("umbheadfld_company");
+        $fax = $request->get("umbheadfld_Fax");
+        $cap = $request->get("umbheadfld_Cap");
+        $city = $request->get("umbheadfld_City");
+        $address= $request->get("umbheadfld_Address");
+        $message= $request->get("umbheadfld_Message");
+        $form -> setName($name);
+        $form -> setSurname($surname);
+        $form -> setMail($mail);
+        $form -> setFax($fax);
+        $form -> setCap($cap);
+        $form -> setCity($city);
+        $form -> setCompany($company);
+        $form -> setPhone($phone);
+        $form -> setAddress($address);
+        $form -> setMessage($message);
+        if($form->validate())
+        {
+            $this->response->addContent('{"result":true}');
+
+        }else
+        {
+            $this->response->addContent('{"result":false}');
+        }
+    }
+
     function razzeAction(Request $request)
     {
 

@@ -19,7 +19,6 @@
     ?>
 
     <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?v=3.exp&#038;sensor=false&#038;ver=1.0'></script>
-    <script type="text/javascript" src="js/contact_script.js"></script>
 
 </head>
 <body class="home page page-id-8 page-template page-template-template-home page-template-template-home-php regular_typo">
@@ -144,47 +143,47 @@
             <h1>Contact Form</h1>
         </div>
         <div class="contact_form">
-            <form action="#" method="post"  class="um_form">
+            <form action="<?php echo $host;?>/ajax/sendemail/" method="post" id="contact_form" class="um_form">
                 <div class="person_info">
                     <p>
-                        <label for="name">Nome</label>
-                        <input data-required="1" data-fieldtype="Text" type="text" name="umbheadfld_Name" id="umbheadfld_Name" placeholder="John">
+                        <label for="name">Nome *</label>
+                       <input  data-required="1" data-fieldtype="Text"  required data-validation="required" data-validation-error-msg=" "  type="text" name="umbheadfld_Name" id="umbheadfld_Name" placeholder="John">
                     </p>
                     <p>
-                        <label for="name">Cognome</label>
-                        <input data-required="1" data-fieldtype="Text" type="text" name="umbheadfld_Surname" id="umbheadfld_Surname" placeholder="Smith">
+                        <label for="name">Cognome *</label>
+                        <input data-required="1" data-fieldtype="Text" required data-validation="required" data-validation-error-msg=" "  type="text" name="umbheadfld_Surname" id="umbheadfld_Surname" placeholder="Smith">
                     </p>
                     <p>
-                        <label for="name">E-mail</label>
-                        <input data-required="" data-fieldtype="Email" type="text" name="umbheadfld_E-mail" id="umbheadfld_E-mail" placeholder="johnsmith@email.com">
+                        <label for="name">E-mail *</label>
+                        <input data-required="" data-fieldtype="Email" required data-validation="email" data-validation-error-msg="Inserire una mail valida"  type="text" name="umbheadfld_E-mail" id="umbheadfld_E-mail" placeholder="johnsmith@email.com">
                     </p>
                 </div>
                 <div class="person_info">
                     <p>
                         <label for="name">Telefono</label>
-                        <input data-required="1" data-fieldtype="Text" type="text" name="umbheadfld_phone" id="umbheadfld_phone" placeholder="02 54 5845 85">
+                        <input data-required="1" data-fieldtype="Text"  type="text" data-validation-error-msg="Inserire un recapito telefonico valido" data-validation="custom" data-validation-regexp="^(\+?[0-9]{0,12})$" name="umbheadfld_phone" id="umbheadfld_phone" placeholder="02 54 5845 85">
                     </p>
                     <p>
-                        <label for="name">Società di appartenenza</label>
-                        <input data-required="1" data-fieldtype="Text" type="text" name="umbheadfld_company" id="umbheadfld_company" placeholder="Facebook inc">
+                        <label for="name">Società di appartenenza *</label>
+                        <input data-required="1" data-fieldtype="Text" required type="text" data-validation-error-msg=" " data-validation="required"  name="umbheadfld_company" id="umbheadfld_company" placeholder="Facebook inc">
                     </p>
                     <p>
                         <label for="name">Fax</label>
-                        <input data-required="" data-fieldtype="Email" type="text" name="umbheadfld_Fax" id="umbheadfld_Fax-mail" placeholder="02 5485 698">
+                        <input data-required="" data-fieldtype="Email" data-validation-error-msg="Inserire un recapito fax valido" data-validation="custom" data-validation-regexp="^(\+?[0-9]{0,12})$" type="text" name="umbheadfld_Fax" id="umbheadfld_Fax-mail" placeholder="02 5485 698">
                     </p>
                 </div>
                 <div class="person_info">
                     <p>
-                        <label for="name">Indirizzo</label>
-                        <input data-required="1" data-fieldtype="Text" type="text" name="umbheadfld_Address" id="umbheadfld_Address" placeholder="Via dell'aria 2">
+                        <label for="name">Indirizzo *</label>
+                        <input data-required="1" data-fieldtype="Text" required data-validation-error-msg=" "  type="text" data-validation="required" name="umbheadfld_Address" id="umbheadfld_Address" placeholder="Via dell'aria 2">
                     </p>
                     <p>
-                        <label for="name">Cap</label>
-                        <input data-required="1" data-fieldtype="Text" type="text" name="umbheadfld_Cap" id="umbheadfld_Cap-mail" placeholder="20139">
+                        <label for="name">Cap *</label>
+                        <input data-required="1" data-fieldtype="Text" required data-validation-error-msg="Inserire un CAP valido"  type="text"  data-validation="custom" data-validation-regexp="^([0-9]{5})$" name="umbheadfld_Cap" id="umbheadfld_Cap-mail" placeholder="20139">
                     </p>
                     <p>
-                        <label for="name">Citta</label>
-                        <input data-required="" data-fieldtype="Text" type="text" name="umbheadfld_City" id="umbheadfld_City" placeholder="Milano">
+                        <label for="name">Citta *</label>
+                        <input data-required="" data-fieldtype="Text" required data-validation-error-msg=" " data-validation="required" type="text" name="umbheadfld_City" id="umbheadfld_City" placeholder="Milano">
                     </p>
                 </div>
                 <div class="message_box">
@@ -192,18 +191,24 @@
                     <textarea data-required="1" name="umbheadfld_Message" id="umbheadfld_Message" placeholder="your message goes here..."></textarea>
                 </div>
                 <div class="buttons">
-                    <input type="submit"  value="Send Message"/>
+                    <input type="submit" value="Send Message"/>
                     <input type="reset" value="Reset">
                 </div>
             </form>
-            <div class="message_sent" style="display: none">Il tuo messaggio è stato inviato correttamente</div>
+            <div class="message_sent" id="message_sent" hidden >Il tuo messaggio è stato inviato correttamente</div>
+            <div class="message_sent_error" id="message_sent_error" hidden >Errore durante l'invio del messaggio</div>
         </div>
 
-        <style>
+       <style>
             .error {
                 border: 1px solid #E72259 !important;
             }
         </style>
+
+        <!--script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script-->
+        <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script>
+        <script type='text/javascript' src="<?php echo $url;?>js/form-validator/jquery.form-validator.min.js"></script>
+        <script type="text/javascript" src="<?php echo $url;?>js/contact_script.js"></script>
     </div>
 </div>
 <!--End Inner Content-->

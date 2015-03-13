@@ -18,6 +18,7 @@ require_once("pageIncluder.php");
 require_once("initConfig.php");
 
 require_once("models/BEAN/lavoriBean.php");
+require_once("models/BEAN/contactBean.php");
 
 require_once("models/DAO/lavoriDAO.php");
 require_once("models/DAO/categorieDAO.php");

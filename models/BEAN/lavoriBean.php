@@ -182,6 +182,10 @@ class lavoriBean extends AbstractBean
         return $this->url_cover;
     }
 
+    public function validate()
+    {
+        // TODO: Implement validate() method.
+    }
 
 
 }

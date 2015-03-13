@@ -1336,7 +1336,7 @@ div.blog:hover .brief_blog a.continue_reading {
 /* Contact Form */
 
 .contact_form_field {
-	height: 630px;
+	height: 680px;
 	background: #fff;
 }
 
@@ -1451,6 +1451,10 @@ div.blog:hover .brief_blog a.continue_reading {
 	cursor: pointer;
 }
 
+.contact_form .um_form .form-error {
+    color: red;
+    font-size: 13px;
+}
 /* End Contact Form */
 
 /* Project Post */
@@ -2294,8 +2298,20 @@ blockquote span {
 
 .message_sent {
 	font-size: 18px;
-	color: rgb(192, 0, 0);
+    font-weight: bold;
+	/*color: rgb(192, 0, 0);*/
+    color:green;
 	text-align: center;
+    padding-top:20px;
+}
+
+.message_sent_error {
+    font-size: 18px;
+    font-weight: bold;
+    /*color: rgb(192, 0, 0);*/
+    color:red;
+    text-align: center;
+    padding-top:20px;
 }
 
 #commentform {

@@ -204,7 +204,7 @@ class MailSender {
 
     public function  send(){
 
-        $settings =  initConfig::getInstance()->getSettings();
+       $settings =  initConfig::getInstance()->getSettings();
         $this->mailto = $settings["comunication_mail"];
 
         $header = "From: ".$this->mailfrom ;

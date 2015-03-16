@@ -24,6 +24,7 @@ require_once("models/DAO/lavoriDAO.php");
 require_once("models/DAO/categorieDAO.php");
 require_once("models/DAO/settingsDAO.php");
 require_once("models/DAO/adminDAO.php");
+require_once("models/DAO/mailDAO.php");
 
 require_once('lib/Unirest.php');
 require_once('Utils.php');

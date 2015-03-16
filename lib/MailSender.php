@@ -184,18 +184,30 @@ class MailSender {
         $this->attachments = $attachments;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getIdemail()
+    {
+        return $this->idemail;
+    }
+
+    /**
+     * @param mixed $idemail
+     */
+    public function setIdemail($idemail)
+    {
+        $this->idemail = $idemail;
+    }
+
+
 
     public function  send(){
 
-        $message = "ciao";
         $header = "From: ".$this->mailfrom ;
         $header .= " Cc: ".$this->cc;
         $header .= " MIME-Version: 1.0";
         $header .= " Content-type: text/html";
-
-        Logger::log(Logger::$INFO, "MailSender -  Header= ".$header);
-        Logger::log(Logger::$INFO, "MailSender -  to= ".$this->mailto);
-        Logger::log(Logger::$INFO, "MailSender -  subject= ".$this->subject);
 
         $file="";
         if (file_exists($this->template)) {
@@ -208,11 +220,14 @@ class MailSender {
         $keys = array_keys($this->templateAttributes);
         foreach($keys as $key){
             $file = str_replace("[".$key."]", $this->templateAttributes[$key], $file);
-            Logger::log(Logger::$INFO, "MailSender -  Form= ".$file);
         }
 
+        $this->body=$file;
+        $mailDAO = new mailDAO();
+        $mailDAO -> insertMail($this);
+
         if(!$this->properties->isSetted("svil")) {
-            if($file != "" && mail($this->mailto, $this->subject, $file, $header)) {
+            if($this->body != "" && mail($this->mailto, $this->subject, $this->body, $header)) {
                 Logger::log(Logger::$INFO, "Mail inviata correttamente a : " . $this->mailto);
                 return true;
             }else {

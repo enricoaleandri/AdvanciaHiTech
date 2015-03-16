@@ -27,7 +27,6 @@ class AjaxController extends  AbstractController
     function sendemailAction (Request $request){
         $form = new contactBean();
         $mailSender = new MailSender($this->properties);
-        $mailDAO = new emailDAO();
         $name = $request->get("umbheadfld_Name");
         $surname = $request->get("umbheadfld_Surname");
         $mail = $request->get("umbheadfld_E-mail");
@@ -51,6 +50,7 @@ class AjaxController extends  AbstractController
         if($form->validate() ){
             $mailSender->setMailto("prova@prova.com");
             $mailSender->setMailfrom("prova2@prova.it");
+            $mailSender->setMailfromname("");
             $mailSender->setSubject("oggetto di prova");
             $mailSender->setCc("qualcuno@prova.com");
             $array = array();
@@ -66,8 +66,9 @@ class AjaxController extends  AbstractController
             $array['message'] = $form->getMessage();
             $mailSender->setTemplateAttributes($array);
             $mailSender->setTemplate($this->properties->getProperty("page_path") . "/" . $this->properties->getProperty("contact_mail"));
-           if($mailSender->send()){
-               $mailDAO -> insertMail($this);
+            $mailSender->setMailfrom("");
+            $mailSender->setAttachments("");
+            if($mailSender->send()){
                $this->response->addContent('{"result":true}');
            }else{
                $this->response->addContent('{"result":false}');

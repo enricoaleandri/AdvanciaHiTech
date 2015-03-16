@@ -18,6 +18,7 @@ class emailDO extends AbstractDAO
     {
         $this -> initDAO(__CLASS__);
         $this->tableName = "at_email";
+        Logger::log(Logger::$INFO," Classe emailDAO istanziata");
     }
 
 
@@ -59,13 +60,13 @@ class emailDO extends AbstractDAO
 
     function insertMail($emailBean)
     {
+        Logger::log(Logger::$INFO,"InsertMail: ".$emailBean->getMailto());
         if($this->connection->getReady())
         {
 
             $sql = new QueryBuilder($this -> insertMail);
 
             $sql -> setTable($this -> tableName);
-
             $sql -> setString($emailBean->getSubject());
             $sql -> setString($emailBean->getMailto());
             $sql -> setString($emailBean->getMailfor());
@@ -114,6 +115,7 @@ class emailDO extends AbstractDAO
         }
         else
         {
+            Logger::log(Logger::$ERROR,"Connection false");
             return false;
         }
     }

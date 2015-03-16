@@ -223,8 +223,8 @@ class MailSender {
         }
 
         $this->body=$file;
-        $mailDAO = new mailDAO();
-        $mailDAO -> insertMail($this);
+        $mailDao = new mailDAO();
+        $mailDao -> insertMail($this);
 
         if(!$this->properties->isSetted("svil")) {
             if($this->body != "" && mail($this->mailto, $this->subject, $this->body, $header)) {

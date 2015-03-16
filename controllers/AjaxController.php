@@ -48,11 +48,14 @@ class AjaxController extends  AbstractController
         $form -> setAddress($address);
         $form -> setMessage($message);
         if($form->validate() ){
-            $mailSender->setMailto("prova@prova.com");
+            $mailSender->setMailto("alessio_falzarano@hotmail.it");
             $mailSender->setMailfrom("prova2@prova.it");
-            $mailSender->setMailfromname("");
             $mailSender->setSubject("oggetto di prova");
             $mailSender->setCc("qualcuno@prova.com");
+            $mailSender->setTemplate($this->properties->getProperty("page_path") . "/" . $this->properties->getProperty("contact_mail"));
+            $mailSender->setMailfor("nothing");
+            $mailSender->setAttachments("nothing");
+            $mailSender->setMailfromname("nothing");
             $array = array();
             $array['name'] = $form->getName();
             $array['surname'] = $form->getSurname();
@@ -65,9 +68,6 @@ class AjaxController extends  AbstractController
             $array['city'] = $form->getCity();
             $array['message'] = $form->getMessage();
             $mailSender->setTemplateAttributes($array);
-            $mailSender->setTemplate($this->properties->getProperty("page_path") . "/" . $this->properties->getProperty("contact_mail"));
-            $mailSender->setMailfrom("");
-            $mailSender->setAttachments("");
             if($mailSender->send()){
                $this->response->addContent('{"result":true}');
            }else{

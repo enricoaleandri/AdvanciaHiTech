@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-class emailDO extends AbstractDAO
+class mailDAO extends AbstractDAO
 {
 
     private $getAllMails = "SELECT * FROM ! ";
@@ -16,9 +16,8 @@ class emailDO extends AbstractDAO
 
     function __construct()
     {
-        $this -> initDAO(__CLASS__);
-        $this->tableName = "at_email";
-        Logger::log(Logger::$INFO," Classe emailDAO istanziata");
+        $this ->initDAO(__CLASS__);
+        $this->tableName = "at_mail";
     }
 
 
@@ -60,7 +59,6 @@ class emailDO extends AbstractDAO
 
     function insertMail($emailBean)
     {
-        Logger::log(Logger::$INFO,"InsertMail: ".$emailBean->getMailto());
         if($this->connection->getReady())
         {
 
@@ -73,11 +71,10 @@ class emailDO extends AbstractDAO
             $sql -> setString($emailBean->getCc());
             $sql -> setString($emailBean->getMailfrom());
             $sql -> setString($emailBean->getMailfromname());
-            $sql -> setString($emailBean->getBody());
+            $sql -> setString(str_replace('"',"'",$emailBean->getBody()));
             $sql -> setString($emailBean->getTemplate());
-            $sql -> setString($emailBean->getTemplateAttributes());
+            $sql -> setString(str_replace('"',"'",serialize($emailBean->getTemplateAttributes())));
             $sql -> setString($emailBean->getAttachments());
-
 
             try
             {
@@ -99,7 +96,7 @@ class emailDO extends AbstractDAO
                 }
                 else
                 {
-                    Logger::log(Logger::$ERROR,"Attenzione errore in esecuzione query : ".$this->connection->error);
+                   Logger::log(Logger::$ERROR,"Attenzione errore in esecuzione query : ".$this->connection->error);
                     $this->connection->rollback();
                     $this->connection->autocommit(true);
                     return false;

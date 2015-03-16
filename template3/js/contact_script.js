@@ -8,6 +8,7 @@ jQuery(document).ready(function () {
         },
         onSuccess: function () {
             jQuery.ajax({
+                type: "POST",
                 dataType: "json",
                 url: host+'/ajax/sendemail/',
                 data: $('#contact_form').serialize(),

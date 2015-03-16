@@ -112,27 +112,27 @@
 <div class="table_contact">
     <table >
         <tr>
-            <td>Ciao, [name] [surname] ti ha contattato per una proposta.</td>
+            <td>Ciao, aaa aa ti ha contattato per una proposta.</td>
         </tr>
     </table>
-    </div>
+</div>
 <br>
 <div class="table_contact">
-<table >
-    <tr>
-        <td>Email</td>
-        <td>Telefono</td>
-        <td>Azienda</td>
-    </tr>
-    <tr>
-        <td>[mail]</td>
-        <td>[phone]</td>
-        <td>[company]</td>
-    </tr>
-</table>
-    </div>
-    <div class="table_contact">
-<table>
+    <table >
+        <tr>
+            <td>Email</td>
+            <td>Telefono</td>
+            <td>Azienda</td>
+        </tr>
+        <tr>
+            <td>aaaa@aaaa.aaaa</td>
+            <td></td>
+            <td>aa</td>
+        </tr>
+    </table>
+</div>
+<div class="table_contact">
+    <table>
         <tr>
             <td>Indirizzo</td>
             <td>Cap</td>
@@ -140,18 +140,18 @@
             <td>Fax</td>
         </tr>
         <tr>
-            <td>[address]</td>
-            <td>[cap]</td>
-            <td>[city]</td>
-            <td>[fax]</td>
+            <td>aaa</td>
+            <td>12345</td>
+            <td>aa</td>
+            <td></td>
         </tr>
     </table>
-        </div>
+</div>
 <br>
 <div class="table_contact">
     <table>
         <tr> <td>Messaggio</td></tr>
-        <tr><td>[message]</td></tr>
+        <tr><td>aaa</td></tr>
     </table>
 </div>
 </body>

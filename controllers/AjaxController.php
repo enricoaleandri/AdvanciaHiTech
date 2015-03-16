@@ -26,6 +26,7 @@ class AjaxController extends  AbstractController
 
     function sendemailAction (Request $request){
         $form = new contactBean();
+        $mailSender = new MailSender($this->properties);
         $name = $request->get("umbheadfld_Name");
         $surname = $request->get("umbheadfld_Surname");
         $mail = $request->get("umbheadfld_E-mail");
@@ -46,12 +47,31 @@ class AjaxController extends  AbstractController
         $form -> setPhone($phone);
         $form -> setAddress($address);
         $form -> setMessage($message);
-        if($form->validate())
-        {
-            $this->response->addContent('{"result":true}');
+        if($form->validate() ){
+            $mailSender->setMailto("prova@prova.com");
+            $mailSender->setMailfrom("prova2@prova.it");
+            $mailSender->setSubject("oggetto di prova");
+            $mailSender->setCc("qualcuno@prova.com");
+            $array = array();
+            $array['name'] = $form->getName();
+            $array['surname'] = $form->getSurname();
+            $array['mail'] = $form->getMail();
+            $array['phone'] = $form->getPhone();
+            $array['company'] = $form->getCompany();
+            $array['fax'] = $form->getFax();
+            $array['address'] = $form->getAddress();
+            $array['cap'] = $form->getCap();
+            $array['city'] = $form->getCity();
+            $array['message'] = $form->getMessage();
+            $mailSender->setTemplateAttributes($array);
+            $mailSender->setTemplate($this->properties->getProperty("page_path") . "/" . $this->properties->getProperty("contact_mail"));
+           if($mailSender->send()){
+               $this->response->addContent('{"result":true}');
+           }else{
+               $this->response->addContent('{"result":false}');
+           }
 
-        }else
-        {
+        }else {
             $this->response->addContent('{"result":false}');
         }
     }

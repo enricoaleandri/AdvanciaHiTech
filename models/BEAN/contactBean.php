@@ -204,7 +204,6 @@ class contactBean extends AbstractBean
         $this->message = $message;
     }
 
-
     public function validate()
     {
         if (($this->name != "" && $this->name != "true") &&

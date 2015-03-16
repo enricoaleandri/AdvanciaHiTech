@@ -1,12 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Falza
- * Date: 16/03/2015
- * Time: 10.40
- */
-?>
-
 <!DOCTYPE html>
 <html lang="it-IT">
 <head>

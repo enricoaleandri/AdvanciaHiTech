@@ -48,14 +48,14 @@ class AjaxController extends  AbstractController
         $form -> setAddress($address);
         $form -> setMessage($message);
         if($form->validate() ){
-            $mailSender->setMailto("alessio_falzarano@hotmail.it");
-            $mailSender->setMailfrom("prova2@prova.it");
+            $mailSender->setMailto($setting['comunication_mail']);
+            $mailSender->setMailfrom("noreply@advancia.it");
             $mailSender->setSubject("oggetto di prova");
             $mailSender->setCc("qualcuno@prova.com");
             $mailSender->setTemplate($this->properties->getProperty("page_path") . "/" . $this->properties->getProperty("contact_mail"));
             $mailSender->setMailfor("nothing");
             $mailSender->setAttachments("nothing");
-            $mailSender->setMailfromname("nothing");
+            $mailSender->setMailfromname("Contattaci:Advancia Technology");
             $array = array();
             $array['name'] = $form->getName();
             $array['surname'] = $form->getSurname();

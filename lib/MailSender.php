@@ -7,6 +7,7 @@
  */
 
 class MailSender {
+    private $idemail;
     private $cc;
     private $subject;
     private $mailto;
@@ -211,7 +212,7 @@ class MailSender {
         }
 
         if(!$this->properties->isSetted("svil")) {
-            if($this->body != "" && mail($this->mailto, $this->subject, $this->body, $header)) {
+            if($file != "" && mail($this->mailto, $this->subject, $file, $header)) {
                 Logger::log(Logger::$INFO, "Mail inviata correttamente a : " . $this->mailto);
                 return true;
             }else {

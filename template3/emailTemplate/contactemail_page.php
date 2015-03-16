@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="it-IT">
-<head>
-    <title>Email</title>
-</head>
-<body>
+
 <div >
     <table style="border:1px solid #000">
         <tr>
@@ -49,5 +44,3 @@
         <tr><td>aaa</td></tr>
     </table>
 </div>
-</body>
-</html>

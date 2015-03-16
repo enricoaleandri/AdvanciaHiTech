@@ -204,6 +204,9 @@ class MailSender {
 
     public function  send(){
 
+        $settings =  initConfig::getInstance()->getSettings();
+        $this->mailto = $settings["comunication_mail"];
+
         $header = "From: ".$this->mailfrom ;
         $header .= " Cc: ".$this->cc;
         $header .= " MIME-Version: 1.0";

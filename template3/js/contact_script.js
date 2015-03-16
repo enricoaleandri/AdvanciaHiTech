@@ -5,6 +5,8 @@ jQuery(document).ready(function () {
         validateOnBlur : false,
         modules: 'security',
         onError: function () {
+            $("#message_sent_error").hide();
+            $("#message_sent").hide();
         },
         onSuccess: function () {
             jQuery.ajax({

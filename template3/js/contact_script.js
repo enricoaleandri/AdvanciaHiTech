@@ -16,12 +16,15 @@ jQuery(document).ready(function () {
                     $valid = data.result;
                     if($valid){
                         $("#message_sent").show(500);
+                        $("#message_sent_error").hide();
                     }else {
                         $("#message_sent_error").show(500);
+                        $("#message_sent").hide();
                     }
                 },
                 error: function (){
                     $("#message_sent_error").show(500);
+                    $("#message_sent").hide();
                 }
             });
             /* $.ajax({

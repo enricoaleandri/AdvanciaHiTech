@@ -207,10 +207,10 @@ class MailSender {
        $settings =  initConfig::getInstance()->getSettings();
         $this->mailto = $settings["comunication_mail"];
 
-        $header = "From: ".$this->mailfrom ;
-        $header .= " Cc: ".$this->cc;
-        $header .= " MIME-Version: 1.0";
-        $header .= " Content-type: text/html";
+        $header = "From: ".$this->mailfrom."\r\n";
+        $header .= " Cc: ".$this->cc."\r\n";
+        $header .= "MIME-Version: 1.0\r\n";
+        $header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
         $file="";
         if (file_exists($this->template)) {

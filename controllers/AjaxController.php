@@ -6,6 +6,7 @@
  * Time: 0.17
  * To change this template use File | Settings | File Templates.
  */
+
 class AjaxController extends  AbstractController
 {
 
@@ -47,10 +48,13 @@ class AjaxController extends  AbstractController
         $form -> setPhone($phone);
         $form -> setAddress($address);
         $form -> setMessage($message);
+
         if($form->validate() ){
-            $mailSender->setSubject("Contatto");
+            $captcha=$_POST['g-recaptcha-response'];
+            @$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LdYlQMTAAAAAMdRILveYnei-Y7sF_9WXM5kPYvR&response=".$captcha);
+            $mailSender->setSubject("Contattato da ".$company);
             $mailSender->setCc("qualcuno@prova.com");
-            $mailSender->setMailfrom($mail);
+            $mailSender->setMailfrom("noreply@advancia.it");
             $mailSender->setTemplate($this->properties->getProperty("page_path") . "/" . $this->properties->getProperty("contact_mail"));
             $mailSender->setMailfor("nothing");
             $mailSender->setAttachments("nothing");
@@ -67,12 +71,23 @@ class AjaxController extends  AbstractController
             $array['city'] = $form->getCity();
             $array['message'] = $form->getMessage();
             $mailSender->setTemplateAttributes($array);
-            if($mailSender->send()){
-               $this->response->addContent('{"result":true}');
-           }else{
-               $this->response->addContent('{"result":false}');
-           }
-
+            if(!$captcha){
+                $this->response->addContent('{"result":false}');
+            }else{
+                Logger::log(Logger::$INFO, "[AjaxController] captcha response = ".$response.success);
+                if($response.success==false){
+                    Logger::log(Logger::$INFO, "[AjaxController] captcha = false");
+                    $this->response->addContent('{"result":false}');
+                }else{
+                    Logger::log(Logger::$INFO, "[AjaxController] captcha = true");
+                    if($mailSender->send()){
+                        $this->response->addContent('{"result":true}');
+                    }else{
+                        Logger::log(Logger::$INFO, "[AjaxController] captcha = false mail");
+                        $this->response->addContent('{"result":false}');
+                    }
+                }
+            }
         }else {
             $this->response->addContent('{"result":false}');
         }

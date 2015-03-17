@@ -79,7 +79,7 @@ class mailDAO extends AbstractDAO
             try
             {
                 $this->connection->autocommit(false);
-                Logger::log(Logger::$INFO," Query sto per inserire una mail : ".$sql->toQuery());
+                //Logger::log(Logger::$INFO," Query sto per inserire una mail : ".$sql->toQuery());
                 $query = $this->connection->query($sql->toQuery());
 
                 if($query !== false)

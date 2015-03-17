@@ -2,7 +2,7 @@
 <div >
     <table style="border:1px solid #000">
         <tr>
-            <td>Ciao, aaa aa ti ha contattato per una proposta.</td>
+            <td>Ciao, [name] [surname] ti ha contattato per una proposta.</td>
         </tr>
     </table>
 </div>
@@ -15,9 +15,9 @@
             <td>Azienda</td>
         </tr>
         <tr>
-            <td>aaaa@aaaa.aaaa</td>
-            <td></td>
-            <td>aa</td>
+            <td>[mail]</td>
+            <td>[phone]</td>
+            <td>[company]</td>
         </tr>
     </table>
 </div>
@@ -30,10 +30,10 @@
             <td>Fax</td>
         </tr>
         <tr>
-            <td>aaa</td>
-            <td>12345</td>
-            <td>aa</td>
-            <td></td>
+            <td>[address]</td>
+            <td>[cap]</td>
+            <td>[city]</td>
+            <td>[fax]</td>
         </tr>
     </table>
 </div>
@@ -41,6 +41,6 @@
 <div >
     <table style="border:1px solid #000">
         <tr> <td>Messaggio</td></tr>
-        <tr><td>aaa</td></tr>
+        <tr><td>[message]</td></tr>
     </table>
 </div>

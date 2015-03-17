@@ -19,7 +19,7 @@
     ?>
 
     <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?v=3.exp&#038;sensor=false&#038;ver=1.0'></script>
-
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body class="home page page-id-8 page-template page-template-template-home page-template-template-home-php regular_typo">
 <script>
@@ -140,9 +140,9 @@
     </div>
     <div class="contact_form_field col_02">
         <div class="contact_title">
-            <h1>Contact Form</h1>
+            <h1>Contact Form </h1>
         </div>
-        <div class="contact_form">
+        <div class="contact_form" >
             <form action="<?php echo $host;?>/ajax/sendemail/" method="post" id="contact_form" class="um_form">
                 <div class="person_info">
                     <p>
@@ -188,12 +188,14 @@
                 </div>
                 <div class="message_box">
                     <label for="message">Message</label>
-                    <textarea data-required="1" name="umbheadfld_Message" id="umbheadfld_Message" placeholder="your message goes here..."></textarea>
+                    <textarea id="txtarea" data-required="1" name="umbheadfld_Message" id="umbheadfld_Message" placeholder="your message goes here..."></textarea>
                 </div>
                 <div class="buttons">
                     <input type="submit" value="Send Message"/>
-                    <input type="reset" value="Reset">
+                    <input id="reset" type="reset" value="Reset">
                 </div>
+                <br>
+                <div id="captcha" style="float: right;"  class="g-recaptcha" data-sitekey="6LdYlQMTAAAAAE3vq6JKhrOnx4mzHshf18DNbVZO"></div>
             </form>
             <div class="message_sent" id="message_sent" hidden >Il tuo messaggio è stato inviato correttamente</div>
             <div class="message_sent_error" id="message_sent_error" hidden >Errore durante l'invio del messaggio</div>

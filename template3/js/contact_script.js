@@ -17,6 +17,9 @@ jQuery(document).ready(function () {
                 success: function (data) {
                     $valid = data.result;
                     if($valid){
+                        $("input[type=text]").val('');
+                        $("#txtarea").val('');
+                        grecaptcha.reset();
                         $("#message_sent").show(500);
                         $("#message_sent_error").hide();
                     }else {

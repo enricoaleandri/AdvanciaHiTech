@@ -1,46 +1,18 @@
 
 <div >
-    <table style="border:1px solid #000">
-        <tr>
-            <td>Ciao, [name] [surname] ti ha contattato per una proposta.</td>
-        </tr>
-    </table>
+    <td>Ciao, <strong>[name]</strong> <strong>[surname]</strong> ti ha contattato per una proposta.</td>
+</div>
+<div >
+    <p><strong>Messaggio:</strong></p>
+    [message]
+</div>
+<div >
+    <p><strong>Azienda: </strong>[company]</p>
+    <p><strong>Indirizzo: </strong>[address]</p>
+    <p><strong>Email: </strong>[mail]</p>
+    <p><strong>Telefono: </strong>[phone]</p>
+    <p><strong>Cap: </strong>[cap]</p>
+    <p><strong>Citta': </strong>[city]</p>
+    <p><strong>Fax: </strong>[fax]</p>
 </div>
 <br>
-<div >
-    <table style="border:1px solid #000" >
-        <tr>
-            <td>Email</td>
-            <td>Telefono</td>
-            <td>Azienda</td>
-        </tr>
-        <tr>
-            <td>[mail]</td>
-            <td>[phone]</td>
-            <td>[company]</td>
-        </tr>
-    </table>
-</div>
-<div >
-    <table style="border:1px solid #000">
-        <tr>
-            <td>Indirizzo</td>
-            <td>Cap</td>
-            <td>Citta'</td>
-            <td>Fax</td>
-        </tr>
-        <tr>
-            <td>[address]</td>
-            <td>[cap]</td>
-            <td>[city]</td>
-            <td>[fax]</td>
-        </tr>
-    </table>
-</div>
-<br>
-<div >
-    <table style="border:1px solid #000">
-        <tr> <td>Messaggio</td></tr>
-        <tr><td>[message]</td></tr>
-    </table>
-</div>

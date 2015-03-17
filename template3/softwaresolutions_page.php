@@ -96,18 +96,13 @@ $host =  $response -> getProperty("host");
     <div class="inner_content"><!--Inner Content-->
         <div class="sub_header col_04 w_space"><!--Sub Header-->
             <div class="sub_header_content">
-                <h4><strong>Servizi</strong></h4>
+                <h4><strong><?php echo initConfig::getInstance()->getLang() -> getValue("software.servizi"); ?></strong></h4>
             </div>
         </div><!--End Sub Header-->
         <div class="who_we_are col_04">
-            <h1>Software Solutions</h1>
+            <h1><?php echo initConfig::getInstance()->getLang() -> getValue("software.software"); ?></h1>
             <p class="testo_assertivo">
-                La complessità dei processi e le moli di dati che devono
-                gestire le aziende al giorno d’oggi richiedono l’utilizzo
-                di<span class="rossiccio">
-                                                applicazioni che permettano di operare efficientemente
-                                            </span>, reagendo rapidamente agli stimoli esterni ed
-                anticipando le tendenze del mercato e la concorrenza.
+                <?php echo initConfig::getInstance()->getLang() -> getValue("software.testo"); ?>
             </p>
         </div>
 
@@ -122,14 +117,9 @@ $host =  $response -> getProperty("host");
                                 </div>
                             </div>
                             <div class="service_cont">
-                                <h2>SOLUZIONI</h2>
+                                <h2><?php echo initConfig::getInstance()->getLang() -> getValue("software.soluzioni"); ?></h2>
                                 <p>
-                                    Le nostre soluzioni sono state individuate fra le più mature, innovative,
-                                    diffuse e premiate a livello internazionale. Tutte le piattaforme sono
-                                    supportate da organizzazioni di significativo spessore, che ne definiscono le
-                                    linee guida e ne guidano l’evoluzione, e da una importante rete di partner,
-                                    in grado di collaborare con la casa madre allo sviluppo dei prodotti e di
-                                    fornire il supporto indispensabile ai clienti finali.
+                                    <?php echo initConfig::getInstance()->getLang() -> getValue("software.testo1"); ?>
                                 </p>
                             </div>
                         </div>
@@ -148,14 +138,9 @@ $host =  $response -> getProperty("host");
                                 </div>
                             </div>
                             <div class="service_cont">
-                                <h2>OFFERTE</h2>
+                                <h2><?php echo initConfig::getInstance()->getLang() -> getValue("software.offerte"); ?></h2>
                                 <p>
-                                    Le soluzioni offerte da Advancia Technology sono pensate per rendere più fluido il passaggio
-                                    delle informazioni relative ai diversi processi aziendali fra i vari nodi
-                                    dell’organizzazione. Sono tutte integrabili fra loro ed uniscono la facilità di
-                                    installazione, di configurazione e d’uso con la rapidità di personalizzazione e
-                                    la ricchezza di funzionalità per ottenere un elevato grado di efficienza a
-                                    costi contenuti.
+                                    <?php echo initConfig::getInstance()->getLang() -> getValue("software.testo2"); ?>
                                 </p>
                             </div>
                         </div>

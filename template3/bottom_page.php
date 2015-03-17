@@ -11,8 +11,6 @@ $url =  $response -> getProperty("url");
 $host =  $response -> getProperty("host");
 $settings = initConfig::getInstance()->getSettings();
 
-
-
 ?>
 <span style="float: right;margin-right: 20px;padding: 6px;font-weight: bold;"> 
 

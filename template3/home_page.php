@@ -80,7 +80,7 @@ $activePage = "home";
                         <a href="<?php echo $host;?>/public/systemint/">
                         </a>
                         <h4 class="bold_typo"><a href="<?php echo $host;?>/public/systemint/"></a><a href="<?php echo $host;?>/public/systemint/">System Integrator</a></h4>
-                        <p class="project_category"><span></span>Soluzioni</p>
+                        <p class="project_category"><span></span><?php echo initConfig::getInstance()->getLang() -> getValue("home.soluzioni"); ?></p>
                     </div>
                 </div>
                 <!--End Project-->
@@ -97,7 +97,7 @@ $activePage = "home";
                         <a href="<?php echo $host;?>/public/bi/" >
                         </a>
                         <h4 class="bold_typo"><a href="<?php echo $host;?>/public/bi/"></a><a href="<?php echo $host;?>/public/bi/">Business Intelligence</a></h4>
-                        <p class="project_category"><span></span>Soluzioni</p>
+                        <p class="project_category"><span></span><?php echo initConfig::getInstance()->getLang() -> getValue("home.soluzioni"); ?></p>
                     </div>
                 </div>
                 <!--End Project-->
@@ -114,7 +114,7 @@ $activePage = "home";
                         <a href="<?php echo $host;?>/public/outsourcing/">
                         </a>
                         <h4 class="bold_typo"><a href="<?php echo $host;?>/public/outsourcing/"></a><a href="<?php echo $host;?>/public/outsourcing/">Out Sourcing</a></h4>
-                        <p class="project_category"><span></span>Servizi</p>
+                        <p class="project_category"><span></span><?php echo initConfig::getInstance()->getLang() -> getValue("home.servizi"); ?></p>
                     </div>
                 </div>
                 <!--End Project-->
@@ -131,7 +131,7 @@ $activePage = "home";
                         <a href="<?php echo $host;?>/public/workwithus/">
                         </a>
                         <h4 class="bold_typo"><a href="<?php echo $host;?>/public/workwithus/"></a><a href="<?php echo $host;?>/public/workwithus/">Lavora con noi</a></h4>
-                        <p class="project_category"><span></span>Azienda</p>
+                        <p class="project_category"><span></span><?php echo initConfig::getInstance()->getLang() -> getValue("home.azienda"); ?></p>
                     </div>
                 </div>
                 <!--End Project-->
@@ -148,8 +148,8 @@ $activePage = "home";
                                 <div class="b_service_content">
                                     <div class="service_icon center_parent"><img class="center_element" src="<?php echo $url;?>images/software.png" alt="Researching" style="margin-left: 18px; margin-top: 18px;"></div>
                                     <div class="service_info">
-                                        <h2>Software Solutions</h2>
-                                        <p class="bold_typo">Soluzioni</p>
+                                        <h2><?php echo initConfig::getInstance()->getLang() -> getValue("home.softsol"); ?></h2>
+                                        <p class="bold_typo"><?php echo initConfig::getInstance()->getLang() -> getValue("home.soluzioni"); ?></p>
                                     </div>
                                 </div>
                             </a>
@@ -161,8 +161,8 @@ $activePage = "home";
                                 <div class="b_service_content">
                                     <div class="service_icon center_parent"><img class="center_element" src="<?php echo $url;?>images/gear.png" alt="Researching" style="margin-left: 18.5px; margin-top: 18px;"></div>
                                     <div class="service_info">
-                                        <h2>Big Data</h2>
-                                        <p class="bold_typo">Soluzioni</p>
+                                        <h2><?php echo initConfig::getInstance()->getLang() -> getValue("home.bigdata"); ?></h2>
+                                        <p class="bold_typo"><?php echo initConfig::getInstance()->getLang() -> getValue("home.soluzioni"); ?></p>
                                     </div>
                                 </div>
                             </a>
@@ -174,8 +174,8 @@ $activePage = "home";
                                 <div class="b_service_content">
                                     <div class="service_icon center_parent"><img class="center_element" src="<?php echo $url;?>images/people.png" alt="Technology" style="margin-left: 18px; margin-top: 18px;"></div>
                                     <div class="service_info">
-                                        <h2>Il Team</h2>
-                                        <p class="bold_typo">Azienda</p>
+                                        <h2><?php echo initConfig::getInstance()->getLang() -> getValue("home.team"); ?></h2>
+                                        <p class="bold_typo"><?php echo initConfig::getInstance()->getLang() -> getValue("home.azienda"); ?></p>
                                     </div>
                                 </div>
                             </a>
@@ -187,8 +187,8 @@ $activePage = "home";
                                 <div class="b_service_content">
                                     <div class="service_icon center_parent"><img class="center_element" src="<?php echo $url;?>images/course.png" alt="Mobile Apps" style="margin-left: 18.5px; margin-top: 18px;"></div>
                                     <div class="service_info">
-                                        <h2>I Corsi</h2>
-                                        <p class="bold_typo">Servizi</p>
+                                        <h2><?php echo initConfig::getInstance()->getLang() -> getValue("home.corsi"); ?></h2>
+                                        <p class="bold_typo"><?php echo initConfig::getInstance()->getLang() -> getValue("home.servizi"); ?></p>
                                     </div>
                                 </div>
                             </a>

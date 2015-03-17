@@ -86,69 +86,30 @@ $host =  $response -> getProperty("host");
     <div class="inner_content"><!--Inner Content-->
         <div class="sub_header col_04 w_space"><!--Sub Header-->
             <div class="sub_header_content">
-                <h4><strong>Servizi</strong></h4>
+                <h4><strong><?php echo initConfig::getInstance()->getLang() -> getValue("out.servizi"); ?></strong></h4>
             </div>
         </div><!--End Sub Header-->
         <div class="outsourcing who_we_are  col_04">
-            <h1>OutSourcing</h1>
+            <h1><?php echo initConfig::getInstance()->getLang() -> getValue("out.outsourcing"); ?></h1>
             <div style="display:inline-block">
                 <span style="float: left;width: 60%;">
                     <p>
-                        L’azienda si occupa di progettazione e sviluppo di software sia in proprio che per conto di altre società
-                        operanti nello stesso settore.
-                        In tutte le fasi di lavoro, dalla progettazione allo sviluppo al test, il team Solvedo si avvale delle
-                        moderne tecniche di gestione del progetto quali RUP, Scrum e XP.
-                        Le attività di outsourcing si svolgono presso la sede operativa Solvedo provvista di un’infrastruttura
-                        tecnologica costituita da server con S.O. VMWare vSphere con un
-                        forte grado di flessibilità rispetto alle più svariate esigenze di progetto.
-                        L’accesso all’infrastruttura è protetto da un firewall evoluto con tecnologia BSD e l’affidabilità e
-                        sicurezza dei dati sono garantite da un backup automatico su server NAS con tecnologia RAID5.
-                        Nell’ambito delle proprie attività Solvedo utilizza abitualmente le seguenti tecnologie di base:
+                        <?php echo initConfig::getInstance()->getLang() -> getValue("out.testo"); ?>
                     </p>
-                    <ul>
-                        <li><b>WebServer: Apache, Tomcat, Jetty
-                        <li><b>DBMS:</b> Oracle, MySql, PostgreSQL, DB2, Firebird, Caché, MS SQL Server</li>
-                        <li><b>Application Server: </b>JBoss, BEA Weblogic</li>
-                        <li><b>Linguaggi:</b> Java-J2EE, JavaScript, PL/SQL, Perl, C/C++, C#, Visual Basic, Python</li>
-                        <li><b>Presentation:</b> Swing, JSP, JSF, Vaadin, Wicket, ZK, jQuery, Struts2, Spring MVC, GWT, ICEFaces</li>
-                        <li><b>Librerie:</b> Hibernate, iBatis, Spring, Glue, CXF, JackRabbit, iReport, Crystal Report</li>
-                        <li><b> CMS:</b> Joomla, WordPress (multisite), Drupal, Magento, Liferay</li>
-                        <li><b>O.S.:</b> Windows (tutti), Linux (Debian e derivate, Red Hat e derivate)</li>
-                        <li><b>Development Tools:</b> TOS (Talend Open Studio), Pentaho Data Integration (Kattle), TOAD, Squirrel, SQL Developer</li>
-                    </ul>
+                    <?php echo initConfig::getInstance()->getLang() -> getValue("out.testo1"); ?>
                     <p>
-                        In tutte le fasi di lavoro, dalla progettazione allo sviluppo al test, il team Advancia si avvale
-                        delle moderne tecniche di gestione del progetto quali RUP, Scrum e XP, anche attraverso l’uso di
-                        strumenti evoluti come, ad esempio, i prodotti Atlassian Jira e Confluence nonché dei più usati
-                        strumenti open-source di supporto:
+                        <?php echo initConfig::getInstance()->getLang() -> getValue("out.testo2"); ?>
                     </p>
-                    <ul>
-                        <li>SVN/CVS per il versionamento del codice</li>
-                        <li>Eclipse, MS Visual Studio, NetBeans per lo sviluppo</li>
-                        <li>Hudson, Artifactory, Maven per la continuous integration</li>
-                        <li>Visual Paradigm/Enterprise Architect per la modellazione</li>
-                    </ul>
+                    <?php echo initConfig::getInstance()->getLang() -> getValue("out.testo3"); ?>
                     <p>
-                        Le attività di outsourcing si svolgono presso la sede operativa Solvedo provvista di un’infrastruttura
-                        tecnologica costituita da server con S.O. VMWare
-                        vSphere con un forte grado di flessibilità rispetto alle più svariate esigenze di progetto.
-                        L’accesso all’infrastruttura è protetto da un firewall evoluto con tecnologia BSD e l’affidabilità e
-                        sicurezza dei dati sono garantite da un backup automatico su server NAS con tecnologia RAID5.
+                        <?php echo initConfig::getInstance()->getLang() -> getValue("out.testo4"); ?>
+                       </p>
+                <p>
+                    <?php echo initConfig::getInstance()->getLang() -> getValue("out.testo5"); ?>
                     </p>
+                    <?php echo initConfig::getInstance()->getLang() -> getValue("out.testo6"); ?>
                 <p>
-                    Qui di seguito riportiamo alcuni esempi tra le applicazioni più richieste e di maggior interesse:
-                </p>
-                    <ul>
-                        <li>applicazioni Android personalizzate</li>
-                        <li>applicazioni Android di Gioco</li>
-                        <li>applicazioni Android Multimediali</li>
-                        <li>applicazioni Android per le aziende</li>
-                    </ul>
-                <p>
-                    Il motivo per cui Advancia Technology ha deciso di investire nella tecnologia Android,
-                    rova risposta nei dati resi noti da un'importante società di analisi di mercato che,
-                    nel primo quadrimestre del 2011, ha rilevato una crescita del 19% dei dispositivi Mobile,
-                    sopratutto smartphone, in cui Android si impone come sistema operativo di punta.
+                    <?php echo initConfig::getInstance()->getLang() -> getValue("out.testo7"); ?>
                 </p>
                 </span>
                 <span style="float: right;"><img style="width: 400px;" src="<?php echo $url;?>images/outsourcing-300x193.jpg" alt="OutSourcing"/></span>

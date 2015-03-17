@@ -79,36 +79,22 @@ $host =  $response -> getProperty("host");
     <div class="inner_content"><!--Inner Content-->
         <div class="sub_header col_04 w_space"><!--Sub Header-->
             <div class="sub_header_content">
-                <h4><strong>Servizi</strong></h4>
+                <h4><strong><?php echo initConfig::getInstance()->getLang() -> getValue("android.servizi"); ?></strong></h4>
             </div>
         </div><!--End Sub Header-->
         <div class="android who_we_are  col_04">
-            <h1>Android</h1>
+            <h1><?php echo initConfig::getInstance()->getLang() -> getValue("android.android"); ?></h1>
             <div style="display:inline-block">
                 <span style="float: left;width: 60%;">
                 <p>
-
-                    <a class="company" href="<?php echo $host;?>/public/about/">Advancia Technology</a>, come sempre dalla parte del cliente,
-                    vuole proporre un altro canale per
-                    la pubblicizzazione della propria azienda e/o vendita dei propri servizi. Infatti,
-                    la grandissima diffusione dei nuovi dispositivi Mobile, ha portato le aziende ad
-                    essere presenti su queste piattaforme. <a class="company" href="<?php echo $host;?>/public/about/">Advancia Technology</a> mette a disposizione dei
-                    propri clienti l'esperienza dei propri sviluppatori per creare applicazioni Android ad-hoc.
+                    <?php echo initConfig::getInstance()->getLang() -> getValue("android.testo"); ?>
                 </p>
                 <p>
-                    Qui di seguito riportiamo alcuni esempi tra le applicazioni più richieste e di maggior interesse:
+                    <?php echo initConfig::getInstance()->getLang() -> getValue("android.testo1"); ?>
                 </p>
-                    <ul>
-                        <li>applicazioni Android personalizzate</li>
-                        <li>applicazioni Android di Gioco</li>
-                        <li>applicazioni Android Multimediali</li>
-                        <li>applicazioni Android per le aziende</li>
-                    </ul>
+                    <?php echo initConfig::getInstance()->getLang() -> getValue("android.testo2"); ?>
                 <p>
-                    Il motivo per cui Advancia Technology ha deciso di investire nella tecnologia Android,
-                    rova risposta nei dati resi noti da un'importante società di analisi di mercato che,
-                    nel primo quadrimestre del 2011, ha rilevato una crescita del 19% dei dispositivi Mobile,
-                    sopratutto smartphone, in cui Android si impone come sistema operativo di punta.
+                    <?php echo initConfig::getInstance()->getLang() -> getValue("android.testo3"); ?>
                 </p>
                 </span>
                 <span style="float: right;"><img style="width: 400px;" src="http://core0.staticworld.net/images/article/2014/02/android-devil-malware-100247149-large.png" alt="Android" /></span>

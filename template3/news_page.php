@@ -87,7 +87,7 @@ $host =  $response -> getProperty("host");
     <div class="inner_content"><!--Inner Content-->
         <div class="sub_header col_04 w_space"><!--Sub Header-->
             <div class="sub_header_content">
-                <h4><strong>Servizi</strong></h4>
+                <h4><strong><?php echo initConfig::getInstance()->getLang() -> getValue("news.servizi"); ?></strong></h4>
             </div>
         </div><!--End Sub Header-->
         <div class="outsourcing who_we_are  col_04">

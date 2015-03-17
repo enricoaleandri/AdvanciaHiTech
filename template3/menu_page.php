@@ -23,16 +23,16 @@ $host =  $response -> getProperty("host");
         <span class="main_menu">
             <ul>
                 <li>
-                    <a href="<?php echo $host;?>/public/home/" class="">Home</a>
+                    <a href="<?php echo $host;?>/public/home/" class=""><?php echo  initConfig::getInstance()->getLang() -> getValue("menu.home"); ?>  </a>
                 </li>
                 <li>
-                    <a href="<?php echo $host;?>/public/news/" class="">News</a>
+                    <a href="<?php echo $host;?>/public/news/" class=""><?php echo  initConfig::getInstance()->getLang() -> getValue("menu.news"); ?> </a>
                 </li>
                 <li>
-                    <a href="<?php echo $host;?>/public/about/" class="">Chi siamo</a>
+                    <a href="<?php echo $host;?>/public/about/" class=""><?php echo initConfig::getInstance()->getLang() -> getValue("menu.chisiamo"); ?>  </a>
                 </li>
                 <li>
-                    <a href="<?php echo $host;?>/public/contact/" class="">Contattaci</a>
+                    <a href="<?php echo $host;?>/public/contact/" class=""><?php echo initConfig::getInstance()->getLang() -> getValue("menu.contattaci"); ?>  </a>
                 </li>
             </ul>
         </span>

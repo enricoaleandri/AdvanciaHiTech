@@ -101,7 +101,7 @@ echo $settings['google_analytics_javascript'];
 </script>
 
 
-<script type="text/javascript" src="./js/comment-reply.min.js"></script>
+<script  type="text/javascript" src="./js/comment-reply.min.js"></script>
 
 
 <?php

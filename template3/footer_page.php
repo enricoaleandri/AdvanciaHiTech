@@ -19,14 +19,14 @@ $settings = initConfig::getInstance()->getSettings();
     <div class="footer_top">
         <div id="umbrella_find_us-3" class="widgets widgets_footer col_01 ">
             <div class="about_info f_widget">
-                <h3><a href="<?php echo $host;?>/public/contact/"><strong>Find Us</strong></a></h3>
+                <h3><a href="<?php echo $host;?>/public/contact/"><strong><?php echo initConfig::getInstance()->getLang() -> getValue("footer.findus"); ?> </strong></a></h3>
                 <p class="f_street"><?php echo $settings['office_address'];?>
-                <p class="f_phone"><strong>Phone </strong><?php echo $settings['comunication_number'];?></p>
-                <p class="f_email"><strong>Email </strong><?php echo $settings['comunication_mail'];?></p>
+                <p class="f_phone"><strong><?php echo initConfig::getInstance()->getLang() -> getValue("footer.phone"); ?>  </strong><?php echo $settings['comunication_number'];?></p>
+                <p class="f_email"><strong><?php echo initConfig::getInstance()->getLang() -> getValue("footer.email"); ?> </strong><?php echo $settings['comunication_mail'];?></p>
             </div>
         </div>
         <div id="text-2" class="widgets widgets_footer col_01 widget_text">
-            <h3>Newsletter</h3>
+            <h3><?php echo initConfig::getInstance()->getLang() -> getValue("footer.newsletter"); ?> </h3>
             <div class="textwidget">
                 <div class="contact_form_field col_02" style="width:270px;height: auto;">
                     <div class="contact_form" style="padding: 0px;">
@@ -40,7 +40,7 @@ $settings = initConfig::getInstance()->getSettings();
                                 <input type="submit" value="Iscriviti" style="width: 100%;"/>
                             </div>
                         </form>
-                        <div class="message_sent" style="display: none">Registrazione completata.</div>
+                        <div class="message_sent" style="display: none"><?php echo initConfig::getInstance()->getLang() -> getValue("footer.regcompl"); ?> </div>
                     </div>
                 </div>
             </div>
@@ -62,24 +62,24 @@ $settings = initConfig::getInstance()->getSettings();
             <script> jQuery("div.twitter_feed").twitterfeed(); </script>
         </div>
         <div id="text-2" class="widgets widgets_footer col_01 widget_text">
-            <h3>News</h3>
+            <h3><?php echo initConfig::getInstance()->getLang() -> getValue("footer.news"); ?>  </h3>
             <div class="textwidget">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
         </div>
         
 
     </div>
     <div class="footer_bottom clear_fix">
-        <p class="copyright">All rights reserved © Copyright 2000-<?php echo date("Y"); ?>&nbsp;<strong><?php echo $settings['comunication_name'];?></strong></p>
+        <p class="copyright"><?php echo initConfig::getInstance()->getLang() -> getValue("footer.copy"); ?><?php echo date("Y"); ?>&nbsp;<strong><?php echo $settings['comunication_name'];?></strong></p>
         <p class="footer_menu" style="float: right;">
-            <a href="<?php echo $host;?>/public/home/">Home</a> |
-            <a href="<?php echo $host;?>/public/contact/">Contatti</a> |
-            <a href="<?php echo $host;?>/public/bigdata/">Big Data</a> |
-            <a href="<?php echo $host;?>/public/systemint/">System Integrator</a> |
-            <a href="<?php echo $host;?>/public/bi/">Business Intelligence</a> |
-            <a href="<?php echo $host;?>/public/solutions/">Software Solutions</a> |
-            <a href="<?php echo $host;?>/public/social/">Social Marketing</a> |
-            <a href="<?php echo $host;?>/public/android/">Android</a> |
-            <a href="<?php echo $host;?>/public/workwithus/">Lavora con noi</a>
+            <a href="<?php echo $host;?>/public/home/"><?php echo initConfig::getInstance()->getLang() -> getValue("footer.home"); ?></a> |
+            <a href="<?php echo $host;?>/public/contact/"><?php echo initConfig::getInstance()->getLang() -> getValue("footer.contatti"); ?></a> |
+            <a href="<?php echo $host;?>/public/bigdata/"><?php echo initConfig::getInstance()->getLang() -> getValue("footer.bigdata"); ?></a> |
+            <a href="<?php echo $host;?>/public/systemint/"><?php echo initConfig::getInstance()->getLang() -> getValue("footer.sysint"); ?></a> |
+            <a href="<?php echo $host;?>/public/bi/"><?php echo initConfig::getInstance()->getLang() -> getValue("footer.bi"); ?></a> |
+            <a href="<?php echo $host;?>/public/solutions/"><?php echo initConfig::getInstance()->getLang() -> getValue("footer.solutions"); ?></a> |
+            <a href="<?php echo $host;?>/public/social/"><?php echo initConfig::getInstance()->getLang() -> getValue("footer.socmark"); ?></a> |
+            <a href="<?php echo $host;?>/public/android/"><?php echo initConfig::getInstance()->getLang() -> getValue("footer.android"); ?></a> |
+            <a href="<?php echo $host;?>/public/workwithus/"><?php echo initConfig::getInstance()->getLang() -> getValue("footer.workwithus"); ?></a>
         </p>
     </div>
 </div>

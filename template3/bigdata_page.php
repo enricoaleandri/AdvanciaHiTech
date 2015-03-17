@@ -100,23 +100,13 @@ $activePage = "bigdata";
     <div class="inner_content"><!--Inner Content-->
         <div class="sub_header col_04 w_space"><!--Sub Header-->
             <div class="sub_header_content">
-                <h4><strong>Servizi</strong></h4>
+                <h4><strong><?php echo initConfig::getInstance()->getLang() -> getValue("bigdata.servizi"); ?></strong></h4>
             </div>
         </div><!--End Sub Header-->
         <div class="bigdata who_we_are col_04">
-            <h1>Big Data</h1>
+            <h1><?php echo initConfig::getInstance()->getLang() -> getValue("bigdata.bigdata"); ?></h1>
             <p class="imp_paragraph">
-                I BigData hanno catturato l'attenzione dell'it negli ultimi anni, con un
-                eco paragonabile a quello avuto da internet 10 anni prima. Una delle
-                ragioni per cui questo fenomeno è cosi importante è perche le architetture
-                che stanno emergendo con esso consentono di gestire, in modo efficace i dati di
-                diversi formati e struttura superando i vincoli posti dai sistemi e dai database
-                tradizionali.
-                <br/><br/>
-                L'aumento del volume, velocità e varietà dei dati spesso supera la reale capacità
-                delle aziende di gestirli ed elaborarli con efficacia nei tempi utili. Una complessità che
-                rende difficile far fronte alle sempre più urgenti e crescenti esigenze del business.
-                Il paradigma delle 4V riassume l'impatto dei big data sulle aziende:
+                <?php echo initConfig::getInstance()->getLang() -> getValue("bigdata.testo"); ?>
             </p>
             <br/>
             <span class="leftSpan">
@@ -128,32 +118,27 @@ $activePage = "bigdata";
                     </div>
                     <div class="tabs_boxes">
                         <div class="tab_box" style="display: block;">
-                            <h3 class="tab_title">Varietà</h3>
+                            <h3 class="tab_title"><?php echo initConfig::getInstance()->getLang() -> getValue("bigdata.varieta"); ?></h3>
                             <p>
-                                La tipologia di dati non è più uniforme e legata solo ai sistemi legacy.
-                                Ci troviamo di fronte a dati in formato testuale, audio, video, in streaming, provenienti da blog, web e social network.
+                                <?php echo initConfig::getInstance()->getLang() -> getValue("bigdata.testo1"); ?>
                             </p>
                         </div>
                         <div class="tab_box" style="display: none;">
-                            <h3 class="tab_title">Volume</h3>
+                            <h3 class="tab_title"><?php echo initConfig::getInstance()->getLang() -> getValue("bigdata.volume"); ?></h3>
                             <p>
-                                La mole di dati, spesso destrutturati, aumenta in maniera esponenziale.
-                                Diventa sempre più difficile individuare per tempo quelli a maggior valore per il business.
+                                <?php echo initConfig::getInstance()->getLang() -> getValue("bigdata.testo2"); ?>
                             </p>
                         </div>
                         <div class="tab_box" style="display: none;">
-                            <h3 class="tab_title">Valore</h3>
+                            <h3 class="tab_title"><?php echo initConfig::getInstance()->getLang() -> getValue("bigdata.valore"); ?></h3>
                             <p>
-                                I modelli analitici sono sempre più complessi e impongono capacità elaborative fino a poco
-                                tempo fa impensabili. Diventa determinante sapere individuare i dati a valore rispetto agli altri.
+                                <?php echo initConfig::getInstance()->getLang() -> getValue("bigdata.testo3"); ?>
                             </p>
                         </div>
                         <div class="tab_box" style="display: none;">
-                            <h3 class="tab_title">Velocità</h3>
+                            <h3 class="tab_title"><?php echo initConfig::getInstance()->getLang() -> getValue("bigdata.velocita"); ?></h3>
                             <p>
-                                I dati vengono prodotti con una velocità e frequenza sempre maggiore.
-                                Il "time to decision" richiesto all'IT si sta riducendo sempre di più. La sfida
-                                è quella di riuscire a gestire ed elaborare informazioni in tempi sempre più rapidi.
+                                <?php echo initConfig::getInstance()->getLang() -> getValue("bigdata.testo4"); ?>
                             </p>
                         </div>
                     </div>

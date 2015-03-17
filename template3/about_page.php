@@ -3,7 +3,6 @@ global $response,$activePage;
 $url =  $response -> getProperty("url");
 $host =  $response -> getProperty("host");
 $activePage = "about";
-
 ?>
 <!DOCTYPE html>
 <html lang="it-IT">
@@ -71,53 +70,39 @@ $activePage = "about";
     <div class="inner_content"><!--Inner Content-->
             <div class="sub_header col_04 w_space"><!--Sub Header-->
                 <div class="sub_header_content">
-                    <h4><strong>Azienda</strong></h4>
+                    <h4><strong><?php echo initConfig::getInstance()->getLang() -> getValue("about.azienda"); ?></strong></h4>
                 </div>
             </div><!--End Sub Header-->
         <div class="project_post col_04">
             <div class="project_content">
                 <div class="project_content_box">
-                    <div class="project_title"><h1>Chi siamo</h1></div>
+                    <div class="project_title"><h1><?php echo initConfig::getInstance()->getLang() -> getValue("about.chisiamo"); ?></h1></div>
                     <div class="project_content_in">
                         <p>
-                            Nel 2000 un gruppo di professionisti provenienti dal mondo della consulenza,
-                            da sempre impegnati nel disegno di modelli di soluzioni e nella loro implementazione
-                            attraverso tecnologie di produttività individuale, incontrano il mondo della Business Intelligence e del System Integration
-                            Advancia Technology, una società creata con la missione di agevolare i manager e gli imprenditori
-                            nel portare avanti lo sviluppo delle loro idee in maniera efficace.<br/>
-                            Caratteristiche distintive di <a class="company" href="#">Advancia Technology </a> sono:
-                            <ul>
-                                <li>
-                                    Una struttura flessibile, in grado di anticipare le evoluzioni del mercato,
-                                    i nuovi modelli organizzativi e l'innovazione tecnologica
-                                </li>
-                                <li>
-                                    Un management di grande esperienza e fortemente orientato a generare profitto
-                                </li>
-                                <li>
-                                    Un team di professionisti che, utilizzando una metodologia di progetto solida e specializzata, lavorano insieme per ottenere risultati rapidi ed eccellenti
-                                </li>
-                                <li>
-                                    Una metodologia di delivery di provato successo e scalabilità
-                                </li>
-                                <li>
-                                    Capacità di instaurare relazioni di lungo termine con grandi aziende industriali e bancarie
-                                </li>
-                                <li>
-                                    Partnership consolidate con i principali attori mondiali nel settore ICT
-                                </li>
-                            </ul>
+                            <?php echo initConfig::getInstance()->getLang() -> getValue("about.testo"); ?>
+                        <ul>
+                            <li>
+                                <?php echo initConfig::getInstance()->getLang() -> getValue("about.testo1"); ?>
+                            </li>
+                            <li>
+                                <?php echo initConfig::getInstance()->getLang() -> getValue("about.testo2"); ?>
+                            </li>
+                            <li>
+                                <?php echo initConfig::getInstance()->getLang() -> getValue("about.testo3"); ?>
+                            </li>
+                            <li>
+                                <?php echo initConfig::getInstance()->getLang() -> getValue("about.testo4"); ?>
+                            </li>
+                            <li>
+                                <?php echo initConfig::getInstance()->getLang() -> getValue("about.testo5"); ?>
+                            </li>
+                            <li>
+                                <?php echo initConfig::getInstance()->getLang() -> getValue("about.testo6"); ?>
+                            </li>
+                        </ul>
                         </p>
                         <p>
-                            <a class="company" href="#">Advancia Technology</a> è un'azienda in forte espansione specializzata nell'ambito dell'Information Technology
-                            in grado di fornire supporto e consulenza su progetti nell'ambito di applicazioni:
-
-                            <ul>
-                                <li>Data Warehousing - Business Intelligence</li>
-                                <li>Oracle - Business Objetcs XI - Cognos</li>
-                                <li>Software Development - J2EE - .NET</li>
-                                <li>Enterprise Applications</li>
-                            </ul>
+                            <?php echo initConfig::getInstance()->getLang() -> getValue("about.testo7"); ?>
                         </p>
                     </div>
                 </div>

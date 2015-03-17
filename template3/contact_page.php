@@ -62,7 +62,7 @@
     <!--Inner Content-->
     <div class="sub_header col_04 w_space">
         <!--Sub Header-->
-        <h3 class="bold_typo uppercase page_title">Contact</h3>
+        <h4 ><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.contatti"); ?></h4>
     </div>
     <!--End Sub Header-->
     <div class="map_filed col_02">
@@ -127,12 +127,12 @@
         </div>
         <div class="map_info">
             <div class="location">
-                <h5>Location</h5>
+                <h5><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.location"); ?></h5>
                 <p><?php echo $settings['office_address'];?>
                 </p>
             </div>
             <div class="contact_info">
-                <h5>Info Contatti</h5>
+                <h5><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.info"); ?></h5>
                 <p class="mobile"><strong>Mobile</strong> <?php $settings['comunication_number'];?></p>
                 <p class="mobile"><strong>Fax</strong> 00377 44 111 222</p>
             </div>
@@ -140,65 +140,65 @@
     </div>
     <div class="contact_form_field col_02">
         <div class="contact_title">
-            <h1>Contact Form </h1>
+            <h1><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.contattaci"); ?></h1>
         </div>
         <div class="contact_form" >
             <form action="<?php echo $host;?>/ajax/sendemail/" method="post" id="contact_form" class="um_form">
                 <div class="person_info">
                     <p>
-                        <label for="name">Nome *</label>
+                        <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.nome"); ?></label>
                        <input  data-required="1" data-fieldtype="Text"  required data-validation="required" data-validation-error-msg=" "  type="text" name="umbheadfld_Name" id="umbheadfld_Name" placeholder="John">
                     </p>
                     <p>
-                        <label for="name">Cognome *</label>
+                        <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.cognome"); ?></label>
                         <input data-required="1" data-fieldtype="Text" required data-validation="required" data-validation-error-msg=" "  type="text" name="umbheadfld_Surname" id="umbheadfld_Surname" placeholder="Smith">
                     </p>
                     <p>
-                        <label for="name">E-mail *</label>
+                        <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.mail"); ?></label>
                         <input data-required="" data-fieldtype="Email" required data-validation="email" data-validation-error-msg="Inserire una mail valida"  type="text" name="umbheadfld_E-mail" id="umbheadfld_E-mail" placeholder="johnsmith@email.com">
                     </p>
                 </div>
                 <div class="person_info">
                     <p>
-                        <label for="name">Telefono</label>
+                        <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.telefono"); ?></label>
                         <input data-required="1" data-fieldtype="Text"  type="text" data-validation-error-msg="Inserire un recapito telefonico valido" data-validation="custom" data-validation-regexp="^(\+?[0-9]{0,12})$" name="umbheadfld_phone" id="umbheadfld_phone" placeholder="02 54 5845 85">
                     </p>
                     <p>
-                        <label for="name">Società di appartenenza *</label>
+                        <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.societa"); ?></label>
                         <input data-required="1" data-fieldtype="Text" required type="text" data-validation-error-msg=" " data-validation="required"  name="umbheadfld_company" id="umbheadfld_company" placeholder="Facebook inc">
                     </p>
                     <p>
-                        <label for="name">Fax</label>
+                        <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.fax"); ?></label>
                         <input data-required="" data-fieldtype="Email" data-validation-error-msg="Inserire un recapito fax valido" data-validation="custom" data-validation-regexp="^(\+?[0-9]{0,12})$" type="text" name="umbheadfld_Fax" id="umbheadfld_Fax-mail" placeholder="02 5485 698">
                     </p>
                 </div>
                 <div class="person_info">
                     <p>
-                        <label for="name">Indirizzo *</label>
+                        <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.indirizzo"); ?></label>
                         <input data-required="1" data-fieldtype="Text" required data-validation-error-msg=" "  type="text" data-validation="required" name="umbheadfld_Address" id="umbheadfld_Address" placeholder="Via dell'aria 2">
                     </p>
                     <p>
-                        <label for="name">Cap *</label>
+                        <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.cap"); ?></label>
                         <input data-required="1" data-fieldtype="Text" required data-validation-error-msg="Inserire un CAP valido"  type="text"  data-validation="custom" data-validation-regexp="^([0-9]{5})$" name="umbheadfld_Cap" id="umbheadfld_Cap-mail" placeholder="20139">
                     </p>
                     <p>
-                        <label for="name">Citta *</label>
+                        <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.citta"); ?></label>
                         <input data-required="" data-fieldtype="Text" required data-validation-error-msg=" " data-validation="required" type="text" name="umbheadfld_City" id="umbheadfld_City" placeholder="Milano">
                     </p>
                 </div>
                 <div class="message_box">
-                    <label for="message">Message</label>
+                    <label for="message"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.messaggio"); ?></label>
                     <textarea id="txtarea" data-required="1" name="umbheadfld_Message" id="umbheadfld_Message" placeholder="your message goes here..."></textarea>
                 </div>
                 <div class="buttons">
-                    <input type="submit" value="Send Message"/>
-                    <input id="reset" type="reset" value="Reset">
+                    <input type="submit" value="<?php echo initConfig::getInstance()->getLang() -> getValue("contatti.invia"); ?>"/>
+                    <input id="reset" type="reset" value="<?php echo initConfig::getInstance()->getLang() -> getValue("contatti.reset"); ?>">
                 </div>
                 <br>
                 <div id="captcha" style="float: right;"  class="g-recaptcha" data-sitekey="6LdYlQMTAAAAAE3vq6JKhrOnx4mzHshf18DNbVZO"></div>
             </form>
-            <div class="message_sent" id="message_sent" hidden >Il tuo messaggio è stato inviato correttamente</div>
-            <div class="message_sent_error" id="message_sent_error" hidden >Errore durante l'invio del messaggio</div>
+            <div class="message_sent" id="message_sent" hidden ><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.messaggioinvio"); ?></div>
+            <div class="message_sent_error" id="message_sent_error" hidden ><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.messaggioerrore"); ?></div>
         </div>
 
        <style>

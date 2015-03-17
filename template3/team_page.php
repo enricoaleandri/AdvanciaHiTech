@@ -68,11 +68,11 @@ $activePage = "social";
     <div class="inner_content"><!--Inner Content-->
         <div class="sub_header col_04 w_space"><!--Sub Header-->
             <div class="sub_header_content">
-                <h4><strong>Azienda</strong></h4>
+                <h4><strong><?php echo initConfig::getInstance()->getLang() -> getValue("team.azienda"); ?></strong></h4>
             </div>
         </div><!--End Sub Header-->
         <div class="team gen_box col_04">
-            <h1>Team</h1>
+            <h1><?php echo initConfig::getInstance()->getLang() -> getValue("team.team"); ?></h1>
             <p>
 
             </p>
@@ -87,19 +87,12 @@ $activePage = "social";
                             <span class="member_photo"><img style="width: 167px;"  src="<?php echo $url;?>images/avatar1.png"></span>
                             <span class="member_info">
                                 <ul style="float: none;">
-                                    <li>J2EE</li>
-                                    <li>Tomcat</li>
-                                    <li>Hibernate</li>
-                                    <li>Javascript</li>
-                                    <li>Jquery</li>
-                                    <li>AJAX</li>
-                                    <li>HTML5</li>
-                                    <li>CSS3</li>
+                                    <?php echo initConfig::getInstance()->getLang() -> getValue("team.testo"); ?>
                                 </ul>
                             </span>
                         </div>
                         <div class="member_project">
-                            <h1>9 progetti (10 anni)</h1>
+                            <h1><?php echo initConfig::getInstance()->getLang() -> getValue("team.testo1"); ?></h1>
                         </div>
                     </div>
                     <div class="member col_01">
@@ -107,16 +100,12 @@ $activePage = "social";
                             <span class="member_photo"><img style="width: 167px;"  src="<?php echo $url;?>images/avatar2.png"></span>
                             <span class="member_info">
                                  <ul style="float: none;">
-                                     <li>Oracle</li>
-                                     <li>Business Intelligence</li>
-                                     <li>BO</li>
-                                     <li>PostgreSQL</li>
-                                     <li>MongoDB</li>
+                                     <?php echo initConfig::getInstance()->getLang() -> getValue("team.testo2"); ?>
                                  </ul>
                             </span>
                         </div>
                         <div class="member_project">
-                            <h1>5 progetti (3 anni)</h1>
+                            <h1><?php echo initConfig::getInstance()->getLang() -> getValue("team.testo3"); ?></h1>
                         </div>
                     </div>
                     <div class="member col_01">
@@ -124,18 +113,12 @@ $activePage = "social";
                             <span class="member_photo"><img style="width: 167px;" src="<?php echo $url;?>images/avatar3.png"></span>
                             <span class="member_info">
                                  <ul style="float: none;">
-                                     <li>AngularJS</li>
-                                     <li>Polymer</li>
-                                     <li>Android</li>
-                                     <li>Jquery</li>
-                                     <li>Mootools</li>
-                                     <li>HTML5</li>
-                                     <li>CSS3</li>
+                                     <?php echo initConfig::getInstance()->getLang() -> getValue("team.testo4"); ?>
                                  </ul>
                             </span>
                         </div>
                         <div class="member_project">
-                            <h1>3 progetti (2 anni)</h1>
+                            <h1><?php echo initConfig::getInstance()->getLang() -> getValue("team.testo5"); ?></h1>
                         </div>
                     </div>
 
@@ -144,17 +127,12 @@ $activePage = "social";
                             <span class="member_photo"><img style="width: 167px;" src="<?php echo $url;?>images/avatar2.png"></span>
                             <span class="member_info">
                                  <ul style="float: none;">
-                                     <li>PHP5</li>
-                                     <li>MySQL</li>
-                                     <li>AngularJS</li>
-                                     <li>Jquery</li>
-                                     <li>HTML5</li>
-                                     <li>CSS3</li>
+                                     <?php echo initConfig::getInstance()->getLang() -> getValue("team.testo6"); ?>
                                  </ul>
                             </span>
                         </div>
                         <div class="member_project">
-                            <font>8 progetti(5 anni)</font>
+                            <font> <?php echo initConfig::getInstance()->getLang() -> getValue("team.testo7"); ?></font>
                         </div>
                     </div>
                 </div>
@@ -168,17 +146,17 @@ $activePage = "social";
                     <div class="stat col_footer_02">
                         <img src="<?php echo $url;?>images/f2.png">
                         <h1>30</h1>
-                        <p>Progetti atttivi</p>
+                        <p><?php echo initConfig::getInstance()->getLang() -> getValue("team.progettiattivi"); ?></p>
                     </div>
                     <div class="stat col_footer_02">
                         <img src="<?php echo $url;?>images/f1.png">
                         <h1>86</h1>
-                        <p>Softwares developed</p>
+                        <p><?php echo initConfig::getInstance()->getLang() -> getValue("team.softwaredeveloped"); ?></p>
                     </div>
                     <div class="stat col_footer_02">
                         <img src="<?php echo $url;?>images/f3.png">
                         <h1>1215</h1>
-                        <p>Caffe bevuti in una settimana</p>
+                        <p><?php echo initConfig::getInstance()->getLang() -> getValue("team.caffe"); ?></p>
                     </div>
                 </div>
             </div>

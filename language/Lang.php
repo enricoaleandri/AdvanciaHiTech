@@ -2,7 +2,7 @@
 class Lang
 {
 
-    private $langFilePath = "Language/lang/";
+    private $langFilePath = "language/lang/";
     static  $defaultLang = "IT";
     private $lang="";
 

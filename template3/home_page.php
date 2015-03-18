@@ -79,7 +79,7 @@ $activePage = "home";
                     <div class="project_info">
                         <a href="<?php echo $host;?>/public/systemint/">
                         </a>
-                        <h4 class="bold_typo"><a href="<?php echo $host;?>/public/systemint/"></a><a href="<?php echo $host;?>/public/systemint/">System Integrator</a></h4>
+                        <h4 class="bold_typo"><a href="<?php echo $host;?>/public/systemint/"></a><a href="<?php echo $host;?>/public/systemint/"><?php echo initConfig::getInstance()->getLang() -> getValue("home.si"); ?></a></h4>
                         <p class="project_category"><span></span><?php echo initConfig::getInstance()->getLang() -> getValue("home.soluzioni"); ?></p>
                     </div>
                 </div>
@@ -96,7 +96,7 @@ $activePage = "home";
                     <div class="project_info">
                         <a href="<?php echo $host;?>/public/bi/" >
                         </a>
-                        <h4 class="bold_typo"><a href="<?php echo $host;?>/public/bi/"></a><a href="<?php echo $host;?>/public/bi/">Business Intelligence</a></h4>
+                        <h4 class="bold_typo"><a href="<?php echo $host;?>/public/bi/"></a><a href="<?php echo $host;?>/public/bi/"><?php echo initConfig::getInstance()->getLang() -> getValue("home.bi"); ?></a></h4>
                         <p class="project_category"><span></span><?php echo initConfig::getInstance()->getLang() -> getValue("home.soluzioni"); ?></p>
                     </div>
                 </div>
@@ -113,7 +113,7 @@ $activePage = "home";
                     <div class="project_info">
                         <a href="<?php echo $host;?>/public/outsourcing/">
                         </a>
-                        <h4 class="bold_typo"><a href="<?php echo $host;?>/public/outsourcing/"></a><a href="<?php echo $host;?>/public/outsourcing/">Out Sourcing</a></h4>
+                        <h4 class="bold_typo"><a href="<?php echo $host;?>/public/outsourcing/"></a><a href="<?php echo $host;?>/public/outsourcing/"><?php echo initConfig::getInstance()->getLang() -> getValue("home.os"); ?></a></h4>
                         <p class="project_category"><span></span><?php echo initConfig::getInstance()->getLang() -> getValue("home.servizi"); ?></p>
                     </div>
                 </div>
@@ -130,7 +130,7 @@ $activePage = "home";
                     <div class="project_info">
                         <a href="<?php echo $host;?>/public/workwithus/">
                         </a>
-                        <h4 class="bold_typo"><a href="<?php echo $host;?>/public/workwithus/"></a><a href="<?php echo $host;?>/public/workwithus/">Lavora con noi</a></h4>
+                        <h4 class="bold_typo"><a href="<?php echo $host;?>/public/workwithus/"></a><a href="<?php echo $host;?>/public/workwithus/"><?php echo initConfig::getInstance()->getLang() -> getValue("home.lavoraconnoi"); ?></a></h4>
                         <p class="project_category"><span></span><?php echo initConfig::getInstance()->getLang() -> getValue("home.azienda"); ?></p>
                     </div>
                 </div>

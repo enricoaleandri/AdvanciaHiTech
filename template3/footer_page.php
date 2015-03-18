@@ -37,7 +37,7 @@ $settings = initConfig::getInstance()->getSettings();
                                 </p>
                             </div>
                             <div class="buttons" style="margin-top: 10px;">
-                                <input type="submit" value="Iscriviti" style="width: 100%;"/>
+                                <input type="submit" value="<?php echo initConfig::getInstance()->getLang() -> getValue("footer.iscriviti"); ?>" style="width: 100%;"/>
                             </div>
                         </form>
                         <div class="message_sent" style="display: none"><?php echo initConfig::getInstance()->getLang() -> getValue("footer.regcompl"); ?> </div>

@@ -101,7 +101,7 @@ $host =  $response -> getProperty("host");
             <div>
                 <p>
                     <?php echo initConfig::getInstance()->getLang() -> getValue("system.testo2"); ?>
-                    <a target="_blank" style="color: #C00000; font-weight: bold;" href="<?php echo $host;?>/public/contact/">contatti</a>.
+                    <a target="_blank" style="color: #C00000; font-weight: bold;" href="<?php echo $host;?>/public/contact/"><?php echo initConfig::getInstance()->getLang() -> getValue("system.contatti"); ?></a>.
                 </p>
             </div>
         </div>

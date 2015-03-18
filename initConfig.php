@@ -38,7 +38,11 @@ class initConfig {
         if(isset($_SESSION['lang']) && $_SESSION['lang'] instanceof Lang){
             self::$lang = &$_SESSION['lang'];
         } else {
-            self::$lang = new Lang(Lang::$defaultLang);
+           if($lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2)!=""){
+               self::$lang = new Lang($lang);
+            }else{
+                self::$lang = new Lang(Lang::$defaultLang);
+            }
         }
         self::$connect = new DBConnection(self::$config);
         self::$connect->DB_connect();

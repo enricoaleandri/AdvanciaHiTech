@@ -10,7 +10,7 @@
  */
 require_once("commonConstants.php");
 require_once("Logger.php");
-require_once("language/Lang.php");
+//require_once("language/Lang.php");
 require_once("config/Config.php");
 require_once("models/DBConnection.php");
 require_once("models/queryBuilder.lib.php");

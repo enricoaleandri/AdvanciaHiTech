@@ -1,11 +1,12 @@
-<?php
+<?php require_once("language/Lang.php"); session_start();// fuck tophost
 require_once("system/AbstractDAO.php");
+require_once("system/InterfaceBean.php");
 require_once("system/AbstractBean.php");
 require_once("import.php");
 
 
 error_reporting(E_ALL ^ E_NOTICE);
-session_start();
+
 
 date_default_timezone_set('UTC');
 

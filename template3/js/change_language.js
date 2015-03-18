@@ -5,7 +5,7 @@ jQuery(document).ready(function () {
         changeLanguage(lang);
     });
     function changeLanguage($lang){
-        alert($lang);
+        $lingua=$lang;
         jQuery.ajax({
             type: "POST",
             dataType: "json",
@@ -13,11 +13,10 @@ jQuery(document).ready(function () {
             data: {"lingua" : $lingua},
             success: function (data) {
                 $res = data.result;
-                alert($res);
-                //location.reload();
+                console.log("Lingua cambiata");
             },
             error: function () {
-                alert("Error to change language");
+                console.log("Errore nel cambiare la lingua");
             }
         });
     };

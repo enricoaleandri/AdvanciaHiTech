@@ -23,7 +23,7 @@ class initConfig {
 
     /*
      * le operazioni devono essere eseguite nel load(), e il load deve essere chiamato solo dopo
-     * che la classe è stata istanziata, in quanto alcuni oggetti potrebbero utilizzare
+     * che la classe Ã¨ stata istanziata, in quanto alcuni oggetti potrebbero utilizzare
      *  a loro volta l'initConfig. E' importante quindi istanziare questa classe senza alcuna operazione,
      * nel construct, o quanto meno operazioni che non facciano riferimento alla medesima classe
      */
@@ -35,7 +35,11 @@ class initConfig {
         if(session_id() == '') {session_start();}
         self::$config = new Config();
         self::$config->loadProperties();
-        self::$lang = new Lang(Lang::$defaultLang);
+        if(isset($_SESSION['lang']) && $_SESSION['lang'] instanceof Lang){
+            self::$lang = &$_SESSION['lang'];
+        } else {
+            self::$lang = new Lang(Lang::$defaultLang);
+        }
         self::$connect = new DBConnection(self::$config);
         self::$connect->DB_connect();
 
@@ -57,12 +61,10 @@ class initConfig {
             self::$inst = new $c;
             self::$inst->load();
         }
-           return self::$inst;
+        return self::$inst;
     }
 
-    public function getLang($langStr = "")
-    {
-
+    public function getLang($langStr = ""){
         $lang = &$_SESSION['lang'];
         if($langStr != "")
         {

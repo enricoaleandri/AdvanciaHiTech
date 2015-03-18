@@ -36,17 +36,18 @@ class Lang
                 {
                     //Faccio uno split della riga con il carattere '='
                     $riga = explode("=",$row);
+                    Logger::log(Logger::$ERROR, " Riga =".$riga[0]);
+
                     //Memorizzo il tutto in un bell'array. ps facendo particolare attenzione ai caratteri accapo o
                     //altro (non so di preciso quali) che vengono appesi alla fine della stringa di valore,
                     //piu precisamente sono due valori che io accuratamente rimuovo per una corretta stringa
 
                     //TODO - Verifica quali caratteri vengono appesi dall'explode
                     $this->properties[$riga[0]] = substr($riga[1],0,strlen($riga[1])-2);
+                    Logger::log(Logger::$ERROR, " Testo =".$riga[0]);
                 }
             }
             fclose($leggi_file);
-
-
         }
         else
         {

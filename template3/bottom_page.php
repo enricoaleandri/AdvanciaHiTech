@@ -12,7 +12,10 @@ $host =  $response -> getProperty("host");
 $settings = initConfig::getInstance()->getSettings();
 
 ?>
-<span style="float: right;margin-right: 20px;padding: 6px;font-weight: bold;"> 
+<script type="text/javascript" src="<?php echo $url;?>js/change_language.js"></script>
 
-  <?php echo $settings['comunication_number']; ?> - <?php echo $settings['comunication_mail'];?>
+<span style="float: right;padding: 6px;font-size: 13px;color:grey;">
+  <?php echo $settings['comunication_mail'];?> |
+    <a href="" style="text-decoration: none;color:grey;" data-language="IT"   class="linkLanguage" > ITA </a> -
+    <a href="" style="text-decoration: none;color:grey;" data-language="EN"   class="linkLanguage" > ENG </a>
 </span>

@@ -26,6 +26,15 @@ class PublicController extends  AbstractController
     private static $BI_FORWARD = "bi";
     private static $BIGDATA_FORWARD = "bigdata";
 
+    public function  changeLangAction(Request $request){
+        $lingua = $request->get("lingua");
+        Logger::log(Logger::$INFO, "[PublicController] lingua = ".$lingua);
+        switch($lingua){
+            case "EN" : {initConfig::getInstance()->getLang($lingua); $this->response->addContent('{"result":true}');break;}
+            case "IT" : {initConfig::getInstance()->getLang($lingua); $this->response->addContent('{"result":true}');break;}
+        }
+    }
+
     public function __construct()
     {
         $this->className = get_class($this);

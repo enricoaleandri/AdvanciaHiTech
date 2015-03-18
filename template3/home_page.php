@@ -3,7 +3,6 @@ global $response,$activePage;
 $url =  $response -> getProperty("url");
 $host =  $response -> getProperty("host");
 $activePage = "home";
-
 ?>
 <!DOCTYPE html>
 <html lang="it-IT">

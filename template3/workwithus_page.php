@@ -103,7 +103,7 @@ $activePage = "home";
                             <textarea id="txtarea"  data-required="1" name="umbheadfld_Message" required data-validation="required" data-validation-error-msg=" " id="umbheadfld_Message" placeholder="your message goes here..."></textarea>
                         </div>
                         <div class="buttons">
-                                <input  accept=".pdf,.doc,.docx" style="width: 100%;height: 70px;" id="umbheadfld_File" name="umbheadfld_File"  value="CV" type="submit" >
+                                <input  accept=".pdf,.doc,.docx" style="width: 100%;height: 70px;" id="umbheadfld_File" name="umbheadfld_File"  value="CV" type="file" >
                         </div>
                         <div class="buttons">
                             <input type="submit"  value="<?php echo initConfig::getInstance()->getLang() -> getValue("work.inviobottone"); ?>"/>

@@ -143,7 +143,7 @@
             <h1><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.contattaci"); ?></h1>
         </div>
         <div class="contact_form" >
-            <form action="<?php echo $host;?>/ajax/sendemail/" method="post" id="contact_form" class="um_form">
+            <form action="<?php echo $host;?>/ajax/contactus/" method="post" id="contact_form" class="um_form">
                 <div class="person_info">
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.nome"); ?></label>

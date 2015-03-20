@@ -9,9 +9,7 @@ jQuery(document).ready(function () {
             $("#message_sent").hide();
         },
         onSuccess: function () {
-
             $formData = new FormData($('#workwithus_form')[0]);
-
             jQuery.ajax({
                 type: "POST",
                 dataType: "json",
@@ -19,6 +17,8 @@ jQuery(document).ready(function () {
                 data: $formData,
                 success: function (data) {
                     $valid = data.result;
+                    alert("ciao");
+                    console.log("sono qau");
                     if($valid){
                         $("#message_sent").show(500);
                         $("#message_sent_error").hide();

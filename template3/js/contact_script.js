@@ -12,7 +12,7 @@ jQuery(document).ready(function () {
             jQuery.ajax({
                 type: "POST",
                 dataType: "json",
-                url: host+'/ajax/sendemail/',
+                url: host+'/ajax/contactus/',
                 data: $('#contact_form').serialize(),
                 success: function (data) {
                     $valid = data.result;
@@ -32,18 +32,6 @@ jQuery(document).ready(function () {
                     $("#message_sent").hide();
                 }
             });
-            /* $.ajax({
-             type: 'post',
-             url: host+'/ajax/sendemail/',
-             data: $('#contact_form').serialize(),
-             success: function () {
-
-             $("#message_sent").show(500);
-             },
-             error: function (){
-             $("#message_sent_error").show(500);
-             }
-             }); */
             return false;
         }
     });

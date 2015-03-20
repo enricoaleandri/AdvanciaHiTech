@@ -25,23 +25,6 @@ class AjaxController extends  AbstractController
         }
     }
 
-    /*public function uploadcvAction(Request $request){
-        if(!isset($_SESSION[$temp_dir_lavori]) || $_SESSION[$temp_dir_lavori] == "")
-            $_SESSION[$temp_dir_lavori] = time();
-
-        $options = array(
-            'script_url' => $this->response->getProperty("full_url").'/data/application/',
-            'upload_dir' => dirname($request->getServerVar('SCRIPT_FILENAME')).'/data/application/'.$_SESSION[$temp_dir_lavori]."/",
-            'upload_url' => $this->response->getProperty("full_url").'/data/application/'.$_SESSION[$temp_dir_lavori]."/");
-
-        $upload_handler = new UploadHandler($options);
-
-        Logger::log(Logger::$INFO, "[AjaxController] upload -> script_url= ".$options['script_url']);
-        Logger::log(Logger::$INFO, "[AjaxController] upload -> upload_dir= ".$options['upload_dir']);
-        Logger::log(Logger::$INFO, "[AjaxController] upload -> upload_url= ".$options['upload_url']);
-
-    }*/
-
     function  workwithusAction(Request $request){
 
         $form = new workwithusBean();
@@ -53,9 +36,15 @@ class AjaxController extends  AbstractController
         $phone = $request->get("umbheadfld_phone");
         $title = $request->get("umbheadfld_title");
         $message= $request->get("umbheadfld_Message");
-       // $fileName = $_FILES["umbheadfld_File"]["name"];
-       // $fileSize = $_FILES["umbheadfld_File"]["size"];
-       // $fileType = $_FILES["umbheadfld_File"]["type"];
+
+        /*
+        $fileName = $_FILES["umbheadfld_File"]["name"];
+        $fileSize = $_FILES["umbheadfld_File"]["size"];
+        $fileType = $_FILES["umbheadfld_File"]["type"];
+        Logger::log(Logger::$INFO, "[AjaxController] upload -> name= ".$fileName);
+        Logger::log(Logger::$INFO, "[AjaxController] upload -> size= ".$fileSize);
+        Logger::log(Logger::$INFO, "[AjaxController] upload -> type= ".$fileType);
+        */
 
         $form -> setName($name);
         $form -> setSurname($surname);
@@ -104,9 +93,11 @@ class AjaxController extends  AbstractController
         }
     }
 
-    function sendemailAction (Request $request){
+    function contactusAction (Request $request){
+
         $form = new contactBean();
         $mailSender = new MailSender($this->properties);
+
         $name = $request->get("umbheadfld_Name");
         $surname = $request->get("umbheadfld_Surname");
         $mail = $request->get("umbheadfld_E-mail");
@@ -117,6 +108,7 @@ class AjaxController extends  AbstractController
         $city = $request->get("umbheadfld_City");
         $address= $request->get("umbheadfld_Address");
         $message= $request->get("umbheadfld_Message");
+
         $form -> setName($name);
         $form -> setSurname($surname);
         $form -> setMail($mail);
@@ -127,9 +119,12 @@ class AjaxController extends  AbstractController
         $form -> setPhone($phone);
         $form -> setAddress($address);
         $form -> setMessage($message);
+
         if($form->validate() ){
+
             $captcha=$request->get('g-recaptcha-response');
             @$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LdYlQMTAAAAAMdRILveYnei-Y7sF_9WXM5kPYvR&response=".$captcha);
+
             $mailSender->setSubject("Contattato da ".$company);
             $mailSender->setCc("qualcuno@prova.com");
             $mailSender->setMailfrom("noreply@advancia.it");
@@ -149,6 +144,7 @@ class AjaxController extends  AbstractController
             $array['city'] = $form->getCity();
             $array['message'] = $form->getMessage();
             $mailSender->setTemplateAttributes($array);
+
             if(!$captcha){
                 $this->response->addContent('{"result":false}');
             }else{

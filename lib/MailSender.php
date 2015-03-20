@@ -1,12 +1,13 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Falza
  * Date: 13/03/2015
  * Time: 17.24
  */
-
-class MailSender {
+class MailSender
+{
     private $idemail;
     private $cc;
     private $subject;
@@ -20,8 +21,9 @@ class MailSender {
     private $attachments;
     private $properties;
 
-    function __construct($properties){
-    $this->properties=$properties;
+    function __construct($properties)
+    {
+        $this->properties = $properties;
     }
 
     /**
@@ -201,46 +203,47 @@ class MailSender {
     }
 
 
+    public function  send()
+    {
 
-    public function  send(){
-
-       $settings =  initConfig::getInstance()->getSettings();
+        $settings = initConfig::getInstance()->getSettings();
         $this->mailto = $settings["comunication_mail"];
 
-        $header = "From: ".$this->mailfrom."\r\n";
-        $header .= " Cc: ".$this->cc."\r\n";
+        $header = "From: " . $this->mailfrom . "\r\n";
+        $header .= " Cc: " . $this->cc . "\r\n";
         $header .= "MIME-Version: 1.0\r\n";
         $header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
-        $file="";
+        $file = "";
         if (file_exists($this->template)) {
             $file = file_get_contents($this->template, FILE_USE_INCLUDE_PATH);
             Logger::log(Logger::$INFO, "Template per mail trovato : $this->template");
-        } else{
+        } else {
             Logger::log(Logger::$ERROR, "Template per mail di notifica non trovato. ");
         }
 
         $keys = array_keys($this->templateAttributes);
-        foreach($keys as $key){
-            $file = str_replace("[".$key."]", $this->templateAttributes[$key], $file);
+        foreach ($keys as $key) {
+            $file = str_replace("[" . $key . "]", $this->templateAttributes[$key], $file);
         }
 
-        $this->body=$file;
-        $mailDao = new mailDAO();
-        $mailDao -> insertMail($this);
 
-        if(!$this->properties->isSetted("svil")) {
-            if($this->body != "" && mail($this->mailto, $this->subject, $this->body, $header)) {
+        $this->body = $file;
+        $mailDao = new mailDAO();
+        $mailDao->insertMail($this);
+
+        if (!$this->properties->isSetted("svil")) {
+            if ($this->body != "" && mail($this->mailto, $this->subject, $this->body, $header)) {
                 Logger::log(Logger::$INFO, "Mail inviata correttamente a : " . $this->mailto);
                 return true;
-            }else {
+            } else {
                 return false;
                 Logger::log(Logger::$INFO, "Mail non inviata: " . $this->mailto);
             }
         } else {
-            Logger::log(Logger::$INFO, "(SVIL - SIMULAZIONE ) Mail inviata correttamente a : ".$this->mailto);
+            Logger::log(Logger::$INFO, "(SVIL - SIMULAZIONE ) Mail inviata correttamente a : " . $this->mailto);
             return true;
-      }
+        }
     }
 
 }

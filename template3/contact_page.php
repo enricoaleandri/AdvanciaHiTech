@@ -12,7 +12,6 @@
     <?php
         initConfig::getInstance() -> getIncluder() -> includePage("header");
     ?>
-    <title>Contatti</title>
 
     <?php
         initConfig::getInstance() -> getIncluder() -> includePage("scripts");
@@ -20,6 +19,7 @@
 
     <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?v=3.exp&#038;sensor=false&#038;ver=1.0'></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
+    <title><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.contatti"); ?></title>
 </head>
 <body class="home page page-id-8 page-template page-template-template-home page-template-template-home-php regular_typo">
 <script>

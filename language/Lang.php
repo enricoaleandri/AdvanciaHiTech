@@ -27,11 +27,10 @@ class Lang
         {
             //Apro in lettura il file delle properties
             $leggi_file = fopen($this->getLanguageFile(),"r");
-
             while(!feof($leggi_file))
             {
                 $row = fgets($leggi_file);
-                //Logger::log(Logger::$ERROR, " Riga =".$row);
+               // Logger::log(Logger::$ERROR, " Riga =".$row);
                 //Verifica che la riga attuale non sia vuota o commentata con il carattere  '#'
                 if(substr($row,0,1) != "#" && substr($row,0,1) != "" && substr($row,0,1) != " ")
                 {

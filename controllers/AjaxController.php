@@ -25,6 +25,85 @@ class AjaxController extends  AbstractController
         }
     }
 
+    /*public function uploadcvAction(Request $request){
+        if(!isset($_SESSION[$temp_dir_lavori]) || $_SESSION[$temp_dir_lavori] == "")
+            $_SESSION[$temp_dir_lavori] = time();
+
+        $options = array(
+            'script_url' => $this->response->getProperty("full_url").'/data/application/',
+            'upload_dir' => dirname($request->getServerVar('SCRIPT_FILENAME')).'/data/application/'.$_SESSION[$temp_dir_lavori]."/",
+            'upload_url' => $this->response->getProperty("full_url").'/data/application/'.$_SESSION[$temp_dir_lavori]."/");
+
+        $upload_handler = new UploadHandler($options);
+
+        Logger::log(Logger::$INFO, "[AjaxController] upload -> script_url= ".$options['script_url']);
+        Logger::log(Logger::$INFO, "[AjaxController] upload -> upload_dir= ".$options['upload_dir']);
+        Logger::log(Logger::$INFO, "[AjaxController] upload -> upload_url= ".$options['upload_url']);
+
+    }*/
+
+    function  workwithusAction(Request $request){
+
+        $form = new workwithusBean();
+        $mailSender = new MailSender($this->properties);
+
+        $name = $request->get("umbheadfld_Name");
+        $surname = $request->get("umbheadfld_Surname");
+        $mail = $request->get("umbheadfld_E-mail");
+        $phone = $request->get("umbheadfld_phone");
+        $title = $request->get("umbheadfld_title");
+        $message= $request->get("umbheadfld_Message");
+       // $fileName = $_FILES["umbheadfld_File"]["name"];
+       // $fileSize = $_FILES["umbheadfld_File"]["size"];
+       // $fileType = $_FILES["umbheadfld_File"]["type"];
+
+        $form -> setName($name);
+        $form -> setSurname($surname);
+        $form -> setMail($mail);
+        $form -> setPhone($phone);
+        $form -> setTitle($title);
+        $form -> setMessage($message);
+
+        if($form->validate()){
+            $captcha=$request->get('g-recaptcha-response');
+            @$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LdYlQMTAAAAAMdRILveYnei-Y7sF_9WXM5kPYvR&response=".$captcha);
+            $mailSender->setSubject("Contattato da ".$name." ".$surname);
+            $mailSender->setMailfrom("noreply@advancia.it");
+            $mailSender->setTemplate($this->properties->getProperty("page_path") . "/" . $this->properties->getProperty("workwithus_mail"));
+            $mailSender->setAttachments("nothing");
+            $mailSender->setMailfromname("Contattaci: Advancia Technology");
+            $array = array();
+            $array['name'] = $form->getName();
+            $array['surname'] = $form->getSurname();
+            $array['mail'] = $form->getMail();
+            $array['phone'] = $form->getPhone();
+            $array['title'] = $form->getTitle();
+            $array['message'] = $form->getMessage();
+            $mailSender->setTemplateAttributes($array);
+            if(!$captcha){
+                Logger::log(Logger::$INFO, "[AjaxController] captcha response = ".$captcha);
+                $this->response->addContent('{"result":false}');
+            }else{
+                Logger::log(Logger::$INFO, "[AjaxController] captcha response = ".$response.success);
+                if($response.success==false){
+                    Logger::log(Logger::$INFO, "[AjaxController] captcha = false");
+                    $this->response->addContent('{"result":false}');
+                }else{
+                    Logger::log(Logger::$INFO, "[AjaxController] captcha = true");
+                    if($mailSender->send()){
+                        $this->response->addContent('{"result":true}');
+                    }else{
+                        Logger::log(Logger::$INFO, "[AjaxController] captcha = false mail");
+                        $this->response->addContent('{"result":false}');
+                    }
+                }
+            }
+        }else {
+            Logger::log(Logger::$INFO, "[AjaxController] captcha response non sono valido" );
+            $this->response->addContent('{"result":false}');
+        }
+    }
+
     function sendemailAction (Request $request){
         $form = new contactBean();
         $mailSender = new MailSender($this->properties);
@@ -48,9 +127,8 @@ class AjaxController extends  AbstractController
         $form -> setPhone($phone);
         $form -> setAddress($address);
         $form -> setMessage($message);
-
         if($form->validate() ){
-            $captcha=$_POST['g-recaptcha-response'];
+            $captcha=$request->get('g-recaptcha-response');
             @$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LdYlQMTAAAAAMdRILveYnei-Y7sF_9WXM5kPYvR&response=".$captcha);
             $mailSender->setSubject("Contattato da ".$company);
             $mailSender->setCc("qualcuno@prova.com");

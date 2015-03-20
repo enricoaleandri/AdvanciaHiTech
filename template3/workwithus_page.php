@@ -17,6 +17,7 @@ $activePage = "home";
     <?php
     initConfig::getInstance() -> getIncluder() -> includePage("scripts");
     ?>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body class="home page page-id-8 page-template page-template-template-home page-template-template-home-php regular_typo">
 <script>
@@ -72,44 +73,47 @@ $activePage = "home";
                     </p>
                 </div>
                 <div class="contact_form">
-                    <form action="#" method="post" class="um_form">
+                    <form action="<?php echo $host;?>/ajax/workwithus/" enctype="multipart/form-data" method="post" id="workwithus_form" class="um_form">
                         <div class="person_info">
                             <p>
                                 <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.nome"); ?></label>
-                                <input data-required="1" data-fieldtype="Text" type="text" name="umbheadfld_Name" id="umbheadfld_Name" placeholder="John">
+                                <input data-required="1" value="ciao" data-fieldtype="Text"required data-validation="required" data-validation-error-msg=" " type="text" name="umbheadfld_Name" id="umbheadfld_Name" placeholder="John">
                             </p>
                             <p>
                                 <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.cognome"); ?></label>
-                                <input data-required="1" data-fieldtype="Text" type="text" name="umbheadfld_Surname" id="umbheadfld_Surname" placeholder="Smith">
+                                <input data-required="1" value="ciao" data-fieldtype="Text" required data-validation="required" data-validation-error-msg=" " type="text" name="umbheadfld_Surname" id="umbheadfld_Surname" placeholder="Smith">
                             </p>
                             <p>
                                 <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.mail"); ?></label>
-                                <input data-required="" data-fieldtype="Email" type="text" name="umbheadfld_E-mail" id="umbheadfld_E-mail" placeholder="johnsmith@email.com">
+                                <input data-required="" value="ciao.ciao@ciao.com" data-fieldtype="Email" required data-validation="email" data-validation-error-msg="Inserire una mail valida" type="text" name="umbheadfld_E-mail" id="umbheadfld_E-mail" placeholder="johnsmith@email.com">
                             </p>
                         </div>
                         <div class="person_info">
                             <p>
                                 <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.telefono"); ?></label>
-                                <input data-required="1" data-fieldtype="Text" type="text" name="umbheadfld_phone" id="umbheadfld_phone" placeholder="02 54 5845 85">
+                                <input data-required="1" data-fieldtype="Text" data-validation-error-msg="Inserire un recapito telefonico valido" data-validation="custom" data-validation-regexp="^(\+?[0-9]{0,12})$" data-validation-error-msg=" " type="text" name="umbheadfld_phone" id="umbheadfld_phone" placeholder="02 54 5845 85">
                             </p>
                             <p>
                                 <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.titolo"); ?></label>
-                                <input data-required="1" data-fieldtype="Text" type="text" name="umbheadfld_company" id="umbheadfld_company" placeholder="Facebook inc">
+                                <input data-required="1" value="titolo" data-fieldtype="Text" required data-validation="required" data-validation-error-msg=" " type="text" name="umbheadfld_title" id="umbheadfld_title" placeholder="Facebook inc">
                             </p>
                         </div>
                         <div class="message_box">
                             <label for="message"><?php echo initConfig::getInstance()->getLang() -> getValue("work.messaggio"); ?></label>
-                            <textarea data-required="1" name="umbheadfld_Message" id="umbheadfld_Message" placeholder="your message goes here..."></textarea>
+                            <textarea id="txtarea"  data-required="1" name="umbheadfld_Message" required data-validation="required" data-validation-error-msg=" " id="umbheadfld_Message" placeholder="your message goes here..."></textarea>
                         </div>
                         <div class="buttons">
-                            <input type="submit" value="CV" style="width: 100%;height: 70px;"/>
+                                <input  accept=".pdf,.doc,.docx" style="width: 100%;height: 70px;" id="umbheadfld_File" name="umbheadfld_File"  value="CV" type="submit" >
                         </div>
                         <div class="buttons">
-                            <input type="submit" value="<?php echo initConfig::getInstance()->getLang() -> getValue("work.inviobottone"); ?>"/>
+                            <input type="submit"  value="<?php echo initConfig::getInstance()->getLang() -> getValue("work.inviobottone"); ?>"/>
                             <input type="reset" value="Reset">
                         </div>
+                        <br>
+                        <div id="captcha" name="captcha" style="float: right;"  class="g-recaptcha" data-sitekey="6LdYlQMTAAAAAE3vq6JKhrOnx4mzHshf18DNbVZO"></div>
                     </form>
-                    <div class="message_sent" style="display: none"><?php echo initConfig::getInstance()->getLang() -> getValue("work.invio"); ?></div>
+                    <div class="message_sent" id="message_sent" hidden ><?php echo initConfig::getInstance()->getLang() -> getValue("work.invio"); ?></div>
+                    <div class="message_sent_error" id="message_sent_error" hidden ><?php echo initConfig::getInstance()->getLang() -> getValue("work.errore"); ?></div>
                 </div>
 
                 <style>
@@ -117,6 +121,10 @@ $activePage = "home";
                         border: 1px solid #E72259 !important;
                     }
                 </style>
+
+                <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script>
+                <script type='text/javascript' src="<?php echo $url;?>js/file-upload/jquery.form-validator.min.js"></script>
+                <script type="text/javascript" src="<?php echo $url;?>js/workwithus_script.js"></script>
             </div>
         </div>
 

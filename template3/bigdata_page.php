@@ -68,6 +68,9 @@ $activePage = "bigdata";
 </script>
 <div class="wrapper">
     <!--Wrapper-->
+    <?php
+    initConfig::getInstance() -> getIncluder() -> includePage("bottom");
+    ?>
     <div class="header col_04">
         <!--Header-->
         <div class="header_content center_parent_v">

@@ -13,9 +13,11 @@ jQuery(document).ready(function () {
             data: {"lingua" : $lingua},
             success: function (data) {
                 $res = data.result;
+                location.reload(true);
                 console.log("Lingua cambiata");
             },
             error: function () {
+                location.reload(true);
                 console.log("Errore nel cambiare la lingua");
             }
         });

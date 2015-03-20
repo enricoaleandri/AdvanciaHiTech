@@ -112,10 +112,15 @@ $activePage = "about";
                         <a href="#" data-dir="next"></a>
                     </div>
                     <ul id="slides">
-                        <li style="display: list-item;"><img src="<?php echo $url;?>images/slider1.jpg" style="width: 620px; margin-left: 0px; margin-top: -1.5px;"></li>
-                        <li style="display: list-item;"><img src="http://www.greenbiz.it/images/GooglePlay_00.jpg" style="width: 620px; margin-left: 0px; margin-top: -1.5px;"></li>
-                        <li style="display: list-item;"><img src="http://blog.neweb.co/wp-content/uploads/2013/02/stripe-hard-at-work-1.jpg" style="width: 620px; margin-left: 0px; margin-top: -1.5px;"></li>
-
+                            <?php
+                            if ($handle = opendir($response -> getProperty("page_path").'/images/slider_chisiamo')) {
+                                while (false !== ($entry = readdir($handle))) {
+                                    if ($entry != "." && $entry != ".." && !is_dir($response -> getProperty("page_path").'/images/slider_chisiamo/'.$entry)) {
+                                        echo '<li><img src="'.$url.'/images/slider_chisiamo/'.$entry.'" width="100%" /></li>';
+                                    }
+                                }
+                            }
+                            ?>
                     </ul>
 
                 </div>

@@ -26,9 +26,9 @@ $activePage = "home";
 </script>
 <div class="wrapper">
     <!--Wrapper-->
-        <?php
-            initConfig::getInstance() -> getIncluder() -> includePage("bottom");
-        ?>
+    <?php
+    initConfig::getInstance() -> getIncluder() -> includePage("bottom");
+    ?>
     <div class="header col_04">
         <!--Header-->
         <div class="header_content center_parent_v">
@@ -102,9 +102,16 @@ $activePage = "home";
                             <label for="message"><?php echo initConfig::getInstance()->getLang() -> getValue("work.messaggio"); ?></label>
                             <textarea id="txtarea"  data-required="1" name="umbheadfld_Message" required data-validation="required" data-validation-error-msg=" " id="umbheadfld_Message" placeholder="your message goes here..."></textarea>
                         </div>
-                        <div class="buttons">
-                                <input  accept=".pdf,.doc,.docx" style="width: 100%;height: 70px;" id="umbheadfld_File" name="umbheadfld_File"  value="CV" type="file" >
+                        <div class="upload-button">
+                            <input  accept=".pdf,.doc,.docx"  id="fileupload" name="umbheadfld_File"  value="CV" type="file" />
+                            <div id="file" class="files"></div>
                         </div>
+                        <br>
+                        <!-- The global progress bar - start -->
+                        <div id="progress" class="progress">
+                            <div class="progress-bar progress-bar-success"  ></div>
+                        </div>
+                        <!-- The global progress bar - end -->
                         <div class="buttons">
                             <input type="submit"  value="<?php echo initConfig::getInstance()->getLang() -> getValue("work.inviobottone"); ?>"/>
                             <input type="reset" value="Reset">
@@ -120,11 +127,68 @@ $activePage = "home";
                     .error {
                         border: 1px solid #E72259 !important;
                     }
+
+                    .progress {
+                        height: 20px;
+                        margin-bottom: 20px;
+                        overflow: hidden;
+                        background-color: #f5f5f5;
+                        border-radius: 4px;
+                        -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+                        box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+                    }
+
+                    .progress-bar-success {
+                        background-color: #5cb85c;
+                    }
+                    .progress-bar {
+                        float: left;
+                        width: 0;
+                        height: 100%;
+                        font-size: 12px;
+                        line-height: 20px;
+                        color: #fff;
+                        text-align: center;
+                        background-color: rgb(192, 0, 0);
+                        -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+                        box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+                        -webkit-transition: width .6s ease;
+                        -o-transition: width .6s ease;
+                        transition: width .6s ease;
+                    }
                 </style>
 
-                <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script>
-                <script type='text/javascript' src="<?php echo $url;?>js/file-upload/jquery.form-validator.min.js"></script>
-                <script type="text/javascript" src="<?php echo $url;?>js/workwithus_script.js"></script>
+                <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+                <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+                <script src="<?php echo $url;?>/js/file-upload/vendor/jquery.ui.widget.js"></script>
+                <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+                <script src="<?php echo $url;?>/js/file-upload/jquery.iframe-transport.js"></script>
+                <!-- The basic File Upload plugin -->
+                <script src="<?php echo $url;?>/js/file-upload/jquery.fileupload.js"></script>
+                <!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
+                <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+                <script>
+                    $=jQuery;
+                    $(function () {
+                        'use strict';
+                        $('#fileupload').fileupload({
+                            url: host+"/ajax/uploadcv",
+                            dataType: 'json',
+                            done: function (e, data) {
+                                alert("ciao");
+                            },
+                            progressall: function (e, data) {
+                                var progress = parseInt(data.loaded / data.total * 100, 10);
+                                $('#progress .progress-bar').css(
+                                    'width',
+                                    progress + '%'
+                                );
+                            }
+                        });
+                    });
+                </script>
+
             </div>
         </div>
 

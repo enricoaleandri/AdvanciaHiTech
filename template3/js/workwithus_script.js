@@ -9,23 +9,29 @@ jQuery(document).ready(function () {
             $("#message_sent").hide();
         },
         onSuccess: function () {
-            $formData = new FormData($('#workwithus_form')[0]);
             jQuery.ajax({
                 type: "POST",
                 dataType: "json",
                 url: host+'/ajax/workwithus/',
-                data: $formData,
+                data: $('#workwithus_form').serialize(),
                 success: function (data) {
                     $valid = data.result;
-                    alert("ciao");
-                    console.log("sono qau");
                     if($valid){
+                        $("#file").text('Allega cv');
+                        $('#progress .progress-bar').css(
+                            'width', 0
+                        );
                         $("#message_sent").show(500);
                         $("#message_sent_error").hide();
                         $("input[type=text]").val('');
                         $("#txtarea").val('');
                         grecaptcha.reset();
                     }else {
+                        $("#filename").val("");
+                        $('#progress .progress-bar').css(
+                            'width', 0
+                        );
+                        $("#file").text('Allega CV');
                         $("#message_sent_error").show(500);
                         $("#message_sent").hide();
                     }

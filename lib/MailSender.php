@@ -224,6 +224,7 @@ class MailSender
 
         $keys = array_keys($this->templateAttributes);
         foreach ($keys as $key) {
+            Logger::log(Logger::$INFO, "[MailSender] body  = ".$this->templateAttributes[$key]);
             $file = str_replace("[" . $key . "]", $this->templateAttributes[$key], $file);
         }
 

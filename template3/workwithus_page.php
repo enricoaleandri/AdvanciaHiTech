@@ -73,19 +73,19 @@ $activePage = "home";
                     </p>
                 </div>
                 <div class="contact_form">
-                    <form action="<?php echo $host;?>/ajax/workwithus/" enctype="multipart/form-data" method="post" id="workwithus_form" class="um_form">
+                    <form action="<?php echo $host;?>/ajax/workwithus/" method="POST" id="workwithus_form" class="um_form">
                         <div class="person_info">
                             <p>
                                 <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.nome"); ?></label>
-                                <input data-required="1" value="ciao" data-fieldtype="Text"required data-validation="required" data-validation-error-msg=" " type="text" name="umbheadfld_Name" id="umbheadfld_Name" placeholder="John">
+                                <input data-required="1"  data-fieldtype="Text"required data-validation="required" data-validation-error-msg=" " type="text" name="umbheadfld_Name" id="umbheadfld_Name" placeholder="John">
                             </p>
                             <p>
                                 <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.cognome"); ?></label>
-                                <input data-required="1" value="ciao" data-fieldtype="Text" required data-validation="required" data-validation-error-msg=" " type="text" name="umbheadfld_Surname" id="umbheadfld_Surname" placeholder="Smith">
+                                <input data-required="1"  data-fieldtype="Text" required data-validation="required" data-validation-error-msg=" " type="text" name="umbheadfld_Surname" id="umbheadfld_Surname" placeholder="Smith">
                             </p>
                             <p>
                                 <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.mail"); ?></label>
-                                <input data-required="" value="ciao.ciao@ciao.com" data-fieldtype="Email" required data-validation="email" data-validation-error-msg="Inserire una mail valida" type="text" name="umbheadfld_E-mail" id="umbheadfld_E-mail" placeholder="johnsmith@email.com">
+                                <input data-required=""  data-fieldtype="Email" required data-validation="email" data-validation-error-msg="Inserire una mail valida" type="text" name="umbheadfld_E-mail" id="umbheadfld_E-mail" placeholder="johnsmith@email.com">
                             </p>
                         </div>
                         <div class="person_info">
@@ -95,7 +95,7 @@ $activePage = "home";
                             </p>
                             <p>
                                 <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.titolo"); ?></label>
-                                <input data-required="1" value="titolo" data-fieldtype="Text" required data-validation="required" data-validation-error-msg=" " type="text" name="umbheadfld_title" id="umbheadfld_title" placeholder="Facebook inc">
+                                <input data-required="1" data-fieldtype="Text" required data-validation="required" data-validation-error-msg=" " type="text" name="umbheadfld_title" id="umbheadfld_title" placeholder="Facebook inc">
                             </p>
                         </div>
                         <div class="message_box">
@@ -103,8 +103,11 @@ $activePage = "home";
                             <textarea id="txtarea"  data-required="1" name="umbheadfld_Message" required data-validation="required" data-validation-error-msg=" " id="umbheadfld_Message" placeholder="your message goes here..."></textarea>
                         </div>
                         <div class="upload-button">
-                            <input  accept=".pdf,.doc,.docx"  id="fileupload" name="umbheadfld_File"  value="CV" type="file" />
-                            <div id="file" class="files"></div>
+                            <label class="upload-button">
+                                <input id="fileupload" accept=".pdf,.doc,.docx,.odt" name="files[]"  type="file" />
+                               <div id="file" style="line-height: 40px;"><?php echo initConfig::getInstance()->getLang() -> getValue("work.allegacv"); ?></div>
+                                <input id="filename" name="umbheadfld_File" value="" data-validation="required" data-validation-error-msg=" " hidden/>
+                            </label>
                         </div>
                         <br>
                         <!-- The global progress bar - start -->
@@ -121,6 +124,7 @@ $activePage = "home";
                     </form>
                     <div class="message_sent" id="message_sent" hidden ><?php echo initConfig::getInstance()->getLang() -> getValue("work.invio"); ?></div>
                     <div class="message_sent_error" id="message_sent_error" hidden ><?php echo initConfig::getInstance()->getLang() -> getValue("work.errore"); ?></div>
+                    <div class="message_sent_error" id="message_type_error" hidden ></div>
                 </div>
 
                 <style>
@@ -156,16 +160,42 @@ $activePage = "home";
                         -o-transition: width .6s ease;
                         transition: width .6s ease;
                     }
+
+                    .upload-button{
+                        position: relative;
+                        overflow: hidden;
+                        margin: 10px 0 0 0;
+                        width: 100%;
+                        display: block;
+                        height: 61px;
+                        background: rgb(192, 0, 0);
+                        border: none;
+                        font-size: 20px;
+                        text-align: center;
+                        vertical-align: middle;
+                        color: #fff;
+                        text-transform: uppercase;
+                        cursor: pointer;
+                    }
+                    .upload-button input[type=file]{
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        margin: 0;
+                        padding: 0;
+                        font-size: 20px;
+                        cursor: pointer;
+                        opacity: 0;
+                        filter: alpha(opacity=0);
+                    }
                 </style>
 
                 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-                <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-                <script src="<?php echo $url;?>/js/file-upload/vendor/jquery.ui.widget.js"></script>
-                <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-                <script src="<?php echo $url;?>/js/file-upload/jquery.iframe-transport.js"></script>
-                <!-- The basic File Upload plugin -->
-                <script src="<?php echo $url;?>/js/file-upload/jquery.fileupload.js"></script>
-                <!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
+                <script type='text/javascript' src="<?php echo $url;?>/js/file-upload/vendor/jquery.ui.widget.js"></script>
+                <script type='text/javascript' src="<?php echo $url;?>/js/file-upload/jquery.iframe-transport.js"></script>
+                <script type='text/javascript' src="<?php echo $url;?>/js/file-upload/jquery.fileupload.js"></script>
+                <script type='text/javascript' src="<?php echo $url;?>js/form-validator/jquery.form-validator.min.js"></script>
+                <script type="text/javascript" src="<?php echo $url;?>js/workwithus_script.js"></script>
                 <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
                 <script>
@@ -176,7 +206,23 @@ $activePage = "home";
                             url: host+"/ajax/uploadcv",
                             dataType: 'json',
                             done: function (e, data) {
-                                alert("ciao");
+                                if(data.result.files[0].error){
+                                    $("#filename").val("");
+                                    $("#message_sent").hide();
+                                    $("#message_sent_error").hide();
+                                    $('#progress .progress-bar').css(
+                                        'width', 0
+                                    );
+                                    $("#file").text("<?php echo initConfig::getInstance()->getLang() -> getValue("work.allegacv"); ?>");
+                                    $("#message_type_error").show(800,  function(){
+                                        $("#message_type_error").text(data.result.files[0].error)
+                                    }
+                                    );
+                                }else{
+                                    $("#filename").val(data.result.files[0].url);
+                                    $("#message_type_error").hide();
+                                    $("#file").text("<?php echo initConfig::getInstance()->getLang() -> getValue("work.fileupload.success"); ?>: "+data.result.files[0].name);
+                                }
                             },
                             progressall: function (e, data) {
                                 var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -185,7 +231,9 @@ $activePage = "home";
                                     progress + '%'
                                 );
                             }
-                        });
+
+                        }).prop('disabled', !$.support.fileInput)
+                            .parent().addClass($.support.fileInput ? undefined : 'disabled');
                     });
                 </script>
 

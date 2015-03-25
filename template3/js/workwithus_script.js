@@ -17,7 +17,8 @@ jQuery(document).ready(function () {
                 success: function (data) {
                     $valid = data.result;
                     if($valid){
-                        $("#file").text('Allega cv');
+                        $("#filesecond").show();
+                        $("#file").hide();
                         $('#progress .progress-bar').css(
                             'width', 0
                         );
@@ -27,11 +28,13 @@ jQuery(document).ready(function () {
                         $("#txtarea").val('');
                         grecaptcha.reset();
                     }else {
+                        $("#fileurl").val("");
                         $("#filename").val("");
                         $('#progress .progress-bar').css(
                             'width', 0
                         );
-                        $("#file").text('Allega CV');
+                        $("#filesecond").show();
+                        $("#file").hide();
                         $("#message_sent_error").show(500);
                         $("#message_sent").hide();
                     }

@@ -17,7 +17,7 @@ $activePage = "home";
     <?php
     initConfig::getInstance() -> getIncluder() -> includePage("scripts");
     ?>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src='https://www.google.com/recaptcha/api.js?hl=<?php echo strtolower(initConfig::getInstance()-> getLang() -> getLang()) ?>'></script>
 </head>
 <body class="home page page-id-8 page-template page-template-template-home page-template-template-home-php regular_typo">
 <script>
@@ -77,11 +77,11 @@ $activePage = "home";
                         <div class="person_info">
                             <p>
                                 <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.nome"); ?></label>
-                                <input maxlength="50" data-required="1"  data-fieldtype="Text"required data-validation="custom" data-validation-regexp="^[a-zA-Z]+$" data-validation-error-msg="Inserire un nome corretto" type="text" name="umbheadfld_Name" id="umbheadfld_Name" placeholder="John">
+                                <input maxlength="50" data-required="1"  data-fieldtype="Text"required data-validation="custom" data-validation-regexp="^[a-zA-Zàèéòùì' ]+$" data-validation-error-msg="Inserire un nome corretto" type="text" name="umbheadfld_Name" id="umbheadfld_Name" placeholder="John">
                             </p>
                             <p>
                                 <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.cognome"); ?></label>
-                                <input maxlength="50" data-required="1"  data-fieldtype="Text" required data-validation="custom" data-validation-regexp="^[a-zA-Z]+$" data-validation-error-msg="Inserire un cognome corretto" type="text" name="umbheadfld_Surname" id="umbheadfld_Surname" placeholder="Smith">
+                                <input maxlength="50" data-required="1"  data-fieldtype="Text" required data-validation="custom" data-validation-regexp="^[a-zA-Zàèéòùì' ]+$" data-validation-error-msg="Inserire un cognome corretto" type="text" name="umbheadfld_Surname" id="umbheadfld_Surname" placeholder="Smith">
                             </p>
                             <p>
                                 <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.mail"); ?></label>
@@ -105,8 +105,10 @@ $activePage = "home";
                         <div class="upload-button">
                             <label class="upload-button">
                                 <input id="fileupload" accept=".pdf,.doc,.docx,.odt" name="files[]"  type="file" />
-                               <div id="file" style="line-height: 40px;"><?php echo initConfig::getInstance()->getLang() -> getValue("work.allegacv"); ?></div>
-                                <input id="filename" name="umbheadfld_File" value="" data-validation="required" data-validation-error-msg=" " hidden/>
+                                <div id="file" style="line-height: 40px;"><?php echo initConfig::getInstance()->getLang() -> getValue("work.allegacv"); ?></div>
+                                <div id="filesecond" style="line-height: 40px;" hidden ><?php echo initConfig::getInstance()->getLang() -> getValue("work.allegacv"); ?></div>
+                                <input id="fileurl" name="umbheadfld_File" value="" data-validation="required" data-validation-error-msg=" " hidden/>
+                                <input id="filename" name="umbheadfld_Filename" value="" data-validation="required" data-validation-error-msg=" " hidden/>
                             </label>
                         </div>
                         <br>
@@ -120,7 +122,7 @@ $activePage = "home";
                             <input type="reset" value="Reset">
                         </div>
                         <br>
-                        <div id="captcha" name="captcha" style="float: right;"  class="g-recaptcha" data-sitekey="6LdYlQMTAAAAAE3vq6JKhrOnx4mzHshf18DNbVZO"></div>
+                        <div id="captcha"  name="captcha" style="float: right;"  class="g-recaptcha" data-sitekey="6LdYlQMTAAAAAE3vq6JKhrOnx4mzHshf18DNbVZO"></div>
                     </form>
                     <div class="message_sent" id="message_sent" hidden ><?php echo initConfig::getInstance()->getLang() -> getValue("work.invio"); ?></div>
                     <div class="message_sent_error" id="message_sent_error" hidden ><?php echo initConfig::getInstance()->getLang() -> getValue("work.errore"); ?></div>
@@ -205,23 +207,31 @@ $activePage = "home";
                         $('#fileupload').fileupload({
                             url: host+"/ajax/uploadcv",
                             dataType: 'json',
+                            maxFileSize: 7000000,
+                            acceptFileTypes: '/\.(odt|docx?|pdf)$/i',
                             done: function (e, data) {
                                 if(data.result.files[0].error){
+                                    $("#fileurl").val("");
                                     $("#filename").val("");
                                     $("#message_sent").hide();
                                     $("#message_sent_error").hide();
                                     $('#progress .progress-bar').css(
                                         'width', 0
                                     );
+                                    $("#filesecond").hide();
+                                    $("#file").show();
                                     $("#file").text("<?php echo initConfig::getInstance()->getLang() -> getValue("work.allegacv"); ?>");
                                     $("#message_type_error").show(800,  function(){
                                         $("#message_type_error").text(data.result.files[0].error)
                                     }
                                     );
                                 }else{
-                                    $("#filename").val(data.result.files[0].url);
+                                    $("#fileurl").val(data.result.files[0].url);
+                                    $("#filename").val(data.result.files[0].name);
                                     $("#message_type_error").hide();
-                                    $("#file").text("<?php echo initConfig::getInstance()->getLang() -> getValue("work.fileupload.success"); ?>: "+data.result.files[0].name);
+                                    $("#filesecond").hide();
+                                    $("#file").show();
+                                    $("#file").text("<?php echo initConfig::getInstance()->getLang() -> getValue("work.fileupload.success"); ?>");
                                 }
                             },
                             progressall: function (e, data) {
@@ -231,7 +241,6 @@ $activePage = "home";
                                     progress + '%'
                                 );
                             }
-
                         }).prop('disabled', !$.support.fileInput)
                             .parent().addClass($.support.fileInput ? undefined : 'disabled');
                     });

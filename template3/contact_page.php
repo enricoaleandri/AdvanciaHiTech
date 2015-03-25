@@ -18,7 +18,7 @@
     ?>
 
     <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?v=3.exp&#038;sensor=false&#038;ver=1.0'></script>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src='https://www.google.com/recaptcha/api.js?hl=<?php echo strtolower(initConfig::getInstance()-> getLang() -> getLang()) ?>'></script>
     <title><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.contatti"); ?></title>
 </head>
 <body class="home page page-id-8 page-template page-template-template-home page-template-template-home-php regular_typo">
@@ -147,11 +147,11 @@
                 <div class="person_info">
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.nome"); ?></label>
-                       <input maxlength="50" data-required="1" data-fieldtype="Text"  required data-validation="custom" data-validation-regexp="^[a-zA-Z]+$" data-validation-error-msg="Inserire un nome corretto"   type="text" name="umbheadfld_Name" id="umbheadfld_Name" placeholder="John">
+                       <input maxlength="50" data-required="1" data-fieldtype="Text"  required data-validation="custom" data-validation-regexp="^[a-zA-Zàèéòùì' ]+$" data-validation-error-msg="Inserire un nome corretto"   type="text" name="umbheadfld_Name" id="umbheadfld_Name" placeholder="John">
                     </p>
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.cognome"); ?></label>
-                        <input maxlength="50" data-required="1" data-fieldtype="Text" required data-validation="custom" data-validation-regexp="^[a-zA-Z]+$" data-validation-error-msg="Inserire un cognome corretto"  type="text" name="umbheadfld_Surname" id="umbheadfld_Surname" placeholder="Smith">
+                        <input maxlength="50" data-required="1" data-fieldtype="Text" required data-validation="custom" data-validation-regexp="^[a-zA-Zàèéòùì' ]+$" data-validation-error-msg="Inserire un cognome corretto"  type="text" name="umbheadfld_Surname" id="umbheadfld_Surname" placeholder="Smith">
                     </p>
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.mail"); ?></label>
@@ -183,7 +183,7 @@
                     </p>
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.citta"); ?></label>
-                        <input maxlength="60" data-required="1" data-fieldtype="Text" required data-validation-error-msg="Inserire una città valida"  data-validation="custom" data-validation-regexp="^[a-zA-Z]+$" type="text" name="umbheadfld_City" id="umbheadfld_City" placeholder="Milano">
+                        <input maxlength="60" data-required="1" data-fieldtype="Text" required data-validation-error-msg="Inserire una città valida"  data-validation="custom" data-validation-regexp="^[a-zA-Zàèéòùì' ]+$" type="text" name="umbheadfld_City" id="umbheadfld_City" placeholder="Milano">
                     </p>
                 </div>
                 <div class="message_box">

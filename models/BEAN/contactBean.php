@@ -206,13 +206,14 @@ class contactBean extends AbstractBean
 
     public function validate()
     {
-        if (($this->name != "" && $this->name != "true") &&
-            ($this->surname != "" && $this->surname != "true") &&
-            ($this->company != "" && $this->company != "true") &&
-            ($this->address != "" && $this->address != "true") &&
-            ($this->city != "" && $this->city != "true") && $this->cap != "" && $this->mail != ""
+        if (($this->name != "" && $this->name != "true" && strlen($this->name)<=50) &&
+            ($this->surname != "" && $this->surname != "true" && strlen($this->surname)<=50) &&
+            ($this->company != "" && $this->company != "true" && strlen($this->company)<=200) &&
+            ($this->address != "" && $this->address != "true" && strlen($this->address)<=150) &&
+            ($this->city != "" && $this->city != "true" && strlen($this->city)<=60)
+            && $this->cap != "" && $this->mail != "" && strlen($this->message)<=1500
         ) {
-            if (is_numeric($this->cap) && filter_var($this->mail, FILTER_VALIDATE_EMAIL)) {
+            if (is_numeric($this->cap) && filter_var($this->mail, FILTER_VALIDATE_EMAIL) && strlen($this->mail)<=150) {
                 Logger::log(Logger::$INFO, "[AjaxController] sendemail valid  = E' valido");
                 return true;
             } else {

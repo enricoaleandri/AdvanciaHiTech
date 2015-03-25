@@ -180,11 +180,12 @@ class workwithusBean {
 
     public function validate()
     {
-        if (($this->name != "" && $this->name != "true") &&
-            ($this->surname != "" && $this->surname != "true") &&
-            ($this->title != "" && $this->title != "true") && $this->mail != ""
+        if (($this->name != "" && $this->name != "true" && strlen($this->name)<=50) &&
+            ($this->surname != "" && $this->surname != "true" && strlen($this->surname)<=50) &&
+            ($this->title != "" && $this->title != "true" && strlen($this->title)<=150)
+            && $this->mail != "" && strlen($this->message)<=1500
         ) {
-            if (filter_var($this->mail, FILTER_VALIDATE_EMAIL)) {
+            if (filter_var($this->mail, FILTER_VALIDATE_EMAIL) && strlen($this->mail)<=150) {
                 Logger::log(Logger::$INFO, "[AjaxController] sendemail valid  = E' valido");
                 return true;
             } else {

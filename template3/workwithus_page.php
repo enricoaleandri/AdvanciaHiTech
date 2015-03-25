@@ -77,30 +77,30 @@ $activePage = "home";
                         <div class="person_info">
                             <p>
                                 <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.nome"); ?></label>
-                                <input data-required="1"  data-fieldtype="Text"required data-validation="required" data-validation-error-msg=" " type="text" name="umbheadfld_Name" id="umbheadfld_Name" placeholder="John">
+                                <input maxlength="50" data-required="1"  data-fieldtype="Text"required data-validation="custom" data-validation-regexp="^[a-zA-Z]+$" data-validation-error-msg="Inserire un nome corretto" type="text" name="umbheadfld_Name" id="umbheadfld_Name" placeholder="John">
                             </p>
                             <p>
                                 <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.cognome"); ?></label>
-                                <input data-required="1"  data-fieldtype="Text" required data-validation="required" data-validation-error-msg=" " type="text" name="umbheadfld_Surname" id="umbheadfld_Surname" placeholder="Smith">
+                                <input maxlength="50" data-required="1"  data-fieldtype="Text" required data-validation="custom" data-validation-regexp="^[a-zA-Z]+$" data-validation-error-msg="Inserire un cognome corretto" type="text" name="umbheadfld_Surname" id="umbheadfld_Surname" placeholder="Smith">
                             </p>
                             <p>
                                 <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.mail"); ?></label>
-                                <input data-required=""  data-fieldtype="Email" required data-validation="email" data-validation-error-msg="Inserire una mail valida" type="text" name="umbheadfld_E-mail" id="umbheadfld_E-mail" placeholder="johnsmith@email.com">
+                                <input maxlength="150" data-required=""  data-fieldtype="Email" required data-validation="email" data-validation-error-msg="Inserire una mail valida" type="text" name="umbheadfld_E-mail" id="umbheadfld_E-mail" placeholder="johnsmith@email.com">
                             </p>
                         </div>
                         <div class="person_info">
                             <p>
                                 <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.telefono"); ?></label>
-                                <input data-required="1" data-fieldtype="Text" data-validation-error-msg="Inserire un recapito telefonico valido" data-validation="custom" data-validation-regexp="^(\+?[0-9]{0,12})$" data-validation-error-msg=" " type="text" name="umbheadfld_phone" id="umbheadfld_phone" placeholder="02 54 5845 85">
+                                <input maxlength="13" data-required="1" data-fieldtype="Text" data-validation-error-msg="Inserire un recapito telefonico valido" data-validation="custom" data-validation-regexp="^(\+?[0-9]{0,13})$" data-validation-error-msg=" " type="text" name="umbheadfld_phone" id="umbheadfld_phone" placeholder="02 54 5845 85">
                             </p>
                             <p>
                                 <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.titolo"); ?></label>
-                                <input data-required="1" data-fieldtype="Text" required data-validation="required" data-validation-error-msg=" " type="text" name="umbheadfld_title" id="umbheadfld_title" placeholder="Facebook inc">
+                                <input maxlength="50" data-required="1" data-fieldtype="Text" required data-validation="required" data-validation-error-msg=" " type="text" name="umbheadfld_title" id="umbheadfld_title" placeholder="Diploma, laurea, dottorato">
                             </p>
                         </div>
                         <div class="message_box">
                             <label for="message"><?php echo initConfig::getInstance()->getLang() -> getValue("work.messaggio"); ?></label>
-                            <textarea id="txtarea"  data-required="1" name="umbheadfld_Message" required data-validation="required" data-validation-error-msg=" " id="umbheadfld_Message" placeholder="your message goes here..."></textarea>
+                            <textarea maxlength="1500" id="txtarea"  data-required="1" name="umbheadfld_Message" required data-validation="required" data-validation-error-msg=" " id="umbheadfld_Message" placeholder="your message goes here..."></textarea>
                         </div>
                         <div class="upload-button">
                             <label class="upload-button">

@@ -147,35 +147,35 @@
                 <div class="person_info">
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.nome"); ?></label>
-                       <input  data-required="1" data-fieldtype="Text"  required data-validation="required" data-validation-error-msg=" "  type="text" name="umbheadfld_Name" id="umbheadfld_Name" placeholder="John">
+                       <input maxlength="50" data-required="1" data-fieldtype="Text"  required data-validation="custom" data-validation-regexp="^[a-zA-Z]+$" data-validation-error-msg="Inserire un nome corretto"   type="text" name="umbheadfld_Name" id="umbheadfld_Name" placeholder="John">
                     </p>
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.cognome"); ?></label>
-                        <input data-required="1" data-fieldtype="Text" required data-validation="required" data-validation-error-msg=" "  type="text" name="umbheadfld_Surname" id="umbheadfld_Surname" placeholder="Smith">
+                        <input maxlength="50" data-required="1" data-fieldtype="Text" required data-validation="custom" data-validation-regexp="^[a-zA-Z]+$" data-validation-error-msg="Inserire un cognome corretto"  type="text" name="umbheadfld_Surname" id="umbheadfld_Surname" placeholder="Smith">
                     </p>
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.mail"); ?></label>
-                        <input data-required="" data-fieldtype="Email" required data-validation="email" data-validation-error-msg="Inserire una mail valida"  type="text" name="umbheadfld_E-mail" id="umbheadfld_E-mail" placeholder="johnsmith@email.com">
+                        <input maxlength="150" data-required="" data-fieldtype="Email" required data-validation="email" data-validation-error-msg="Inserire una mail valida"  type="text" name="umbheadfld_E-mail" id="umbheadfld_E-mail" placeholder="johnsmith@email.com">
                     </p>
                 </div>
                 <div class="person_info">
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.telefono"); ?></label>
-                        <input data-required="1" data-fieldtype="Text"  type="text" data-validation-error-msg="Inserire un recapito telefonico valido" data-validation="custom" data-validation-regexp="^(\+?[0-9]{0,12})$" name="umbheadfld_phone" id="umbheadfld_phone" placeholder="02 54 5845 85">
+                        <input maxlength="13" data-required="1" data-fieldtype="Text"  type="text" data-validation-error-msg="Inserire un recapito telefonico valido" data-validation="custom" data-validation-regexp="^(\+?[0-9]{0,13})$" name="umbheadfld_phone" id="umbheadfld_phone" placeholder="02 54 5845 85">
                     </p>
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.societa"); ?></label>
-                        <input data-required="1" data-fieldtype="Text" required type="text" data-validation-error-msg=" " data-validation="required"  name="umbheadfld_company" id="umbheadfld_company" placeholder="Facebook inc">
+                        <input maxlength="200" data-required="1" data-fieldtype="Text" required type="text" data-validation-error-msg=" " data-validation="required"  name="umbheadfld_company" id="umbheadfld_company" placeholder="Facebook inc">
                     </p>
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.fax"); ?></label>
-                        <input data-required="" data-fieldtype="Email" data-validation-error-msg="Inserire un recapito fax valido" data-validation="custom" data-validation-regexp="^(\+?[0-9]{0,12})$" type="text" name="umbheadfld_Fax" id="umbheadfld_Fax-mail" placeholder="02 5485 698">
+                        <input maxlength="13" data-required="1" data-fieldtype="Email" data-validation-error-msg="Inserire un recapito fax valido" data-validation="custom" data-validation-regexp="^(\+?[0-9]{0,13})$" type="text" name="umbheadfld_Fax" id="umbheadfld_Fax-mail" placeholder="02 5485 698">
                     </p>
                 </div>
                 <div class="person_info">
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.indirizzo"); ?></label>
-                        <input data-required="1" data-fieldtype="Text" required data-validation-error-msg=" "  type="text" data-validation="required" name="umbheadfld_Address" id="umbheadfld_Address" placeholder="Via dell'aria 2">
+                        <input maxlength="500" data-required="1" data-fieldtype="Text" required data-validation-error-msg=" "  type="text" data-validation="required" name="umbheadfld_Address" id="umbheadfld_Address" placeholder="Via dell'aria 2">
                     </p>
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.cap"); ?></label>
@@ -183,12 +183,12 @@
                     </p>
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.citta"); ?></label>
-                        <input data-required="" data-fieldtype="Text" required data-validation-error-msg=" " data-validation="required" type="text" name="umbheadfld_City" id="umbheadfld_City" placeholder="Milano">
+                        <input maxlength="60" data-required="1" data-fieldtype="Text" required data-validation-error-msg="Inserire una città valida"  data-validation="custom" data-validation-regexp="^[a-zA-Z]+$" type="text" name="umbheadfld_City" id="umbheadfld_City" placeholder="Milano">
                     </p>
                 </div>
                 <div class="message_box">
                     <label for="message"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.messaggio"); ?></label>
-                    <textarea id="txtarea" data-required="1" name="umbheadfld_Message" id="umbheadfld_Message" placeholder="your message goes here..."></textarea>
+                    <textarea maxlength="1500" id="txtarea" data-required="1" name="umbheadfld_Message" id="umbheadfld_Message" placeholder="your message goes here..."></textarea>
                 </div>
                 <div class="buttons">
                     <input type="submit" value="<?php echo initConfig::getInstance()->getLang() -> getValue("contatti.invia"); ?>"/>

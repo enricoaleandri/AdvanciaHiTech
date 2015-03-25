@@ -205,7 +205,7 @@ class workwithusBean {
             && $this->mail != "" && strlen($this->message)<=1500
         ) {
             if (filter_var($this->mail, FILTER_VALIDATE_EMAIL) && strlen($this->mail)<=150) {
-                Logger::log(Logger::$INFO, "[AjaxController] sendemail valid  = E' valido");
+                Logger::log(Logger::$INFO, "[AjaxController] sendemail valid  = E' valid");
                 return true;
             } else {
                 return false;

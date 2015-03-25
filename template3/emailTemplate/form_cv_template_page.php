@@ -37,7 +37,7 @@
                                                             <p>Email: [mail]</p>
                                                             <p>Titolo: [title]</p>
                                                             <p>Telefono: [phone]</p>
-                                                            <p>CV: [file]</p>
+                                                            <p>CV: <a href="[file]">[filename]</a></p>
                                                         </td>
                                                     </tr>
                                                 </table><br />

@@ -34,7 +34,8 @@ class AjaxController extends  AbstractController
             'script_url' => $this->response->getProperty("full_url").'/ajax/uploadcv/',
             'upload_dir' => "/home/mhd/www.aleandrienrico.com/htdocs/temp/advancia/data/application/".$_SESSION[$temp_dir_lavori].'/',
             'upload_url' => $this->response->getProperty("full_url").'/data/application/'.$_SESSION[$temp_dir_lavori].'/',
-            'accept_file_types' => '/\.(odt|doc?x|pdf)$/i'
+            'accept_file_types' => '/\.(odt|docx?|pdf)$/i',
+            'max_file_size' => 7000000
         );
 
         $error_messages = array(
@@ -62,6 +63,7 @@ class AjaxController extends  AbstractController
 
     }
 
+
     function  workwithusAction(Request $request){
 
         $form = new workwithusBean();
@@ -74,6 +76,7 @@ class AjaxController extends  AbstractController
         $title = $request->get("umbheadfld_title");
         $message= $request->get("umbheadfld_Message");
         $urlFile = $request->get("umbheadfld_File");
+        $nameFile = $request->get("umbheadfld_Filename");
         Logger::log(Logger::$INFO, "[AjaxController] url file = ".$urlFile);
 
         $form -> setName($name);
@@ -82,7 +85,8 @@ class AjaxController extends  AbstractController
         $form -> setPhone($phone);
         $form -> setTitle($title);
         $form -> setMessage($message);
-        $form -> setFileName($urlFile);
+        $form -> setFileUrl($urlFile);
+        $form -> setFileName($nameFile);
 
         if($form->validate()){
             $captcha=$request->get('g-recaptcha-response');
@@ -90,7 +94,7 @@ class AjaxController extends  AbstractController
             $mailSender->setSubject("Contattato da ".$name." ".$surname);
             $mailSender->setMailfrom("noreply@advancia.it");
             $mailSender->setTemplate($this->properties->getProperty("page_path") . "/" . $this->properties->getProperty("workwithus_mail"));
-            $mailSender->setAttachments("nothing");
+            $mailSender->setAttachments($urlFile);
             $mailSender->setCc("nothing");
             $mailSender->setMailfor("nothing");
             $mailSender->setMailfromname("Contattaci: Advancia Technology");
@@ -101,7 +105,8 @@ class AjaxController extends  AbstractController
             $array['phone'] = $form->getPhone();
             $array['title'] = $form->getTitle();
             $array['message'] = $form->getMessage();
-            $array['file'] = $form->getFileName();
+            $array['file'] = $form->getFileUrl();
+            $array['filename'] = $form->getFileName();
             $mailSender->setTemplateAttributes($array);
             if(!$captcha){
                 Logger::log(Logger::$INFO, "[AjaxController] captcha response = ".$captcha);

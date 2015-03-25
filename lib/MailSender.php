@@ -228,7 +228,6 @@ class MailSender
             $file = str_replace("[" . $key . "]", $this->templateAttributes[$key], $file);
         }
 
-
         $this->body = $file;
         $mailDao = new mailDAO();
         $mailDao->insertMail($this);

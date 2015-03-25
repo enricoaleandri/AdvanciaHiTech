@@ -14,6 +14,7 @@ class workwithusBean {
     private $title;
     private $message;
     private $fileName;
+    private $fileUrl;
     private $fileSize;
     private $fileType;
 
@@ -172,6 +173,24 @@ class workwithusBean {
     {
         $this->fileType = $fileType;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getFileUrl()
+    {
+        return $this->fileUrl;
+    }
+
+    /**
+     * @param mixed $fileUrl
+     */
+    public function setFileUrl($fileUrl)
+    {
+        $this->fileUrl = $fileUrl;
+    }
+    
+
 
     public function  getFile(){
         $array = array("name"=>$this->fileName,"size"=>$this->fileSize,"type"=>$this->fileType);

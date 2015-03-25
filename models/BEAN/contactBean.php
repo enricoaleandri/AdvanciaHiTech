@@ -214,7 +214,7 @@ class contactBean extends AbstractBean
             && $this->cap != "" && $this->mail != "" && strlen($this->message)<=1500
         ) {
             if (is_numeric($this->cap) && filter_var($this->mail, FILTER_VALIDATE_EMAIL) && strlen($this->mail)<=150) {
-                Logger::log(Logger::$INFO, "[AjaxController] sendemail valid  = E' valido");
+                Logger::log(Logger::$INFO, "[AjaxController] sendemail valid  = E' validoo");
                 return true;
             } else {
                 return false;

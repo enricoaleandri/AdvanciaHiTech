@@ -4,13 +4,13 @@ jQuery(document).ready(function () {
         var lang = $(this).attr("data-language");
         changeLanguage(lang);
     });
-    function changeLanguage($lang){
-        $lingua=$lang;
+    function changeLanguage(lang){
+        lingua=lang;
         jQuery.ajax({
             type: "POST",
             dataType: "json",
             url: host + '/public/changeLang/',
-            data: {"lingua" : $lingua},
+            data: {"lingua" : lingua},
             success: function (data) {
                 $res = data.result;
                 location.reload(true);

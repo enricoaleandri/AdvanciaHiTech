@@ -72,57 +72,65 @@ $activePage = "home";
                         <?php echo initConfig::getInstance()->getLang() -> getValue("work.candidatura"); ?>
                     </p>
                 </div>
+                <p style="color: #8e8e8e;font-size: 13px;margin-left: 30px;" >* Campi obbligatori</p>
                 <div class="contact_form">
                     <form action="<?php echo $host;?>/ajax/workwithus/" method="POST" id="workwithus_form" class="um_form">
                         <div class="person_info">
                             <p>
-                                <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.nome"); ?></label>
-                                <input maxlength="50" data-required="1"  data-fieldtype="Text"required data-validation="custom" data-validation-regexp="^[a-zA-Zàèéòùì' ]+$" data-validation-error-msg="Inserire un nome corretto" type="text" name="umbheadfld_Name" id="umbheadfld_Name" placeholder="John">
+                                <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.nome"); ?> *</label>
+                                <input maxlength="50" data-required="1"  data-fieldtype="Text"required data-validation="custom" data-validation-regexp="^[a-zA-Zàèéòùì' \-]+$" data-validation-error-msg="<?php echo initConfig::getInstance()->getLang() -> getValue('work.errorname'); ?>" type="text" name="umbheadfld_Name" id="umbheadfld_Name" placeholder="John">
                             </p>
                             <p>
-                                <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.cognome"); ?></label>
-                                <input maxlength="50" data-required="1"  data-fieldtype="Text" required data-validation="custom" data-validation-regexp="^[a-zA-Zàèéòùì' ]+$" data-validation-error-msg="Inserire un cognome corretto" type="text" name="umbheadfld_Surname" id="umbheadfld_Surname" placeholder="Smith">
+                                <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.cognome"); ?> *</label>
+                                <input maxlength="50" data-required="1"  data-fieldtype="Text" required data-validation="custom" data-validation-regexp="^[a-zA-Zàèéòùì' \-]+$" data-validation-error-msg="<?php echo initConfig::getInstance()->getLang() -> getValue('work.errorsurname'); ?>" type="text" name="umbheadfld_Surname" id="umbheadfld_Surname" placeholder="Smith">
                             </p>
                             <p>
-                                <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.mail"); ?></label>
-                                <input maxlength="150" data-required=""  data-fieldtype="Email" required data-validation="email" data-validation-error-msg="Inserire una mail valida" type="text" name="umbheadfld_E-mail" id="umbheadfld_E-mail" placeholder="johnsmith@email.com">
+                                <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.mail"); ?> *</label>
+                                <input maxlength="150" data-required=""  data-fieldtype="Email" required data-validation="email" data-validation-error-msg="<?php echo initConfig::getInstance()->getLang() -> getValue('work.errormail'); ?>" type="text" name="umbheadfld_E-mail" id="umbheadfld_E-mail" placeholder="johnsmith@email.com">
                             </p>
                         </div>
                         <div class="person_info">
                             <p>
                                 <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.telefono"); ?></label>
-                                <input maxlength="13" data-required="1" data-fieldtype="Text" data-validation-error-msg="Inserire un recapito telefonico valido" data-validation="custom" data-validation-regexp="^(\+?[0-9]{0,13})$" data-validation-error-msg=" " type="text" name="umbheadfld_phone" id="umbheadfld_phone" placeholder="02 54 5845 85">
+                                <input maxlength="13" data-required="1" data-fieldtype="Text" data-validation-error-msg="<?php echo initConfig::getInstance()->getLang() -> getValue('work.errorphone'); ?>" data-validation="custom" data-validation-regexp="^(\+?[0-9]{0,13})$" data-validation-error-msg=" " type="text" name="umbheadfld_phone" id="umbheadfld_phone" placeholder="02 54 5845 85">
                             </p>
                             <p>
-                                <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.titolo"); ?></label>
+                                <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("work.titolo"); ?> *</label>
                                 <input maxlength="50" data-required="1" data-fieldtype="Text" required data-validation="required" data-validation-error-msg=" " type="text" name="umbheadfld_title" id="umbheadfld_title" placeholder="Diploma, laurea, dottorato">
                             </p>
                         </div>
                         <div class="message_box">
-                            <label for="message"><?php echo initConfig::getInstance()->getLang() -> getValue("work.messaggio"); ?></label>
+                            <label for="message"><?php echo initConfig::getInstance()->getLang() -> getValue("work.messaggio"); ?> *</label>
                             <textarea maxlength="1500" id="txtarea"  data-required="1" name="umbheadfld_Message" required data-validation="required" data-validation-error-msg=" " id="umbheadfld_Message" placeholder="your message goes here..."></textarea>
                         </div>
                         <div class="upload-button">
                             <label class="upload-button">
                                 <input id="fileupload" accept=".pdf,.doc,.docx,.odt" name="files[]"  type="file" />
-                                <div id="file" style="line-height: 40px;"><?php echo initConfig::getInstance()->getLang() -> getValue("work.allegacv"); ?></div>
-                                <div id="filesecond" style="line-height: 40px;" hidden ><?php echo initConfig::getInstance()->getLang() -> getValue("work.allegacv"); ?></div>
-                                <input id="fileurl" name="umbheadfld_File" value="" data-validation="required" data-validation-error-msg=" " hidden/>
+                                <div id="file" style="line-height: 40px;"><?php echo initConfig::getInstance()->getLang() -> getValue("work.allegacv"); ?> *</div>
+                                <div id="filesecond" style="line-height: 40px;" hidden ><?php echo initConfig::getInstance()->getLang() -> getValue("work.allegacv"); ?> *</div>
                                 <input id="filename" name="umbheadfld_Filename" value="" data-validation="required" data-validation-error-msg=" " hidden/>
+                                <input id="fileurl" name="umbheadfld_File" value="" data-validation="required" data-validation-error-msg=" " hidden/>
                             </label>
-                        </div>
+                           </div>
                         <br>
+                        <p id="errorfile" hidden style="color:red; font-size: 13px;"><?php echo initConfig::getInstance()->getLang() -> getValue("work.caricarecv"); ?></p>
+                          <br>
                         <!-- The global progress bar - start -->
                         <div id="progress" class="progress">
                             <div class="progress-bar progress-bar-success"  ></div>
                         </div>
                         <!-- The global progress bar - end -->
                         <div class="buttons">
-                            <input type="submit"  value="<?php echo initConfig::getInstance()->getLang() -> getValue("work.inviobottone"); ?>"/>
-                            <input type="reset" value="Reset">
+                            <input type="submit" onclick="checkCaptcha()" value="<?php echo initConfig::getInstance()->getLang() -> getValue("work.inviobottone"); ?>"/>
+                            <input type="reset" onclick="resetAll()" value="Reset">
                         </div>
                         <br>
-                        <div id="captcha"  name="captcha" style="float: right;"  class="g-recaptcha" data-sitekey="6LdYlQMTAAAAAE3vq6JKhrOnx4mzHshf18DNbVZO"></div>
+                        <div style="float: right;">
+                            <input id="robot" value="" value="valid" data-validation="required" data-validation-error-msg=" " hidden/>
+                            <p id="errorfilecapctha" hidden style="color:red; font-size: 13px;"><?php echo initConfig::getInstance()->getLang() -> getValue("work.spuntare"); ?></p>
+                        </div>
+                        <br><br>
+                        <div id="captcha" name="captcha" style="float: right;"  class="g-recaptcha" data-sitekey="6LdYlQMTAAAAAE3vq6JKhrOnx4mzHshf18DNbVZO"></div>
                     </form>
                     <div class="message_sent" id="message_sent" hidden ><?php echo initConfig::getInstance()->getLang() -> getValue("work.invio"); ?></div>
                     <div class="message_sent_error" id="message_sent_error" hidden ><?php echo initConfig::getInstance()->getLang() -> getValue("work.errore"); ?></div>
@@ -226,6 +234,7 @@ $activePage = "home";
                                     }
                                     );
                                 }else{
+                                    $("#errorfile").hide();
                                     $("#fileurl").val(data.result.files[0].url);
                                     $("#filename").val(data.result.files[0].name);
                                     $("#message_type_error").hide();
@@ -244,6 +253,25 @@ $activePage = "home";
                         }).prop('disabled', !$.support.fileInput)
                             .parent().addClass($.support.fileInput ? undefined : 'disabled');
                     });
+
+                    function checkCaptcha(){
+                        if($('#g-recaptcha-response').val()){
+                            $("#robot").val("valid");
+                        }else{
+                            $("#robot").val("");
+                        }
+                    };
+
+                    function resetAll(){
+                        $("#file").show();
+                        $("#file").text("<?php echo initConfig::getInstance()->getLang() -> getValue("work.allegacv"); ?>");
+                        $('#progress .progress-bar').css(
+                            'width', 0
+                        );
+                        $("#errorfilecapctha").hide();
+                        $("#errorfile").hide();
+                        grecaptcha.reset();
+                    };
                 </script>
 
             </div>

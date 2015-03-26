@@ -201,7 +201,7 @@ class workwithusBean {
     {
         if (($this->name != "" && $this->name != "true" && strlen($this->name)<=50) &&
             ($this->surname != "" && $this->surname != "true" && strlen($this->surname)<=50) &&
-            ($this->title != "" && $this->title != "true" && strlen($this->title)<=150)
+            ($this->title != "" && $this->title != "true" && strlen($this->title)<=50)
             && $this->mail != "" && strlen($this->message)<=1500
         ) {
             if (filter_var($this->mail, FILTER_VALIDATE_EMAIL) && strlen($this->mail)<=150) {

@@ -5,8 +5,15 @@ jQuery(document).ready(function () {
         validateOnBlur : false,
         modules: 'security',
         onError: function () {
-            $("#message_sent_error").hide();
-            $("#message_sent").hide();
+            if($("#robot").val()==""){
+                $("#errorfilecapctha").show();
+                $("#message_sent_error").hide();
+                $("#message_sent").hide();
+            }else{
+                $("#errorfilecapctha").hide();
+                $("#message_sent_error").hide();
+                $("#message_sent").hide();
+            }
         },
         onSuccess: function () {
             jQuery.ajax({
@@ -20,9 +27,11 @@ jQuery(document).ready(function () {
                         $("input[type=text]").val('');
                         $("#txtarea").val('');
                         grecaptcha.reset();
+                        $("#errorfilecapctha").hide();
                         $("#message_sent").show(500);
                         $("#message_sent_error").hide();
                     }else {
+                        $("#errorfilecapctha").hide();
                         $("#message_sent_error").show(500);
                         $("#message_sent").hide();
                     }

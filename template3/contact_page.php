@@ -93,7 +93,7 @@
 
                     var myLatlng = new google.maps.LatLng(45.45147, 9.173879999999999);
                     var mapOptions = {
-                        zoom: 8,
+                        zoom: 12,
                         center: myLatlng,
                         mapTypeId: google.maps.MapTypeId.ROADMAP,
                         mapTypeControl: false,
@@ -133,8 +133,8 @@
             </div>
             <div class="contact_info">
                 <h5><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.info"); ?></h5>
-                <p class="mobile"><strong>Mobile</strong> <?php $settings['comunication_number'];?></p>
-                <p class="mobile"><strong>Fax</strong> 00377 44 111 222</p>
+                <p class="mobile"><strong>Mobile:</strong> <?php echo $settings['comunication_number'];?></p>
+                <p class="mobile"><strong>Email:</strong> <a href="mailto:<?php echo $settings['comunication_mail']; ?>"><?php echo $settings['comunication_mail']; ?></a></p>
             </div>
         </div>
     </div>
@@ -142,26 +142,27 @@
         <div class="contact_title">
             <h1><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.contattaci"); ?></h1>
         </div>
+        <p style="color: #8e8e8e;font-size: 13px;margin-left: 30px;" >* Campi obbligatori</p>
         <div class="contact_form" >
             <form action="<?php echo $host;?>/ajax/contactus/" method="post" id="contact_form" class="um_form">
                 <div class="person_info">
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.nome"); ?></label>
-                       <input maxlength="50" data-required="1" data-fieldtype="Text"  required data-validation="custom" data-validation-regexp="^[a-zA-Zàèéòùì' ]+$" data-validation-error-msg="Inserire un nome corretto"   type="text" name="umbheadfld_Name" id="umbheadfld_Name" placeholder="John">
+                       <input maxlength="50" data-required="1" data-fieldtype="Text"  required data-validation="custom" data-validation-regexp="^[a-zA-Zàèéòùì' \-]+$" data-validation-error-msg="<?php echo initConfig::getInstance()->getLang() -> getValue('contatti.errorname'); ?>"   type="text" name="umbheadfld_Name" id="umbheadfld_Name" placeholder="John">
                     </p>
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.cognome"); ?></label>
-                        <input maxlength="50" data-required="1" data-fieldtype="Text" required data-validation="custom" data-validation-regexp="^[a-zA-Zàèéòùì' ]+$" data-validation-error-msg="Inserire un cognome corretto"  type="text" name="umbheadfld_Surname" id="umbheadfld_Surname" placeholder="Smith">
+                        <input maxlength="50" data-required="1" data-fieldtype="Text" required data-validation="custom" data-validation-regexp="^[a-zA-Zàèéòùì' \-]+$" data-validation-error-msg="<?php echo initConfig::getInstance()->getLang() -> getValue('contatti.errorsurname'); ?>"  type="text" name="umbheadfld_Surname" id="umbheadfld_Surname" placeholder="Smith">
                     </p>
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.mail"); ?></label>
-                        <input maxlength="150" data-required="" data-fieldtype="Email" required data-validation="email" data-validation-error-msg="Inserire una mail valida"  type="text" name="umbheadfld_E-mail" id="umbheadfld_E-mail" placeholder="johnsmith@email.com">
+                        <input maxlength="150" data-required="" data-fieldtype="Email" required data-validation="email" data-validation-error-msg="<?php echo initConfig::getInstance()->getLang() -> getValue('contatti.errormail'); ?>"  type="text" name="umbheadfld_E-mail" id="umbheadfld_E-mail" placeholder="johnsmith@email.com">
                     </p>
                 </div>
                 <div class="person_info">
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.telefono"); ?></label>
-                        <input maxlength="13" data-required="1" data-fieldtype="Text"  type="text" data-validation-error-msg="Inserire un recapito telefonico valido" data-validation="custom" data-validation-regexp="^(\+?[0-9]{0,13})$" name="umbheadfld_phone" id="umbheadfld_phone" placeholder="02 54 5845 85">
+                        <input maxlength="13" data-required="1" data-fieldtype="Text"  type="text" data-validation-error-msg="<?php echo initConfig::getInstance()->getLang() -> getValue('contatti.errorphone'); ?>" data-validation="custom" data-validation-regexp="^(\+?[0-9]{0,13})$" name="umbheadfld_phone" id="umbheadfld_phone" placeholder="02 54 5845 85">
                     </p>
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.societa"); ?></label>
@@ -169,7 +170,7 @@
                     </p>
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.fax"); ?></label>
-                        <input maxlength="13" data-required="1" data-fieldtype="Email" data-validation-error-msg="Inserire un recapito fax valido" data-validation="custom" data-validation-regexp="^(\+?[0-9]{0,13})$" type="text" name="umbheadfld_Fax" id="umbheadfld_Fax-mail" placeholder="02 5485 698">
+                        <input maxlength="13" data-required="1" data-fieldtype="Email" data-validation-error-msg="<?php echo initConfig::getInstance()->getLang() -> getValue('contatti.errorfax'); ?>" data-validation="custom" data-validation-regexp="^(\+?[0-9]{0,13})$" type="text" name="umbheadfld_Fax" id="umbheadfld_Fax-mail" placeholder="02 5485 698">
                     </p>
                 </div>
                 <div class="person_info">
@@ -179,11 +180,11 @@
                     </p>
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.cap"); ?></label>
-                        <input data-required="1" data-fieldtype="Text" required data-validation-error-msg="Inserire un CAP valido"  type="text"  data-validation="custom" data-validation-regexp="^([0-9]{5})$" name="umbheadfld_Cap" id="umbheadfld_Cap-mail" placeholder="20139">
+                        <input data-required="1" data-fieldtype="Text" required data-validation-error-msg="<?php echo initConfig::getInstance()->getLang() -> getValue('contatti.errorcap'); ?>"  type="text" maxlength="5" data-validation="custom" data-validation-regexp="^([0-9]{5})$" name="umbheadfld_Cap" id="umbheadfld_Cap-mail" placeholder="20139">
                     </p>
                     <p>
                         <label for="name"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.citta"); ?></label>
-                        <input maxlength="60" data-required="1" data-fieldtype="Text" required data-validation-error-msg="Inserire una città valida"  data-validation="custom" data-validation-regexp="^[a-zA-Zàèéòùì' ]+$" type="text" name="umbheadfld_City" id="umbheadfld_City" placeholder="Milano">
+                        <input maxlength="60" data-required="1" data-fieldtype="Text" required data-validation-error-msg="<?php echo initConfig::getInstance()->getLang() -> getValue('contatti.errorcity'); ?>"  data-validation="custom" data-validation-regexp="^[a-zA-Zàèéòùì' ]+$" type="text" name="umbheadfld_City" id="umbheadfld_City" placeholder="Milano">
                     </p>
                 </div>
                 <div class="message_box">
@@ -191,10 +192,15 @@
                     <textarea maxlength="1500" id="txtarea" data-required="1" name="umbheadfld_Message" id="umbheadfld_Message" placeholder="your message goes here..."></textarea>
                 </div>
                 <div class="buttons">
-                    <input type="submit" value="<?php echo initConfig::getInstance()->getLang() -> getValue("contatti.invia"); ?>"/>
-                    <input id="reset" type="reset" value="<?php echo initConfig::getInstance()->getLang() -> getValue("contatti.reset"); ?>">
+                    <input type="submit" onclick="checkCaptcha()" value="<?php echo initConfig::getInstance()->getLang() -> getValue("contatti.invia"); ?>"/>
+                    <input id="reset" onclick="resetAll()" type="reset" value="<?php echo initConfig::getInstance()->getLang() -> getValue("contatti.reset"); ?>">
                 </div>
                 <br>
+                <div style="float: right;">
+                    <input id="robot" value="" value="valid" data-validation="required" data-validation-error-msg=" " hidden/>
+                    <p id="errorfilecapctha" hidden style="color:red; font-size: 13px;"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.spuntare"); ?></p>
+                </div>
+                <br><br>
                 <div id="captcha" style="float: right;"  class="g-recaptcha" data-sitekey="6LdYlQMTAAAAAE3vq6JKhrOnx4mzHshf18DNbVZO"></div>
             </form>
             <div class="message_sent" id="message_sent" hidden ><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.messaggioinvio"); ?></div>
@@ -211,6 +217,22 @@
         <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script>
         <script type='text/javascript' src="<?php echo $url;?>js/form-validator/jquery.form-validator.min.js"></script>
         <script type="text/javascript" src="<?php echo $url;?>js/contact_script.js"></script>
+
+        <script>
+            $=jQuery;
+            function checkCaptcha(){
+                if($('#g-recaptcha-response').val()){
+                    $("#robot").val("valid");
+                }else{
+                    $("#robot").val("");
+                }
+            };
+            function resetAll(){
+                $("#errorfilecapctha").hide();
+                grecaptcha.reset();
+            };
+        </script>
+
     </div>
 </div>
 <!--End Inner Content-->

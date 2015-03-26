@@ -49,13 +49,13 @@ $settings = initConfig::getInstance()->getSettings();
             <div class="twitter_feed">
                 <h3 class="w_title"><a target="_blank" href="">Facebook</a></h3>
                 <div class="tweet" style="display: none;">
-                    <p class="tweet"><strong>@advancia </strong>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                    <p class="tweet"><strong>@Advancia Technology</strong></p>
                 </div>
                 <div class="tweet" style="display: none;">
-                    <p class="tweet"><strong>@advancia </strong>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  </p>
+                    <p class="tweet"><strong>@Advancia Technology </strong></p>
                 </div>
                 <div class="tweet" style="display: none;">
-                    <p class="tweet"><strong>@advancia </strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <p class="tweet"><strong>@Advancia Technology</strong> </p>
                 </div>
             </div>
             <!--Close Twitter Feed-->
@@ -63,7 +63,7 @@ $settings = initConfig::getInstance()->getSettings();
         </div>
         <div id="text-2" class="widgets widgets_footer col_01 widget_text">
             <h3><?php echo initConfig::getInstance()->getLang() -> getValue("footer.news"); ?>  </h3>
-            <div class="textwidget">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+            <div class="textwidget">@Advancia Technology</div>
         </div>
         
 

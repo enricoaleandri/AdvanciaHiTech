@@ -93,7 +93,7 @@ $host =  $response -> getProperty("host");
         <div class="outsourcing who_we_are  col_04">
             <h1>News</h1>
             <!-- news 1 -->
-
+            <!--
             <div data-post="1" id="post-223" class="post-223 post type-post status-publish format-standard has-post-thumbnail hentry category-misc tag-way">
                 <script>
                 </script>
@@ -172,11 +172,13 @@ $host =  $response -> getProperty("host");
                     </div>
                 </div>
             </div>
+            -->
             <!-- news 1 END -->
-
+            <!--
             <div style="padding: 3px;margin: 25px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;-ms-box-sizing: border-box;box-sizing: border-box;background: #C00000;position: relative; width: 96%;display: table;"></div>
+            -->
             <!-- news 2 -->
-
+            <!--
             <div data-post="1" id="post-223" class="post-223 post type-post status-publish format-standard has-post-thumbnail hentry category-misc tag-way">
                 <script>
                 </script>
@@ -255,11 +257,13 @@ $host =  $response -> getProperty("host");
                     </div>
                 </div>
             </div>
+            -->
             <!-- news 2 END -->
-
+            <!--
             <div style="padding: 3px;margin: 25px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;-ms-box-sizing: border-box;box-sizing: border-box;background: #C00000;position: relative; width: 96%;display: table;"></div>
+            -->
             <!-- news 3 -->
-
+            <!--
             <div data-post="1" id="post-223" class="post-223 post type-post status-publish format-standard has-post-thumbnail hentry category-misc tag-way">
                 <script>
                 </script>
@@ -338,6 +342,7 @@ $host =  $response -> getProperty("host");
                     </div>
                 </div>
             </div>
+            -->
             <!-- news 3 END -->
 
         </div>

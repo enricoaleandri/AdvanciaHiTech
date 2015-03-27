@@ -30,14 +30,18 @@ $settings = initConfig::getInstance()->getSettings();
             <div class="textwidget">
                 <div class="contact_form_field col_02" style="width:270px;height: auto;">
                     <div class="contact_form" style="padding: 0px;">
-                        <form action="#" method="post" class="um_form">
+                        <form action="http://advancia.us10.list-manage.com/subscribe/post?u=6fcc2bf048babb6da37aa917c&amp;id=5498777418" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
                             <div class="person_info" style="margin-bottom: 0px;">
                                 <p>
-                                    <input data-required="" data-fieldtype="Email" type="text" name="newsl-e-mail" id="newsl-e-mail" placeholder="johnsmith@email.com">
+
+                                    <input data-required="" data-fieldtype="Email" type="text" name="EMAIL" id="newsl-e-mail" placeholder="johnsmith@email.com">
+                                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                                 </p>
                             </div>
+                            <div style="position: absolute; left: -5000px;"><input type="text" name="b_6fcc2bf048babb6da37aa917c_5498777418" tabindex="-1" value=""></div>
                             <div class="buttons" style="margin-top: 10px;">
                                 <input type="submit" value="<?php echo initConfig::getInstance()->getLang() -> getValue("footer.iscriviti"); ?>" style="width: 100%;"/>
+
                             </div>
                         </form>
                         <div class="message_sent" style="display: none"><?php echo initConfig::getInstance()->getLang() -> getValue("footer.regcompl"); ?> </div>

@@ -38,19 +38,10 @@ $activePage = "social";
             ?>
             <div class="header_tools">
                 <!--Header Tools-->
-                <div class="social_links">
-                    <ul>
-                        <li><a href="#" class="websymbols">F</a></li>
-                        <li><a href="#" class="websymbols">t</a></li>
-                        <li><a href="#" class="websymbols">g</a></li>
-                    </ul>
-                </div>
-                <div class="search">
-                    <form method="get" action="#">
-                        <input type="text" name="s" id="s" placeholder="Search here...">
-                        <input type="submit" id="search_button" value="">
-                    </form>
-                </div>
+
+                <?php
+                initConfig::getInstance() -> getIncluder() -> includePage("social_button");
+                ?>
             </div>
             <!--End Header Tools-->
         </div>

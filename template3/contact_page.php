@@ -133,7 +133,7 @@
         <div class="contact_title">
             <h1><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.contattaci"); ?></h1>
         </div>
-        <p style="color: #8e8e8e;font-size: 13px;margin-left: 30px;" >* Campi obbligatori</p>
+        <p style="color: #8e8e8e;font-size: 13px;margin-left: 30px;" ><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.obbligo"); ?></p>
         <div class="contact_form" >
             <form action="<?php echo $host;?>/ajax/contactus/" method="post" id="contact_form" class="um_form">
                 <div class="person_info">
@@ -221,6 +221,8 @@
             function resetAll(){
                 $("#errorfilecapctha").hide();
                 grecaptcha.reset();
+                $("#message_sent").hide();
+                $("#message_sent_error").hide();
             };
         </script>
 

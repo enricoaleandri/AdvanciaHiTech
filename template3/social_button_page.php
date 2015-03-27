@@ -14,9 +14,9 @@ $host =  $response -> getProperty("host");
 
 <div class="social_links">
     <ul>
-        <li><a href="#"  target="_blank" class="websymbols">F</a></li>
+        <li><a href="https://it-it.facebook.com/AdvanciaTechnologySrl"  target="_blank" class="websymbols">F</a></li>
         <li><a href="https://twitter.com/advancia_it" target="_blank" class="websymbols">t</a></li>
-        <li><a href="https://it-it.facebook.com/AdvanciaTechnologySrl" target="_blank" class="websymbols">g</a></li>
+        <li><a href="#" target="_blank" class="websymbols">g</a></li>
     </ul>
 </div>
 <div class="search">

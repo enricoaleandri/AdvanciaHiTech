@@ -18,8 +18,10 @@
     ?>
 
     <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?v=3.exp&#038;sensor=false&#038;ver=1.0'></script>
-    <script src='https://www.google.com/recaptcha/api.js?hl=<?php echo strtolower(initConfig::getInstance()-> getLang() -> getLang()) ?>'></script>
-    <title><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.contatti"); ?></title>
+    <script src='https://www.google.com/recaptcha/api.js?hl=<?php echo strtolower(initConfig::getInstance()-> getLang() -> getLang()) ?>' ></script>
+
+
+        <title><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.contatti"); ?></title>
 </head>
 <body class="home page page-id-8 page-template page-template-template-home page-template-template-home-php regular_typo">
 <script>
@@ -125,7 +127,7 @@
             <div class="contact_info">
                 <h5><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.info"); ?></h5>
                 <p class="mobile"><strong>Mobile:</strong> <?php echo $settings['comunication_number'];?></p>
-                <p class="mobile"><strong>Email:</strong> <a href="mailto:<?php echo $settings['comunication_mail']; ?>"><?php echo $settings['comunication_mail']; ?></a></p>
+                <p class="mobile"><strong>Email:</strong> <a href="mailto:<?php echo $settings['comunication_mail']; ?>" style="color: rgb(192,0,0)" ><?php echo $settings['comunication_mail']; ?></a></p>
             </div>
         </div>
     </div>
@@ -133,7 +135,7 @@
         <div class="contact_title">
             <h1><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.contattaci"); ?></h1>
         </div>
-        <p style="color: #8e8e8e;font-size: 13px;margin-left: 30px;" >* Campi obbligatori</p>
+        <p style="color: #8e8e8e;font-size: 13px;margin-left: 30px;" ><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.obbligo"); ?></p>
         <div class="contact_form" >
             <form action="<?php echo $host;?>/ajax/contactus/" method="post" id="contact_form" class="um_form">
                 <div class="person_info">
@@ -221,6 +223,8 @@
             function resetAll(){
                 $("#errorfilecapctha").hide();
                 grecaptcha.reset();
+                $("#message_sent").hide();
+                $("#message_sent_error").hide();
             };
         </script>
 

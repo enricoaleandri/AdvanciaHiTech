@@ -63,7 +63,7 @@ $activePage = "home";
                         <?php echo initConfig::getInstance()->getLang() -> getValue("work.candidatura"); ?>
                     </p>
                 </div>
-                <p style="color: #8e8e8e;font-size: 13px;margin-left: 30px;" >* Campi obbligatori</p>
+                <p style="color: #8e8e8e;font-size: 13px;margin-left: 30px;" ><?php echo initConfig::getInstance()->getLang() -> getValue("work.obbligo"); ?></p>
                 <div class="contact_form">
                     <form action="<?php echo $host;?>/ajax/workwithus/" method="POST" id="workwithus_form" class="um_form">
                         <div class="person_info">
@@ -262,6 +262,8 @@ $activePage = "home";
                         $("#errorfilecapctha").hide();
                         $("#errorfile").hide();
                         grecaptcha.reset();
+                        $("#message_sent").hide();
+                        $("#message_sent_error").hide();
                     };
                 </script>
 

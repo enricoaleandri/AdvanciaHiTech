@@ -10,7 +10,6 @@
  */
 require_once("commonConstants.php");
 require_once("Logger.php");
-//require_once("language/Lang.php");
 require_once("config/Config.php");
 require_once("models/DBConnection.php");
 require_once("models/queryBuilder.lib.php");
@@ -19,6 +18,7 @@ require_once("initConfig.php");
 
 require_once("models/BEAN/lavoriBean.php");
 require_once("models/BEAN/contactBean.php");
+require_once("models/BEAN/workwithusBean.php");
 
 require_once("models/DAO/lavoriDAO.php");
 require_once("models/DAO/categorieDAO.php");
@@ -27,5 +27,6 @@ require_once("models/DAO/adminDAO.php");
 require_once("models/DAO/mailDAO.php");
 
 require_once('lib/Unirest.php');
+require_once('lib/HandlerUpload.php');
 require_once('Utils.php');
 ?>

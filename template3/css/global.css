@@ -1460,13 +1460,13 @@ div.blog:hover .brief_blog a.continue_reading {
 /* Project Post */
 
 .project_content {
-    height: 400px;
+    height: 480px;
 	overflow: hidden;
 	background: #fff;
 }
 
 .project_content > div {
-	height: 390px;
+	height: 455px;
 	display: inline;
 	float: left;
 }

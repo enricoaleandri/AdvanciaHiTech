@@ -136,5 +136,4 @@ class Config
         return $this->properties;
     }
 }
-
 ?>

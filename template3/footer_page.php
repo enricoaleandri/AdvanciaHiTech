@@ -22,7 +22,7 @@ $settings = initConfig::getInstance()->getSettings();
                 <h3><a href="<?php echo $host;?>/public/contact/"><strong><?php echo initConfig::getInstance()->getLang() -> getValue("footer.findus"); ?> </strong></a></h3>
                 <p class="f_street"><?php echo $settings['office_address'];?>
                 <p class="f_phone"><strong><?php echo initConfig::getInstance()->getLang() -> getValue("footer.phone"); ?>  </strong><?php echo $settings['comunication_number'];?></p>
-                <p class="f_email"><strong><?php echo initConfig::getInstance()->getLang() -> getValue("footer.email"); ?> </strong><?php echo $settings['comunication_mail'];?></p>
+                <p class="f_email"><strong><?php echo initConfig::getInstance()->getLang() -> getValue("footer.email"); ?> </strong><a href="mailto:<?php echo $settings['comunication_mail']; ?>" ><?php echo $settings['comunication_mail']; ?> </a></p>
             </div>
         </div>
         <div id="text-2" class="widgets widgets_footer col_01 widget_text">
@@ -34,7 +34,7 @@ $settings = initConfig::getInstance()->getSettings();
                             <div class="person_info" style="margin-bottom: 0px;">
                                 <p>
 
-                                    <input data-required="" data-fieldtype="Email" type="text" name="EMAIL" id="newsl-e-mail" placeholder="johnsmith@email.com">
+                                    <input data-required="" data-fieldtype="Email" type="text" name="EMAIL" id="newsl-e-mail" placeholder="info@advancia.it">
                                     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                                 </p>
                             </div>
@@ -56,7 +56,7 @@ $settings = initConfig::getInstance()->getSettings();
                     <p class="tweet"><strong>@Advancia Technology</strong></p>
                 </div>
                 <div class="tweet" style="display: none;">
-                    <p class="tweet"><strong>@Advancia Technology </strong></p>
+                    <p class="tweet"><strong>@Advancia Technology</strong></p>
                 </div>
                 <div class="tweet" style="display: none;">
                     <p class="tweet"><strong>@Advancia Technology</strong> </p>

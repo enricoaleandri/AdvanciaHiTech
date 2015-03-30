@@ -18,8 +18,10 @@
     ?>
 
     <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?v=3.exp&#038;sensor=false&#038;ver=1.0'></script>
-    <script src='https://www.google.com/recaptcha/api.js?hl=<?php echo strtolower(initConfig::getInstance()-> getLang() -> getLang()) ?>'></script>
-    <title><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.contatti"); ?></title>
+    <script src='https://www.google.com/recaptcha/api.js?hl=<?php echo strtolower(initConfig::getInstance()-> getLang() -> getLang()) ?>' ></script>
+
+
+        <title><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.contatti"); ?></title>
 </head>
 <body class="home page page-id-8 page-template page-template-template-home page-template-template-home-php regular_typo">
 <script>
@@ -125,7 +127,7 @@
             <div class="contact_info">
                 <h5><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.info"); ?></h5>
                 <p class="mobile"><strong>Mobile:</strong> <?php echo $settings['comunication_number'];?></p>
-                <p class="mobile"><strong>Email:</strong> <a href="mailto:<?php echo $settings['comunication_mail']; ?>"><?php echo $settings['comunication_mail']; ?></a></p>
+                <p class="mobile"><strong>Email:</strong> <a href="mailto:<?php echo $settings['comunication_mail']; ?>" style="color: rgb(192,0,0)" ><?php echo $settings['comunication_mail']; ?></a></p>
             </div>
         </div>
     </div>

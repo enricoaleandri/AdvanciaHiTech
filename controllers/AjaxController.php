@@ -92,7 +92,7 @@ class AjaxController extends  AbstractController
             $captcha=$request->get('g-recaptcha-response');
            //@$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LdYlQMTAAAAAMdRILveYnei-Y7sF_9WXM5kPYvR&response=".$captcha);
             $headers = array("Accept" => "application/json");
-            $body = array("secret" => "6LdYlQMTAAAAAMdRILveYnei-Y7sF_9WXM5kPYvR", "response" => "$captcha");
+            $body = array("secret" => $this->properties->getProperty("secret_recaptcha_key"), "response" => "$captcha");
             $resp = Unirest::get("https://www.google.com/recaptcha/api/siteverify", $headers, $body);
             $response = $resp ->raw_body;
             $settings = initConfig::getInstance()->getSettings();
@@ -170,7 +170,7 @@ class AjaxController extends  AbstractController
             $captcha=$request->get('g-recaptcha-response');
            // @$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LdYlQMTAAAAAMdRILveYnei-Y7sF_9WXM5kPYvR&response=".$captcha);
             $headers = array("Accept" => "application/json");
-            $body = array("secret" => "6LdYlQMTAAAAAMdRILveYnei-Y7sF_9WXM5kPYvR", "response" => "$captcha");
+            $body = array("secret" => $this->properties->getProperty("secret_recaptcha_key"), "response" => "$captcha");
             $resp = Unirest::get("https://www.google.com/recaptcha/api/siteverify", $headers, $body);
             $response = $resp ->raw_body;
             $settings = initConfig::getInstance()->getSettings();

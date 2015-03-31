@@ -10,7 +10,7 @@
 <head>
 
     <?php
-        initConfig::getInstance() -> getIncluder() -> includePage("header");
+    initConfig::getInstance() -> getIncluder() -> includePage("header");
     ?>
 
     <?php
@@ -194,7 +194,7 @@
                     <p id="errorfilecapctha" hidden style="color:red; font-size: 13px;"><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.spuntare"); ?></p>
                 </div>
                 <br><br>
-                <div id="captcha" style="float: right;"  class="g-recaptcha" data-sitekey="6LdYlQMTAAAAAE3vq6JKhrOnx4mzHshf18DNbVZO"></div>
+                <div id="captcha" style="float: right;"  class="g-recaptcha" data-sitekey="<?php echo initConfig::getInstance()->getConfig()->getProperty("public_recaptcha_key"); ?>'"></div>
             </form>
             <div class="message_sent" id="message_sent" hidden ><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.messaggioinvio"); ?></div>
             <div class="message_sent_error" id="message_sent_error" hidden ><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.messaggioerrore"); ?></div>

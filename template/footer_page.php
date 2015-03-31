@@ -48,7 +48,8 @@ $settings = initConfig::getInstance()->getSettings();
                 </div>
             </div>
         </div>
-        <div id="umbrella_twitterfeed_widget-3" class="widgets widgets_footer col_01 widget_umbrella_twitterfeed_widget">
+        <?php //TODO retrive info from social network, must be connecter ?>
+        <!--div id="umbrella_twitterfeed_widget-3" class="widgets widgets_footer col_01 widget_umbrella_twitterfeed_widget">
             <div class="twitter_feed">
                 <h3 class="w_title"><a target="_blank" href="">Facebook</a></h3>
                 <div class="tweet" style="display: none;">
@@ -62,12 +63,13 @@ $settings = initConfig::getInstance()->getSettings();
                 </div>
             </div>
             <!--Close Twitter Feed-->
-            <script> jQuery("div.twitter_feed").twitterfeed(); </script>
-        </div>
-        <div id="text-2" class="widgets widgets_footer col_01 widget_text">
+            <!--script> jQuery("div.twitter_feed").twitterfeed(); </script-->
+        <!--/div-->
+        <?php  // TODO  : to implement news area?>
+        <!--div id="text-2" class="widgets widgets_footer col_01 widget_text">
             <h3><?php echo initConfig::getInstance()->getLang() -> getValue("footer.news"); ?>  </h3>
             <div class="textwidget">@Advancia Technology</div>
-        </div>
+        </div-->
         
 
     </div>

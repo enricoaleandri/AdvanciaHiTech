@@ -1,5 +1,7 @@
 RewriteEngine On
-RewriteBase /advancia/
+#RewriteBase /advancia/
+#Production config
+RewriteBase /
 
 RewriteCond %{REQUEST_FILENAME} -s [OR]
 RewriteCond %{REQUEST_FILENAME} -l [OR]
@@ -9,8 +11,7 @@ RewriteCond %{REQUEST_URI} !(\.png|\.css|\.js|\.jpg|\.jpeg|\.ico|\.ttf|\.woff|\.
 RewriteRule ^ - [L]
 
 RewriteRule ^admin/(.*)!(\.png|\.css|\.js|\.jpg|\.jpeg|\.ico|\.ttf|\.woff|\.txt|\.gif|\.pdf)$ admin/index.php/$1 [QSA]
-RewriteRule !(\.png|\.css|\.js|\.jpg|\.jpeg|\.ico|\.ttf|\.woff|\.txt|\.gif|\.pdf)$ inde
-x.php/$1
+RewriteRule !(\.png|\.css|\.js|\.jpg|\.jpeg|\.ico|\.ttf|\.woff|\.txt|\.gif|\.pdf)$ index.php/$1
 #ErrorDocument 404 /errors/404.html
 #ErrorDocument 403 /errors/403.html
 #ErrorDocument 500 /errors/500.html

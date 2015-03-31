@@ -19,9 +19,10 @@ $host =  $response -> getProperty("host");
         <li><a href="#" target="_blank" class="websymbols">g</a></li>
     </ul>
 </div>
-<div class="search">
+<!-- just TODO -->
+<!--div class="search">
     <form method="get" action="#">
         <input type="text" name="s" id="s" placeholder="Search here...">
         <input type="submit" id="search_button" value="">
     </form>
-</div>
+</div-->

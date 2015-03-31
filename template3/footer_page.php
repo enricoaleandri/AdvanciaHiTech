@@ -73,7 +73,7 @@ $settings = initConfig::getInstance()->getSettings();
     </div>
     <div class="footer_bottom clear_fix">
         <p class="copyright"><?php echo initConfig::getInstance()->getLang() -> getValue("footer.copy"); ?><?php echo date("Y"); ?>&nbsp;<strong><?php echo $settings['comunication_name'];?></strong></p>
-        <br><p>P.IVA e CF: 01179050453</p>
+        <br><p>Codice Fiscale e Partita IVA: <?php echo $settings['p_iva'];?></p>
         <p class="footer_menu" style="float: right;">
             <a href="<?php echo $host;?>/public/home/"><?php echo initConfig::getInstance()->getLang() -> getValue("footer.home"); ?></a> |
             <a href="<?php echo $host;?>/public/contact/"><?php echo initConfig::getInstance()->getLang() -> getValue("footer.contatti"); ?></a> |

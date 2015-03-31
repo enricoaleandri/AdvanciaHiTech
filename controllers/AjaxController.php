@@ -95,8 +95,9 @@ class AjaxController extends  AbstractController
             $body = array("secret" => "6LdYlQMTAAAAAMdRILveYnei-Y7sF_9WXM5kPYvR", "response" => "$captcha");
             $resp = Unirest::get("https://www.google.com/recaptcha/api/siteverify", $headers, $body);
             $response = $resp ->raw_body;
-            $mailSender->setMailto("alessio_falzarano@hotmail.it");
-            $mailSender->setSubject("Contattato da ".$name." ".$surname);
+            $settings = initConfig::getInstance()->getSettings();
+            $mailSender->setMailto($settings["job_mail"]);
+            $mailSender->setSubject("Advancia.it - Candidatura :: ".$name." ".$surname);
             $mailSender->setMailfrom("noreply@advancia.it");
             $mailSender->setTemplate($this->properties->getProperty("page_path") . "/" . $this->properties->getProperty("workwithus_mail"));
             $mailSender->setAttachments($urlFile);
@@ -172,8 +173,9 @@ class AjaxController extends  AbstractController
             $body = array("secret" => "6LdYlQMTAAAAAMdRILveYnei-Y7sF_9WXM5kPYvR", "response" => "$captcha");
             $resp = Unirest::get("https://www.google.com/recaptcha/api/siteverify", $headers, $body);
             $response = $resp ->raw_body;
-            $mailSender->setMailto("alessio.falzarano@gmail.com");
-            $mailSender->setSubject("Contattato da ".$company);
+            $settings = initConfig::getInstance()->getSettings();
+            $mailSender->setMailto($settings["comunication_mail"]);
+            $mailSender->setSubject("Advancia.it - Contattaci :: ".$company);
             $mailSender->setCc("qualcuno@prova.com");
             $mailSender->setMailfrom("noreply@advancia.it");
             $mailSender->setTemplate($this->properties->getProperty("page_path") . "/" . $this->properties->getProperty("contact_mail"));

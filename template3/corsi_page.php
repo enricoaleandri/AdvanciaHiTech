@@ -68,6 +68,9 @@ $activePage = "bigdata";
         </div><!--End Sub Header-->
         <div class="who_we_are col_04">
             <div>
+                   <span >
+                    <img src="http://www.advancia.it/it/css/images/java_logo.png" style="width: 150px;height:200px;float:right;"  alt="" class="right">
+                </span>
                 <span style="display: inline-block; width: 70%;">
                     <p class="imp_paragraph">
                         <?php echo initConfig::getInstance()->getLang() -> getValue("corsi.testo"); ?>
@@ -83,16 +86,17 @@ $activePage = "bigdata";
                     <p>
                         <?php echo initConfig::getInstance()->getLang() -> getValue("corsi.testo4"); ?>
                         <?php echo initConfig::getInstance()->getLang() -> getValue("corsi.testo5"); ?>
-                        <a  target="_blank" style="color: #C00000; font-weight: bold;"  href="<?php echo $host;?>/public/workwithus">job@advancia.it</a>
-                        <?php echo initConfig::getInstance()->getLang() -> getValue("corsi.testo6"); ?>
+                        <a  target="_blank" style="color: #C00000; font-weight: bold;"  href="<?php echo $host;?>/public/workwithus"><?php echo initConfig::getInstance()->getLang() -> getValue("corsi.testo6"); ?></a>
+
                     </p>
                 </span>
-                <span >
-                    <img src="http://www.advancia.it/it/css/images/java_logo.png" style="width: 200px;"  alt="" class="right">
-                </span>
+
             </div>
-            <br/>
+            <br/><br/><br/>
             <div>
+                  <span>
+                    <img src="http://www.advancia.it/it/css/images/oracle_logo.png" alt="" style="width: 200px;float:right;" class="right">
+                </span>
                 <span style="display: inline-block; width: 70%;">
                     <p class="imp_paragraph">
                         <?php echo initConfig::getInstance()->getLang() -> getValue("corsi.testo7"); ?>
@@ -109,14 +113,10 @@ $activePage = "bigdata";
                         <p>
                             <?php echo initConfig::getInstance()->getLang() -> getValue("corsi.testo4"); ?>
                             <?php echo initConfig::getInstance()->getLang() -> getValue("corsi.testo5"); ?>
-                            <a  target="_blank" style="color: #C00000; font-weight: bold;"  href="<?php echo $host;?>/public/workwithus">job@advancia.it</a>
-                            <?php echo initConfig::getInstance()->getLang() -> getValue("corsi.testo6"); ?>
-                            <br/>
+                            <a  target="_blank" style="color: #C00000; font-weight: bold;"  href="<?php echo $host;?>/public/workwithus"><?php echo initConfig::getInstance()->getLang() -> getValue("corsi.testo6"); ?></a>
+
                             </p>
                     </p>
-                </span>
-                <span>
-                    <img src="http://www.advancia.it/it/css/images/oracle_logo.png" alt="" style="width: 200px;" class="right">
                 </span>
             </div>
             <p>

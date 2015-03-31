@@ -83,7 +83,7 @@ $activePage = "bigdata";
                     <p>
                         <?php echo initConfig::getInstance()->getLang() -> getValue("corsi.testo4"); ?>
                         <?php echo initConfig::getInstance()->getLang() -> getValue("corsi.testo5"); ?>
-                        <a  target="_blank" style="color: #C00000; font-weight: bold;"  href="mailto:job@advancia.it">job@advancia.it</a>
+                        <a  target="_blank" style="color: #C00000; font-weight: bold;"  href="<?php echo $host;?>/public/workwithus">job@advancia.it</a>
                         <?php echo initConfig::getInstance()->getLang() -> getValue("corsi.testo6"); ?>
                     </p>
                 </span>
@@ -109,7 +109,7 @@ $activePage = "bigdata";
                         <p>
                             <?php echo initConfig::getInstance()->getLang() -> getValue("corsi.testo4"); ?>
                             <?php echo initConfig::getInstance()->getLang() -> getValue("corsi.testo5"); ?>
-                            <a  target="_blank" style="color: #C00000; font-weight: bold;"  href="mailto:job@advancia.it">job@advancia.it</a>
+                            <a  target="_blank" style="color: #C00000; font-weight: bold;"  href="<?php echo $host;?>/public/workwithus">job@advancia.it</a>
                             <?php echo initConfig::getInstance()->getLang() -> getValue("corsi.testo6"); ?>
                             <br/>
                             </p>

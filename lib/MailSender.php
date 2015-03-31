@@ -207,7 +207,6 @@ class MailSender
     {
 
         $settings = initConfig::getInstance()->getSettings();
-        $this->mailto = $settings["comunication_mail"];
 
         $header = "From: " . $this->mailfrom . "\r\n";
         $header .= " Cc: " . $this->cc . "\r\n";

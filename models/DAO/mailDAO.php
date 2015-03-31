@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-class emailDAO extends AbstractDAO{
+class mailDAO extends AbstractDAO{
 
     private $getAllMails = "SELECT * FROM ! ";
     private $insertMail = "INSERT INTO ! (subject, mail_to, mail_for, cc, mail_from, mail_from_name, body, template, template_attribute, attachments) VALUES (!, !, !, !, !, !, !, !, !, !)";

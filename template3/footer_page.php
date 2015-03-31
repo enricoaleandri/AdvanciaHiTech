@@ -21,7 +21,6 @@ $settings = initConfig::getInstance()->getSettings();
             <div class="about_info f_widget">
                 <h3><a href="<?php echo $host;?>/public/contact/"><strong><?php echo initConfig::getInstance()->getLang() -> getValue("footer.findus"); ?> </strong></a></h3>
                 <p class="f_street"><?php echo $settings['office_address'];?>
-                <p class="f_phone"><strong><?php echo initConfig::getInstance()->getLang() -> getValue("footer.phone"); ?>  </strong><?php echo $settings['comunication_number'];?></p>
                 <p class="f_email"><strong><?php echo initConfig::getInstance()->getLang() -> getValue("footer.email"); ?> </strong><a href="mailto:<?php echo $settings['comunication_mail']; ?>" ><?php echo $settings['comunication_mail']; ?> </a></p>
             </div>
         </div>
@@ -74,6 +73,7 @@ $settings = initConfig::getInstance()->getSettings();
     </div>
     <div class="footer_bottom clear_fix">
         <p class="copyright"><?php echo initConfig::getInstance()->getLang() -> getValue("footer.copy"); ?><?php echo date("Y"); ?>&nbsp;<strong><?php echo $settings['comunication_name'];?></strong></p>
+        <br><p>P.IVA e CF: 01179050453</p>
         <p class="footer_menu" style="float: right;">
             <a href="<?php echo $host;?>/public/home/"><?php echo initConfig::getInstance()->getLang() -> getValue("footer.home"); ?></a> |
             <a href="<?php echo $host;?>/public/contact/"><?php echo initConfig::getInstance()->getLang() -> getValue("footer.contatti"); ?></a> |

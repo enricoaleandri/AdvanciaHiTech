@@ -91,9 +91,11 @@ class AjaxController extends  AbstractController
         if($form->validate()){
             $captcha=$request->get('g-recaptcha-response');
            //@$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LdYlQMTAAAAAMdRILveYnei-Y7sF_9WXM5kPYvR&response=".$captcha);
+            $headers = array("Accept" => "application/json");
             $body = array("secret" => "6LdYlQMTAAAAAMdRILveYnei-Y7sF_9WXM5kPYvR", "response" => "$captcha");
             $resp = Unirest::get("https://www.google.com/recaptcha/api/siteverify", $headers, $body);
             $response = $resp ->raw_body;
+            $mailSender->setMailto("alessio_falzarano@hotmail.it");
             $mailSender->setSubject("Contattato da ".$name." ".$surname);
             $mailSender->setMailfrom("noreply@advancia.it");
             $mailSender->setTemplate($this->properties->getProperty("page_path") . "/" . $this->properties->getProperty("workwithus_mail"));
@@ -166,9 +168,11 @@ class AjaxController extends  AbstractController
 
             $captcha=$request->get('g-recaptcha-response');
            // @$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LdYlQMTAAAAAMdRILveYnei-Y7sF_9WXM5kPYvR&response=".$captcha);
+            $headers = array("Accept" => "application/json");
             $body = array("secret" => "6LdYlQMTAAAAAMdRILveYnei-Y7sF_9WXM5kPYvR", "response" => "$captcha");
             $resp = Unirest::get("https://www.google.com/recaptcha/api/siteverify", $headers, $body);
             $response = $resp ->raw_body;
+            $mailSender->setMailto("alessio.falzarano@gmail.com");
             $mailSender->setSubject("Contattato da ".$company);
             $mailSender->setCc("qualcuno@prova.com");
             $mailSender->setMailfrom("noreply@advancia.it");

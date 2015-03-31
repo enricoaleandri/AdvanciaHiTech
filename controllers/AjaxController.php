@@ -97,7 +97,7 @@ class AjaxController extends  AbstractController
             $response = $resp ->raw_body;
             $settings = initConfig::getInstance()->getSettings();
             $mailSender->setMailto($settings["job_mail"]);
-            $mailSender->setSubject("Advancia.it - Candidatura :: ".$name." ".$surname);
+            $mailSender->setSubject("Advancia.it - candidatura web :: ".$name." ".$surname);
             $mailSender->setMailfrom("noreply@advancia.it");
             $mailSender->setTemplate($this->properties->getProperty("page_path") . "/" . $this->properties->getProperty("workwithus_mail"));
             $mailSender->setAttachments($urlFile);
@@ -175,7 +175,7 @@ class AjaxController extends  AbstractController
             $response = $resp ->raw_body;
             $settings = initConfig::getInstance()->getSettings();
             $mailSender->setMailto($settings["comunication_mail"]);
-            $mailSender->setSubject("Advancia.it - Contattaci :: ".$company);
+            $mailSender->setSubject("Advancia.it - contatto web :: ".$name." ".$surname);
             $mailSender->setCc("qualcuno@prova.com");
             $mailSender->setMailfrom("noreply@advancia.it");
             $mailSender->setTemplate($this->properties->getProperty("page_path") . "/" . $this->properties->getProperty("contact_mail"));

@@ -160,11 +160,11 @@ $activePage = "home";
                         <!--End Service-->
                         <div class="b_service col_01">
                             <!--Service-->
-                            <a href="<?php echo $host;?>/public/team/">
+                            <a href="<?php echo $host;?>/public/about/">
                                 <div class="b_service_content">
                                     <div class="service_icon center_parent"><img class="center_element" src="<?php echo $url;?>images/people.png" alt="Technology" style="margin-left: 18px; margin-top: 18px;"></div>
                                     <div class="service_info">
-                                        <h2><?php echo initConfig::getInstance()->getLang() -> getValue("home.team"); ?></h2>
+                                        <h2><?php echo initConfig::getInstance()->getLang() -> getValue("menu.chisiamo"); ?></h2>
                                         <p class="bold_typo"><?php echo initConfig::getInstance()->getLang() -> getValue("home.azienda"); ?></p>
                                     </div>
                                 </div>

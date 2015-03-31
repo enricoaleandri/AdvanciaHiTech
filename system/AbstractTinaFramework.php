@@ -57,6 +57,9 @@ abstract class AbstractTinaFramework
         $response -> setProperty("page_path", $this->properties->getProperty("page_path"));
         $response -> setProperty("full_url", $this->get_full_url());
 
+
+        $response -> setProperty("page_path", $this->properties->getProperty("page_path"));
+
         Logger::log(Logger::$DEBUG,"InvokedClass : $this->className - base_path : $base_path ");
 
 

@@ -21,7 +21,7 @@ $settings = initConfig::getInstance()->getSettings();
     <script src='https://www.google.com/recaptcha/api.js?hl=<?php echo strtolower(initConfig::getInstance()-> getLang() -> getLang()) ?>' ></script>
 
 
-    <title>Admin - Home</title>
+    <title>Admin - Settings</title>
 </head>
 <body class="home page page-id-8 page-template page-template-template-home page-template-template-home-php regular_typo">
 <script>
@@ -49,13 +49,22 @@ $settings = initConfig::getInstance()->getSettings();
     </div>
     <!--End Header-->
     <div class="inner_content">
-
-
-
-
+        <!--Inner Content -->
+        <!--Sub Header-->
+        <div class="sub_header col_04 w_space">
+            <div class="sub_header_content">
+                <h4><strong>Settings</strong></h4>
+            </div>
+        </div>
+        <div class="content_menu" >
+            Menu
+        </div>
+        <div class="content_settings" >
+            Content
+        </div>
+        <!--End Sub Header-->
     </div>
     <!--End Inner Content-->
-
     <?php
     initConfig::getInstance() -> getIncluder() -> includePage("footer_admin");
     ?>

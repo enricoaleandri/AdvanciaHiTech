@@ -211,7 +211,6 @@ body {
     float:left;
 }
 
-
 /* Header */
 
 .header {
@@ -793,8 +792,8 @@ body {
 }
 
 .who_we_are .imp_paragraph {
-    font-size: 12px;
-    color: #606060;
+    font-size: 14px;
+    color: #434343;
 }
 
 /* End Who we are */

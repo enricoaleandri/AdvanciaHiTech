@@ -70,13 +70,13 @@ class Config
                     {
 
                         $key=substr ( $row , 0, $pos );
-                        $value=substr ( $row , $pos+1, strlen($row) );
+                        $value=substr ( $row , $pos+1, strlen($row));
                         //Logger::logSUPER("'$key' = '$value'");
                         $this->properties[$key] = substr($value,0,strlen($value)-2);
 
                         //Memorizzo il tutto in un bell'array. ps facendo particolare attenzione ai caratteri accapo o
                         //altro (non so di preciso quali) che vengono appesi alla fine della stringa di valore,
-                        //piu precisamente sono due valori che io accuratamente rimuovo per una corretta stringa
+                        //piu precisamente sono due valori che sio accuratamente rimuovo per una corretta stringa
 
                         //TODO - Verifica quali caratteri vengono appesi dall'explode
 
@@ -86,7 +86,7 @@ class Config
                         //VECCHIA GESTIONE - END
 
 
-                        //$this->saveInSession();
+                        //$this->saveInSesion();
                     }
                 }
             }

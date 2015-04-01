@@ -71,7 +71,7 @@ $activePage = "bigdata";
                    <span >
                     <img src="http://www.advancia.it/it/css/images/java_logo.png" style="width: 150px;height:200px;float:right;"  alt="" class="right">
                 </span>
-                <span style="display: inline-block; width: 70%;">
+                <span style="display: inline-block; width: 70%;text-align: justify;">
                     <p class="imp_paragraph">
                         <?php echo initConfig::getInstance()->getLang() -> getValue("corsi.testo"); ?>
                     <p>
@@ -97,7 +97,7 @@ $activePage = "bigdata";
                   <span>
                     <img src="http://www.advancia.it/it/css/images/oracle_logo.png" alt="" style="width: 200px;float:right;" class="right">
                 </span>
-                <span style="display: inline-block; width: 70%;">
+                <span style="display: inline-block; width: 70%;text-align: justify;">
                     <p class="imp_paragraph">
                         <?php echo initConfig::getInstance()->getLang() -> getValue("corsi.testo7"); ?>
                         <?php echo initConfig::getInstance()->getLang() -> getValue("corsi.testo8"); ?>

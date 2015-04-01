@@ -217,5 +217,8 @@ class AjaxController extends  AbstractController
         }
     }
 
+    function adminAction (Request $request){
+        //TODO
+    }
 
 }

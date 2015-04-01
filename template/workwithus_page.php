@@ -121,7 +121,7 @@ $activePage = "home";
                             <p id="errorfilecapctha" hidden style="color:red; font-size: 13px;"><?php echo initConfig::getInstance()->getLang() -> getValue("work.spuntare"); ?></p>
                         </div>
                         <br><br>
-                        <div id="captcha" name="captcha" style="float: right;"  class="g-recaptcha" data-sitekey="6LdYlQMTAAAAAE3vq6JKhrOnx4mzHshf18DNbVZO"></div>
+                        <div id="captcha" name="captcha" style="float: right;"  class="g-recaptcha" data-sitekey="<?php echo initConfig::getInstance()->getConfig()->getProperty("public_recaptcha_key"); ?>'"></div>
                     </form>
                     <div class="message_sent" id="message_sent" hidden ><?php echo initConfig::getInstance()->getLang() -> getValue("work.invio"); ?></div>
                     <div class="message_sent_error" id="message_sent_error" hidden ><?php echo initConfig::getInstance()->getLang() -> getValue("work.errore"); ?></div>

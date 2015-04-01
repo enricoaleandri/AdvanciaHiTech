@@ -92,7 +92,7 @@ $host =  $response -> getProperty("host");
         </div><!--End Sub Header-->
         <div class="who_we_are col_04">
             <h1><?php echo initConfig::getInstance()->getLang() -> getValue("software.software"); ?></h1>
-            <p class="testo_assertivo">
+            <p class="testo_assertivo" style="text-align: justify;">
                 <?php echo initConfig::getInstance()->getLang() -> getValue("software.testo"); ?>
             </p>
         </div>
@@ -109,7 +109,7 @@ $host =  $response -> getProperty("host");
                             </div>
                             <div class="service_cont">
                                 <h2><?php echo initConfig::getInstance()->getLang() -> getValue("software.soluzioni"); ?></h2>
-                                <p>
+                                <p style="text-align: justify;">
                                     <?php echo initConfig::getInstance()->getLang() -> getValue("software.testo1"); ?>
                                 </p>
                             </div>
@@ -130,7 +130,7 @@ $host =  $response -> getProperty("host");
                             </div>
                             <div class="service_cont">
                                 <h2><?php echo initConfig::getInstance()->getLang() -> getValue("software.offerte"); ?></h2>
-                                <p>
+                                <p style="text-align: justify;">
                                     <?php echo initConfig::getInstance()->getLang() -> getValue("software.testo2"); ?>
                                 </p>
                             </div>

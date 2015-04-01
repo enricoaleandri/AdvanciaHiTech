@@ -21,7 +21,7 @@ $settings = initConfig::getInstance()->getSettings();
             <div class="about_info f_widget">
                 <h3><a href="<?php echo $host;?>/public/contact/"><strong><?php echo initConfig::getInstance()->getLang() -> getValue("footer.findus"); ?> </strong></a></h3>
                 <p class="f_street"><?php echo $settings['office_address'];?>
-                <p class="f_email"><strong><?php echo initConfig::getInstance()->getLang() -> getValue("footer.email"); ?> </strong><a href="mailto:<?php echo $settings['comunication_mail']; ?>" ><?php echo $settings['comunication_mail']; ?> </a></p>
+                <p class="f_email"><strong><?php echo initConfig::getInstance()->getLang() -> getValue("footer.email"); ?>: </strong><a href="mailto:<?php echo $settings['comunication_mail']; ?>" ><?php echo $settings['comunication_mail']; ?> </a></p>
             </div>
         </div>
         <div id="text-2" class="widgets widgets_footer col_01 widget_text">

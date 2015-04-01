@@ -81,7 +81,7 @@ $host =  $response -> getProperty("host");
         <div class="si who_we_are col_04">
             <h1><?php echo initConfig::getInstance()->getLang() -> getValue("system.system"); ?></h1>
             <div style="display:inline-block">
-                <span style="float: left;width: 70%;">
+                <span style="float: left;width: 70%;text-align: justify">
                     <p>
                         <?php echo initConfig::getInstance()->getLang() -> getValue("system.testo"); ?>
                         <?php echo initConfig::getInstance()->getLang() -> getValue("system.testo1"); ?>

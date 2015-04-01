@@ -74,7 +74,7 @@ $host =  $response -> getProperty("host");
     </div><!--End Sub Header-->
     <div class="bi who_we_are col_04">
         <h1><?php echo initConfig::getInstance()->getLang() -> getValue("bi.bi"); ?></h1>
-        <p class="imp_paragraph">
+        <p class="imp_paragraph" style="text-align: justify;">
             <?php echo initConfig::getInstance()->getLang() -> getValue("bi.testo"); ?>
 
             <?php echo initConfig::getInstance()->getLang() -> getValue("bi.testo1"); ?>
@@ -93,13 +93,13 @@ $host =  $response -> getProperty("host");
                 <div class="tabs_boxes">
                     <div class="tab_box" style="display: block;">
                         <h3 class="tab_title"><?php echo initConfig::getInstance()->getLang() -> getValue("bi.software"); ?></h3>
-                        <p>
+                        <p style="text-align: justify;">
                             <?php echo initConfig::getInstance()->getLang() -> getValue("bi.testo3"); ?>
                         </p>
                     </div>
                     <div class="tab_box" style="display: none;">
                         <h3 class="tab_title"><?php echo initConfig::getInstance()->getLang() -> getValue("bi.proposta"); ?></h3>
-                        <p>
+                        <p style="text-align: justify;">
                             <?php echo initConfig::getInstance()->getLang() -> getValue("bi.testo4"); ?>
                             <?php echo initConfig::getInstance()->getLang() -> getValue("bi.testo5"); ?>
                         </p>

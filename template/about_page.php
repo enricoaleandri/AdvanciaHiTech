@@ -103,7 +103,6 @@ $activePage = "about";
                         <a href="#" data-dir="next"></a>
                     </div>
                     <ul id="slides">
-                        """<?php echo $response -> getProperty("page_path");?>""
                             <?php
                             if ($handle = opendir($response -> getProperty("page_path").'/images/slider_chisiamo')) {
                                 while (false !== ($entry = readdir($handle))) {

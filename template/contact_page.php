@@ -126,7 +126,6 @@
             </div>
             <div class="contact_info">
                 <h5><?php echo initConfig::getInstance()->getLang() -> getValue("contatti.info"); ?></h5>
-                <p class="mobile"><strong>Mobile:</strong> <?php echo $settings['comunication_number'];?></p>
                 <p class="mobile"><strong>Email:</strong> <a href="mailto:<?php echo $settings['comunication_mail']; ?>" style="color: rgb(192,0,0)" ><?php echo $settings['comunication_mail']; ?></a></p>
             </div>
         </div>

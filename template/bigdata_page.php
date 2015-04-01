@@ -99,7 +99,7 @@ $activePage = "bigdata";
         </div><!--End Sub Header-->
         <div class="bigdata who_we_are col_04">
             <h1><?php echo initConfig::getInstance()->getLang() -> getValue("bigdata.bigdata"); ?></h1>
-            <p class="imp_paragraph">
+            <p class="imp_paragraph" style="text-align: justify;">
                 <?php echo initConfig::getInstance()->getLang() -> getValue("bigdata.testo"); ?>
             </p>
             <br/>
@@ -113,25 +113,25 @@ $activePage = "bigdata";
                     <div class="tabs_boxes">
                         <div class="tab_box" style="display: block;">
                             <h3 class="tab_title"><?php echo initConfig::getInstance()->getLang() -> getValue("bigdata.varieta"); ?></h3>
-                            <p>
+                            <p style="text-align: justify;">
                                 <?php echo initConfig::getInstance()->getLang() -> getValue("bigdata.testo1"); ?>
                             </p>
                         </div>
                         <div class="tab_box" style="display: none;">
                             <h3 class="tab_title"><?php echo initConfig::getInstance()->getLang() -> getValue("bigdata.volume"); ?></h3>
-                            <p>
+                            <p style="text-align: justify;">
                                 <?php echo initConfig::getInstance()->getLang() -> getValue("bigdata.testo2"); ?>
                             </p>
                         </div>
                         <div class="tab_box" style="display: none;">
                             <h3 class="tab_title"><?php echo initConfig::getInstance()->getLang() -> getValue("bigdata.valore"); ?></h3>
-                            <p>
+                            <p style="text-align: justify;">
                                 <?php echo initConfig::getInstance()->getLang() -> getValue("bigdata.testo3"); ?>
                             </p>
                         </div>
                         <div class="tab_box" style="display: none;">
                             <h3 class="tab_title"><?php echo initConfig::getInstance()->getLang() -> getValue("bigdata.velocita"); ?></h3>
-                            <p>
+                            <p style="text-align: justify;">
                                 <?php echo initConfig::getInstance()->getLang() -> getValue("bigdata.testo4"); ?>
                             </p>
                         </div>

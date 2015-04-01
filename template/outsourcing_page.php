@@ -83,7 +83,7 @@ $host =  $response -> getProperty("host");
         <div class="outsourcing who_we_are  col_04">
             <h1><?php echo initConfig::getInstance()->getLang() -> getValue("out.outsourcing"); ?></h1>
             <div style="display:inline-block">
-                <span style="float: left;width: 60%;">
+                <span style="float: left;width: 60%;text-align: justify;">
                     <p>
                         <?php echo initConfig::getInstance()->getLang() -> getValue("out.testo"); ?>
                     </p>

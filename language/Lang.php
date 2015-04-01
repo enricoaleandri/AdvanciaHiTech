@@ -34,14 +34,21 @@ class Lang
                 //Verifica che la riga attuale non sia vuota o commentata con il carattere  '#'
                 if(substr($row,0,1) != "#" && substr($row,0,1) != "" && substr($row,0,1) != " ")
                 {
-                    //Faccio uno split della riga con il carattere '='
-                    $riga = explode("=",$row);
-                    //Memorizzo il tutto in un bell'array. ps facendo particolare attenzione ai caratteri accapo o
-                    //altro (non so di preciso quali) che vengono appesi alla fine della stringa di valore,
-                    //piu precisamente sono due valori che io accuratamente rimuovo per una corretta stringa
 
-                    //TODO - Verifica quali caratteri vengono appesi dall'explode
-                    $this->properties[$riga[0]] = substr($riga[1],0,strlen($riga[1])-2);
+                    $pos = stripos($row, '=');
+                    if($pos !==false)
+                    {
+                        $key = substr($row, 0, $pos);
+                        $value = substr($row, $pos + 1, strlen($row));
+                        //Logger::logSUPER("'$key' = '$value'");
+                        $this->properties[$key] = substr($value,0,strlen($value)-2);
+                        //Memorizzo il tutto in un bell'array. ps facendo particolare attenzione ai caratteri accapo o
+                        //altro (non so di preciso quali) che vengono appesi alla fine della stringa di valore,
+                        //piu precisamente sono due valori che io accuratamente rimuovo per una corretta stringa
+
+                        //TODO - Verifica quali caratteri vengono appesi dall'explode
+                        #$this->properties[$riga[0]] = substr($riga[1], 0, strlen($riga[1]) - 2);
+                    }
                 }
             }
             fclose($leggi_file);

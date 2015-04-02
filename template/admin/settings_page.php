@@ -3,23 +3,23 @@ global $response,$activePage;
 $url =  $response -> getProperty("url");
 $host =  $response -> getProperty("host");
 $settings = initConfig::getInstance()->getSettings();
+$setting = $response -> getProperty("settings");
+$base_path = $response -> getProperty("base_path");
+$admins = $response -> getProperty("admins");
 
 ?>
+
 <!DOCTYPE html>
 <html lang="it-IT">
 <head>
 
     <?php
-    initConfig::getInstance() -> getIncluder() -> includePage("header");
+    initConfig::getInstance() -> getIncluder() -> includePage("admin_header");
     ?>
 
     <?php
-    initConfig::getInstance() -> getIncluder() -> includePage("scripts");
+    initConfig::getInstance() -> getIncluder() -> includePage("admin_scripts");
     ?>
-
-    <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?v=3.exp&#038;sensor=false&#038;ver=1.0'></script>
-    <script src='https://www.google.com/recaptcha/api.js?hl=<?php echo strtolower(initConfig::getInstance()-> getLang() -> getLang()) ?>' ></script>
-
 
     <title>Admin - Settings</title>
 </head>
@@ -35,13 +35,13 @@ $settings = initConfig::getInstance()->getSettings();
         <div class="header_content center_parent_v">
 
             <?php
-            initConfig::getInstance() -> getIncluder() -> includePage("menu_admin");
+            initConfig::getInstance() -> getIncluder() -> includePage("admin_menu");
             ?>
             <!--End Header Tools-->
             <div class="header_tools">
                 <!--Header Tools-->
                 <?php
-                initConfig::getInstance() -> getIncluder() -> includePage("utils_button");
+                initConfig::getInstance() -> getIncluder() -> includePage("admin_button");
                 ?>
 
             </div>
@@ -57,16 +57,41 @@ $settings = initConfig::getInstance()->getSettings();
             </div>
         </div>
         <div class="content_menu" >
-            Menu
+           <div class="menu_settings">
+               <p style="padding-bottom: 10px;">Menu</p>
+               <ul>
+                   <li>
+                       <a href="#" data-template="configuration"   class="linkTemplate" >Configurazione</a>
+                   </li>
+                   <li>
+                       <a href="#" data-template="account"   class="linkTemplate" >Account</a>
+                   </li>
+               </ul>
+           </div>
         </div>
         <div class="content_settings" >
-            Content
+            <div id="settings_template" class="settings_cont">
+                <!-- Dynamic -->
+            </div>
         </div>
+        <script>
+            $ = jQuery;
+            jQuery(document).ready(function () {
+                $("#settings_template").load(host+"/news/configuration/");
+                $(".linkTemplate").on("click", function(){
+                    var template = $(this).attr("data-template");
+                    changeTemplate(template);
+                });
+                function changeTemplate(template){
+                    $("#settings_template").load(host+"/news/"+template);
+                };
+            });
+        </script>
         <!--End Sub Header-->
     </div>
     <!--End Inner Content-->
     <?php
-    initConfig::getInstance() -> getIncluder() -> includePage("footer_admin");
+    initConfig::getInstance() -> getIncluder() -> includePage("admin_footer");
     ?>
 
     <div style="clear: both;"></div>

@@ -23,7 +23,10 @@ $host =  $response -> getProperty("host");
         <span class="main_menu">
             <ul>
                 <li>
-                    <a href="<?php echo $host;?>/news/home/" class="">Home </a>
+                    <a href="<?php echo $host;?>/news/home/" class="">News </a>
+                </li>
+                <li>
+                    <a href="<?php echo $host;?>/news/mail/" class="">Mail </a>
                 </li>
                 <li>
                     <a href="<?php echo $host;?>/news/settings/" class="">Settings </a>

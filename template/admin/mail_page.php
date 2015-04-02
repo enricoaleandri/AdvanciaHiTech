@@ -21,7 +21,7 @@ $settings = initConfig::getInstance()->getSettings();
     <script src='https://www.google.com/recaptcha/api.js?hl=<?php echo strtolower(initConfig::getInstance()-> getLang() -> getLang()) ?>' ></script>
 
 
-    <title>Admin - News</title>
+    <title>Admin - Mail</title>
 </head>
 <body class="home page page-id-8 page-template page-template-template-home page-template-template-home-php regular_typo">
 <script>
@@ -33,7 +33,6 @@ $settings = initConfig::getInstance()->getSettings();
     <div class="header col_04">
         <!--Header-->
         <div class="header_content center_parent_v">
-
             <?php
             initConfig::getInstance() -> getIncluder() -> includePage("admin_menu");
             ?>
@@ -51,7 +50,7 @@ $settings = initConfig::getInstance()->getSettings();
     <div class="inner_content">
         <div class="sub_header col_04 w_space">
             <div class="sub_header_content">
-                <h4><strong>News</strong></h4>
+                <h4><strong>Mail</strong></h4>
             </div>
         </div>
 

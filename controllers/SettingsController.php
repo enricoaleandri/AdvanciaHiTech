@@ -7,12 +7,33 @@
  */
 class SettingsController extends  AbstractController
 {
-    private static $VIEW_SETTINGS = "admin_settings";
+
+    private static $ADMIN_SETTINGS_FORWARD = "admin_settings";
+    private static $ADMIN_CONFIGURATION_FORWARD = "admin_configuration";
+    private static $ADMIN_ACCOUNT_FORWARD = "admin_account";
 
     public function __construct()
     {
         $this->className = get_class($this);
-        $this->livelloPagina = self::$LIVELLO_ADM;
+        $this->livelloPagina = self::$LIVELLO_PUB;
+    }
+
+    public function homeAction(Request $request)
+    {
+        $this->response->setProperty("selectedPage", self::$ADMIN_SETTINGS_FORWARD);
+        $this->includer->includePage(self::$ADMIN_SETTINGS_FORWARD);
+    }
+
+    public function configurationAction(Request $request)
+    {
+        $this->response->setProperty("selectedPage", self::$ADMIN_CONFIGURATION_FORWARD);
+        $this->includer->includePage(self::$ADMIN_CONFIGURATION_FORWARD);
+    }
+
+    public function accountAction(Request $request)
+    {
+        $this->response->setProperty("selectedPage", self::$ADMIN_ACCOUNT_FORWARD);
+        $this->includer->includePage(self::$ADMIN_ACCOUNT_FORWARD);
     }
 
     public function viewAction(Request $request)
@@ -127,8 +148,7 @@ class SettingsController extends  AbstractController
                 $this -> response -> setProperty("settings",initConfig::getInstance()->getSettings());
                 $message = "Salvataggio Effettuato!";
                 $this -> response -> setProperty("message", $message);
-                $this->includer->includePage(self::$VIEW_SETTINGS);
-                return;
+                $this->homeAction($request);
             }
             else
             {
@@ -139,10 +159,8 @@ class SettingsController extends  AbstractController
             }
     }
 
-
     public function adduserAction(Request $request)
     {
-
         if($request ->is_set('password') && $request->is_set('username'))
         {
             $username = $request->get('username');
@@ -152,19 +170,16 @@ class SettingsController extends  AbstractController
                 $errorMessage = "Parametri troppo corti controllare!";
                 $this -> response -> setError("errorMessage", $errorMessage);
                 $this->viewAction($request);
-                return;
             }
             else
             {
                 $adminDAO = new adminDAO($this->connection);
                 $resulSet = $adminDAO->getAdminByUser($username);
-
                 if($resulSet)
                 {
                     $errorMessage = "Utente esistente!";
                     $this -> response -> setError("errorMessage", $errorMessage);
                     $this->viewAction($request);
-                    return;
                 }
                 else
                 {
@@ -174,7 +189,6 @@ class SettingsController extends  AbstractController
                         $errorMessage = "Le password non combaciano!";
                         $this -> response -> setError("errorMessage", $errorMessage);
                         $this->viewAction($request);
-                        return;
                     }
                     else
                     {
@@ -182,15 +196,13 @@ class SettingsController extends  AbstractController
                         {
                             $message = "Utente Aggiunto!";
                             $this -> response -> setProperty("message", $message);
-                            $this->viewAction($request);
-                            return;
+                            $this->homeAction($request);
                         }
                         else
                         {
                             $errorMessage = "Impossibile inserire l'utente!";
                             $this -> response -> setError("errorMessage", $errorMessage);
                             $this->viewAction($request);
-                            return;
                         }
                     }
                 }
@@ -202,9 +214,10 @@ class SettingsController extends  AbstractController
             $errorMessage = " Parametri mancanti per l'inserimento di un utenti";
             $this -> response -> setError("errorMessage", $errorMessage);
             $this->viewAction($request);
-            return;
         }
     }
+
+
 
     public function changepasswordAction(Request $request)
     {
@@ -248,8 +261,7 @@ class SettingsController extends  AbstractController
                         {
                             $message = "Utente Aggiornato!";
                             $this -> response -> setProperty("message", $message);
-                            $this->viewAction($request);
-                            return;
+                            $this->homeAction($request);
                         }
                         else
                         {
@@ -268,6 +280,21 @@ class SettingsController extends  AbstractController
             $this -> response -> setError("errorMessage", $errorMessage);
             $this->viewAction($request);
             return;
+        }
+    }
+
+    public function deleteuserAction(Request $request){
+        if($request->is_set('username')) {
+            $username = $request->get('username');
+            if($username){
+                $adminDAO = new adminDAO(initConfig::getInstance()->getConnect());
+                $resulSet = $adminDAO->deleteUser($username);
+                $this->homeAction($request);
+            }else{
+
+            }
+        }else{
+
         }
     }
 }

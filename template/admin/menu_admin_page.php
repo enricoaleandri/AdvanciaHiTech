@@ -26,10 +26,10 @@ $host =  $response -> getProperty("host");
                     <a href="<?php echo $host;?>/news/home/" class="">News </a>
                 </li>
                 <li>
-                    <a href="<?php echo $host;?>/news/mail/" class="">Mail </a>
+                    <a href="<?php echo $host;?>/mail/home/" class="">Mail </a>
                 </li>
                 <li>
-                    <a href="<?php echo $host;?>/news/settings/" class="">Settings </a>
+                    <a href="<?php echo $host;?>/settings/home/" class="">Settings </a>
                 </li>
             </ul>
         </span>

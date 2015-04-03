@@ -3,7 +3,6 @@ global $response,$activePage;
 $url =  $response -> getProperty("url");
 $host =  $response -> getProperty("host");
 $settings = initConfig::getInstance()->getSettings();
-$setting = $response -> getProperty("settings");
 $base_path = $response -> getProperty("base_path");
 $admins = $response -> getProperty("admins");
 
@@ -77,15 +76,16 @@ $admins = $response -> getProperty("admins");
         <script>
             $ = jQuery;
             jQuery(document).ready(function () {
-                $("#settings_template").load(host+"/news/configuration/");
+                $("#settings_template").load(host+"/settings/configuration/");
                 $(".linkTemplate").on("click", function(){
                     var template = $(this).attr("data-template");
                     changeTemplate(template);
                 });
                 function changeTemplate(template){
-                    $("#settings_template").load(host+"/news/"+template);
+                    $("#settings_template").load(host+"/settings/"+template);
                 };
             });
+
         </script>
         <!--End Sub Header-->
     </div>

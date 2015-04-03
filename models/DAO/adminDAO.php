@@ -14,6 +14,7 @@ class adminDAO extends AbstractDAO
     private $getAllAdmin = "SELECT * FROM ! ";
     private $updateAdmin = "UPDATE ! SET password = ! WHERE username = !";
     private $insertAdmin = "INSERT INTO ! (id_admin, username, password) VALUES (NULL, !, !)";
+    private $deleteAdmin = "DELETE FROM ! WHERE username= !";
 
 
     function __construct()
@@ -184,7 +185,26 @@ class adminDAO extends AbstractDAO
         }
     }
 
-}
+    public function deleteUser($user){
+        if($this->connection->getReady()){
+            $sql = new QueryBuilder($this -> deleteAdmin);
+            $sql -> setTable($this -> tableName);
+            if(strlen($user) > 0) {
+                $sql -> setString($user);
+                $query = $this->connection->query($sql->toQuery());
+                if($query !== false) {
+                    return true;
+                } else{
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
 
+}
 
 ?>

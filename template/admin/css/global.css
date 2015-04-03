@@ -189,8 +189,9 @@ body {
 .inner_content {
 	float: left;
 }
+
 .content_menu{
-    height: 500px;
+    height: 650px;
     width: 20%;
     background-color: rgb(192,0,0);
     color:white;
@@ -200,10 +201,10 @@ body {
     float:left
 }
 .content_settings{
-    height: 500px;
+    height: 650px;
     width: 78.1%;
     background-color: white;
-    color: #CEBCC6;
+    color:#CEBCC6;
     margin-left: 1%;
     margin-top:0.6%;
     margin-bottom:0.6%;
@@ -230,7 +231,6 @@ body {
     padding:30px;
     font-size: 15px;
 }
-
 
 
 

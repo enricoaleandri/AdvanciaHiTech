@@ -14,7 +14,7 @@ $host =  $response -> getProperty("host");
 ?>
 <div class="logo" style="margin-top: -31px;">
     <!--Logo-->
-    <a href="<?php echo $host;?>/public/home/"><img src="<?php echo $url;?>images/logo.png" style="width: 160px;margin-top: 20px;margin-left: 0px;" alt="Advancia Technology srl"/></a>
+    <a href="<?php echo $host;?>/public/home/"><img src="<?php echo $url;?>../images/logo.png" style="width: 160px;margin-top: 20px;margin-left: 0px;" alt="Advancia Technology srl"/></a>
 </div>
 <!--End Logo-->
 
@@ -35,3 +35,16 @@ $host =  $response -> getProperty("host");
         </span>
 </div>
 <!--End Header Main Menu-->
+
+<!--End Header Left Menu-->
+<div class="header_tools">
+
+    <div class="main_menu">
+        <ul>
+            <li>
+                <a href="<?php echo $host;?>/amministrazione/logout/" class="">Logout </a>
+            </li>
+        </ul>
+    </div>
+
+</div>

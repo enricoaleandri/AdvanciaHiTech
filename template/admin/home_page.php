@@ -37,14 +37,6 @@ $settings = initConfig::getInstance()->getSettings();
             <?php
             initConfig::getInstance() -> getIncluder() -> includePage("admin_menu");
             ?>
-            <!--End Header Tools-->
-            <div class="header_tools">
-                <!--Header Tools-->
-                <?php
-                initConfig::getInstance() -> getIncluder() -> includePage("admin_button");
-                ?>
-
-            </div>
         </div>
     </div>
     <!--End Header-->
@@ -54,6 +46,7 @@ $settings = initConfig::getInstance()->getSettings();
                 <h4><strong>News</strong></h4>
             </div>
         </div>
+
 
 
 
@@ -68,7 +61,7 @@ $settings = initConfig::getInstance()->getSettings();
 </div>
 <!--End Wrapper-->
 <?php
-initConfig::getInstance() -> getIncluder() -> includePage("scripts_post");
+initConfig::getInstance() -> getIncluder() -> includePage("admin_scripts_post");
 ?>
 </body>
 </html>

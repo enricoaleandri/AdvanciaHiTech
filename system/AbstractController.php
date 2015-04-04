@@ -9,7 +9,6 @@
 class AbstractController extends AbstractTinaFramework implements ControllerInterface
 {
     protected $className;
-    protected $livelloPagina;
 
 
     private static $LOGIN_PAGE_FORWARD = "login";
@@ -30,7 +29,7 @@ class AbstractController extends AbstractTinaFramework implements ControllerInte
     public function loginpageActionDefault(Request $request)
     {
         global $response;
-        Logger::log(Logger::$DEBUG,"Class : $this->className -  host : loginpageActionDefault");
+        Logger::log(Logger::$DEBUG,"ABSTRACT-CONTROLLER : Class : $this->className -  host : loginpageActionDefault");
         $response->setProperty("url",Utils::getURLPathAdmin());
         $response->setProperty("host",Utils::getHostAdmin());
 
@@ -43,7 +42,7 @@ class AbstractController extends AbstractTinaFramework implements ControllerInte
     {
 
         global $response;
-        Logger::log(Logger::$DEBUG,"Class : $this->className -  host : homeActionDefault");
+        Logger::log(Logger::$DEBUG,"ABSTRACT-CONTROLLER : Class : $this->className -  host : homeActionDefault");
         $response->setProperty("url",Utils::getURLPath());
         $response->setProperty("host",Utils::getHost());
         $this->includer->includePage(self::$HOME_FORWARD);
@@ -54,12 +53,12 @@ class AbstractController extends AbstractTinaFramework implements ControllerInte
 
         global $response;
 
-        Logger::log(Logger::$DEBUG,"Class : $this->className -  host : adminHomeActionDefault");
+        Logger::log(Logger::$DEBUG,"ABSTRACT-CONTROLLER :  Class : $this->className -  host : adminHomeActionDefault");
         $response->setProperty("url",Utils::getURLPathAdmin());
         $response->setProperty("host",Utils::getHostAdmin());
-        $lavoriController = new LavoriController();
-        $lavoriController->setContext($this);
-        $lavoriController->listAction($request);
+        $newsController = new NewsController();
+        $newsController->setContext($this);
+        $newsController->homeAction($request);
     }
     public function defaultAction(Request $request)
     {
@@ -67,10 +66,18 @@ class AbstractController extends AbstractTinaFramework implements ControllerInte
 
     public function isActionAccessible()
     {
-        if($this -> isAdminLogged($this->livelloPagina))
-            return true;
+        if($this->isAdminAction)
+        {
+
+            if($this -> isAdminLogged())
+                return true; // è un'action di aministrazione, sono loggato, se siamo su path admin/ ritorna true altrimento false
+            else
+                return false;// è un'action di amministrazione ma lutente non è loggato ritorno comunque false
+        }
         else
-            return false;
+        {
+            return true; // non è un'action di amminsitrazione, se sono nel path admin/ ritorna false altriment  true
+        }
     }
     //
     public function __call( $functionName, $args)
@@ -87,16 +94,16 @@ class AbstractController extends AbstractTinaFramework implements ControllerInte
         return $result;
     }
 
-    public function getLivelloPagina()
+    public function IsAdminAction()
     {
-        return $this->livelloPagina;
+        return $this->isAdminAction;
     }
 
     public function setContext($controller)
     {
 
         global $response;
-        $this->livelloPagina = $controller -> getLivelloPagina();
+        $this->isAdminAction = $controller -> IsAdminAction();
         $this->properties = $controller -> getProperties();
         $this->includer = $controller -> getIncluder();
         $this->connection = $controller -> getConnection();

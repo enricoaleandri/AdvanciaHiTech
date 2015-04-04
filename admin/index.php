@@ -1,8 +1,8 @@
-<?php require_once("language/Lang.php"); session_start();// fuck tophost
-require_once("system/AbstractDAO.php");
-require_once("system/InterfaceBean.php");
-require_once("system/AbstractBean.php");
-require_once("import.php");
+<?php require_once("../language/Lang.php"); session_start();// fuck tophost
+require_once("../system/AbstractDAO.php");
+require_once("../system/InterfaceBean.php");
+require_once("../system/AbstractBean.php");
+require_once("../import.php");
 
 
 error_reporting(E_ALL ^ E_NOTICE);
@@ -20,17 +20,17 @@ function autoload($class_name)
 
     foreach($autoloadDirs as $dir)
     {
-        if(file_exists($dir.'/'.$class_name.'.php'))
+        if(file_exists("../".$dir.'/'.$class_name.'.php'))
         {
-            require_once($dir.'/'.$class_name.'.php');
+            require_once("../".$dir.'/'.$class_name.'.php');
         }
     }
 
-    if(file_exists($class_name.'.php'))
+    if(file_exists("../".$class_name.'.php'))
     {
-        require_once($class_name.'.php');
+        require_once("../".$class_name.'.php');
     }
-    Logger::log(Logger::$DEBUG, "autoloaded className $class_name");
+    Logger::log(Logger::$DEBUG, "autoloaded className $class_name from admin directory");
 
     // Post callback
     $time_end =microtime(true);

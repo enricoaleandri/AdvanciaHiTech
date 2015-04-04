@@ -41,7 +41,12 @@ class adminDAO extends AbstractDAO
                 $num_results = $query->num_rows;
                 if($num_results)
                 {
-                    return $query;
+                    $result = array();
+                    while($riga = $query->fetch_assoc())
+                    {
+                        $result[$riga['username']] = $riga['username'];
+                    }
+                    return $result;
                 }
                 else
                 {

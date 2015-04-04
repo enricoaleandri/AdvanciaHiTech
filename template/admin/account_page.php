@@ -2,8 +2,8 @@
 global $response,$activePage;
 $url =  $response -> getProperty("url");
 $host =  $response -> getProperty("host");
-$settings = initConfig::getInstance()->getSettings();
-$admin = new adminDAO();
+
+$admins = $response -> getProperty("admins");
 ?>
 
 <div>
@@ -31,9 +31,8 @@ $admin = new adminDAO();
                     <select required name="username" style="height:50px;background-color: #F3F3F3;border:none;padding:3px;font-size: 15px;width:200px;" >
                         <option value="" >Seleziona un utente</option>
                         <?php
-                        $admins= $admin->getAllAdmin();
-                         while($riga = $admins->fetch_assoc()) {
-                             echo "<option value='" . $riga['username'] . "'>" . ucfirst($riga['username']) . "</option>";
+                        foreach ($admins as &$user) {
+                             echo "<option value='" . $user . "'>" . ucfirst($user) . "</option>";
                          }
                         ?>
                     </select><br><br>
@@ -73,9 +72,8 @@ $admin = new adminDAO();
                         <select required name="username" style="height:50px;background-color: #F3F3F3;border:none;padding:3px;font-size: 15px;width:200px;" >
                             <option value="">Selezionare un utente</option>
                             <?php
-                            $admins= $admin->getAllAdmin();
-                            while($riga = $admins->fetch_assoc()) {
-                                echo "<option value='" . $riga['username'] . "'>" . ucfirst($riga['username']) . "</option>";
+                            foreach ($admins as &$user) {
+                                echo "<option value='" . $user . "'>" . ucfirst($user) . "</option>";
                             }
                             ?>
                         </select><br><br>

@@ -19,8 +19,7 @@ class CollectorController extends  AbstractController
         global $response;
         if($this->isAdministration)
         {
-            $this->livelloPagina = self::$LIVELLO_MOD;
-            if($this->isAdminLogged($this->livelloPagina))
+            if($this->isAdminLogged())
             {
                 $this->adminHomeActionDefault($request);
             }

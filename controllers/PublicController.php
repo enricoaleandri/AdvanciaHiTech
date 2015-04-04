@@ -38,7 +38,7 @@ class PublicController extends  AbstractController
     public function __construct()
     {
         $this->className = get_class($this);
-        $this->livelloPagina = self::$LIVELLO_PUB;
+        $this-> isAdminAction = false;
     }
 
     public function homeAction(Request $request)

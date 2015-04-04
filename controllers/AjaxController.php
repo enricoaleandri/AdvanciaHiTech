@@ -26,7 +26,7 @@ class AjaxController extends  AbstractController
     }
 
     function  uploadcvAction (Request $request){
-
+        $temp_dir_lavori = "directory_temporanea";
         if(!isset($_SESSION[$temp_dir_lavori]) || $_SESSION[$temp_dir_lavori] == "")
             $_SESSION[$temp_dir_lavori] = time();
 

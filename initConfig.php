@@ -94,7 +94,6 @@ class initConfig {
         return self::$connect;
     }
     public function getIncluder(){
-        //$connect =&$_SESSION['connect']; // TODECIDE - la salvo o no in sessione la connessione??'
 
         return self::$includer;
     }

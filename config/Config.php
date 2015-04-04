@@ -120,6 +120,10 @@ class Config
             return "???".$key."???";
         }
     }
+    public function setProperty($key,$value)
+    {
+        $this->properties[$key] = $value;
+    }
     public function isSetted($key)
     {
         if(isset($this->properties[$key]))

@@ -11,6 +11,8 @@ abstract class AbstractTinaFramework
 
     protected $user = null;
     protected $isAdministration;
+    protected $isAdminAction;
+
     public static $LIVELLO_ADM = 1;
     public static $LIVELLO_MOD = 2;
     public static $LIVELLO_PUB = 3;
@@ -45,6 +47,7 @@ abstract class AbstractTinaFramework
         }
 
         $config = initConfig::getInstance()->getConfig();
+        $config->setProperty("isAdministration", $this->isAdministration);
         $this->properties = $config;
         $this->connection = initConfig::getInstance()->getConnect();
         $this->includer = initConfig::getInstance() -> getIncluder();
@@ -54,7 +57,7 @@ abstract class AbstractTinaFramework
         $response = new Response();
         $base_path = $this->properties->getProperty("base_path")."/";
         $response -> setProperty("base_path", $base_path);
-        $response -> setProperty("page_path", $this->properties->getProperty("page_path"));
+
         $response -> setProperty("full_url", $this->get_full_url());
 
 
@@ -100,43 +103,23 @@ abstract class AbstractTinaFramework
 
     /**
      * Set of function to manage the login of Admin!
-     * @param $livello livello della pagina, determina se l'utente loggato puo o non puo accedervi
-     *                  <ul>
-     *                      <li>livello 1 : accedono solo gli amministratori</li>
-     *                      <li>livello 2 : accedono moderatori e amministratori</li>
-     *                      <li>livello 3 : accedono tutti</li>
-     *                  </ul>
      *
      * @return bool valore booleano,<p> <b> true </b> se l'utente è loggato e autorizzato ad accedere</p>
      *                              <p> <b>false</b> se l'utente non è loggato o autorizzato ad accedere </p>
      */
-    public function isAdminLogged($livello)
+    public function isAdminLogged()
     {
-
-        Logger::log(Logger::$DEBUG,"livello : $livello - user_var_livello  : ".$_SESSION[self :: $user_var_livello]."  user_var_name : ".$_SESSION[self :: $user_var_name]);
-        if(isset($_SESSION[self :: $user_var_name]) &&
-            strlen($_SESSION[self :: $user_var_name]) > 0 &&
-            isset($_SESSION[self :: $user_var_livello]))
+        Logger::log(Logger::$DEBUG,self::$user_var_livello." :  ".$_SESSION[self::$user_var_livello]."  user_var_name : ".$_SESSION[self::$user_var_name]);
+        if(isset($_SESSION[self::$user_var_name]) &&
+            strlen($_SESSION[self::$user_var_name]) > 0 &&
+            isset($_SESSION[self::$user_var_livello]))
         {
-            if($livello>=$_SESSION[self :: $user_var_livello])
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return true;
         }
         else
         {
-            if($livello>=self::$LIVELLO_PUB)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+
+            return false; // lutente
         }
     }
 
@@ -155,22 +138,24 @@ abstract class AbstractTinaFramework
         {
             if($row['password'] == md5($pass))
             {
-                $_SESSION[self :: $user_var_name] = $row['username'];
-                $_SESSION[self :: $user_var_name_id] = $row['id_admin'];
-                $_SESSION[self :: $user_var_livello] = $row['livello'];
+                $_SESSION[self::$user_var_name] = $row['username'];
+                $_SESSION[self::$user_var_name_id] = $row['id_admin'];
+                $_SESSION[self::$user_var_livello] = $row['livello'];
 
-                $this->user=$_SESSION[self :: $user_var_name];
+                $this->user=$_SESSION[self::$user_var_name];
                 Logger::log(Logger::$INFO," Utente Connesso($this->user)! Ip : ".$_SERVER['REMOTE_ADDR']);
                 return true;
             }
             else
             {
+                Logger::log(Logger::$INFO,"Password errata :$pass ");
                 return false;
             }
 
         }
         else
         {
+            Logger::log(Logger::$INFO,"Utente errato :$user ");
             return false;
         }
     }

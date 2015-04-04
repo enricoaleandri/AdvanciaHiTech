@@ -8,44 +8,46 @@
 class SettingsController extends  AbstractController
 {
 
-    private static $ADMIN_SETTINGS_FORWARD = "admin_settings";
+    private static $ADMIN_HOME_FORWARD = "admin_settings";
     private static $ADMIN_CONFIGURATION_FORWARD = "admin_configuration";
     private static $ADMIN_ACCOUNT_FORWARD = "admin_account";
 
     public function __construct()
     {
         $this->className = get_class($this);
-        $this->livelloPagina = self::$LIVELLO_PUB;
+        $this-> isAdminAction = true;
+
     }
 
-    public function homeAction(Request $request)
-    {
-        $this->response->setProperty("selectedPage", self::$ADMIN_SETTINGS_FORWARD);
-        $this->includer->includePage(self::$ADMIN_SETTINGS_FORWARD);
-    }
 
     public function configurationAction(Request $request)
     {
         $this->response->setProperty("selectedPage", self::$ADMIN_CONFIGURATION_FORWARD);
+
+        $settingsDAO = new settingsDAO($this->connection);
+        $this -> response -> setProperty("settings",initConfig::getInstance()->getSettings());
         $this->includer->includePage(self::$ADMIN_CONFIGURATION_FORWARD);
     }
 
     public function accountAction(Request $request)
     {
         $this->response->setProperty("selectedPage", self::$ADMIN_ACCOUNT_FORWARD);
+
+        $adminDAO = new adminDAO($this->connection);
+        $this -> response -> setProperty("admins",$adminDAO -> getAllAdmin());
         $this->includer->includePage(self::$ADMIN_ACCOUNT_FORWARD);
     }
 
-    public function viewAction(Request $request)
+    public function settingsAction(Request $request)
     {
-
-        $adminDAO = new adminDAO($this->connection);
+        $this->response->setProperty("selectedPage", self::$ADMIN_HOME_FORWARD);
+        $this->includer->includePage(self::$ADMIN_HOME_FORWARD);
+    }
+    public function homeAction(Request $request)
+    {
         $settingsDAO = new settingsDAO($this->connection);
-
-        $this -> response -> setProperty("admins",$adminDAO -> getAllAdmin());
         $this -> response -> setProperty("settings",initConfig::getInstance()->getSettings());
-
-        $this->includer->includePage(self::$VIEW_SETTINGS);
+        $this->includer->includePage(self::$ADMIN_HOME_FORWARD);
     }
 
 

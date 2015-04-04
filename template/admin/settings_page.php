@@ -2,12 +2,11 @@
 global $response,$activePage;
 $url =  $response -> getProperty("url");
 $host =  $response -> getProperty("host");
-$settings = initConfig::getInstance()->getSettings();
 $base_path = $response -> getProperty("base_path");
-$admins = $response -> getProperty("admins");
+
+$settings = $response -> getProperty("settings");
 
 ?>
-
 <!DOCTYPE html>
 <html lang="it-IT">
 <head>
@@ -36,14 +35,6 @@ $admins = $response -> getProperty("admins");
             <?php
             initConfig::getInstance() -> getIncluder() -> includePage("admin_menu");
             ?>
-            <!--End Header Tools-->
-            <div class="header_tools">
-                <!--Header Tools-->
-                <?php
-                initConfig::getInstance() -> getIncluder() -> includePage("admin_button");
-                ?>
-
-            </div>
         </div>
     </div>
     <!--End Header-->
@@ -71,12 +62,15 @@ $admins = $response -> getProperty("admins");
         <div class="content_settings" >
             <div id="settings_template" class="settings_cont">
                 <!-- Dynamic -->
+                <?php
+                    initConfig::getInstance() -> getIncluder() -> includePage("admin_configuration");
+                ?>
             </div>
         </div>
         <script>
             $ = jQuery;
             jQuery(document).ready(function () {
-                $("#settings_template").load(host+"/settings/configuration/");
+                //$("#settings_template").load(host+"/settings/configuration/");
                 $(".linkTemplate").on("click", function(){
                     var template = $(this).attr("data-template");
                     changeTemplate(template);
@@ -91,14 +85,14 @@ $admins = $response -> getProperty("admins");
     </div>
     <!--End Inner Content-->
     <?php
-    initConfig::getInstance() -> getIncluder() -> includePage("admin_footer");
+        initConfig::getInstance() -> getIncluder() -> includePage("admin_footer");
     ?>
 
     <div style="clear: both;"></div>
 </div>
 <!--End Wrapper-->
 <?php
-initConfig::getInstance() -> getIncluder() -> includePage("scripts_post");
+    initConfig::getInstance() -> getIncluder() -> includePage("scripts_post");
 ?>
 </body>
 </html>

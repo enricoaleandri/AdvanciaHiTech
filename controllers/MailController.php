@@ -13,7 +13,7 @@ class MailController extends AbstractController {
     public function __construct()
     {
         $this->className = get_class($this);
-        $this->livelloPagina = self::$LIVELLO_PUB;
+        $this-> isAdminAction = true;
     }
 
     public function  homeAction(Request $request)

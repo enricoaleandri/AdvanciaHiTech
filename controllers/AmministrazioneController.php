@@ -16,7 +16,8 @@ class AmministrazioneController extends  AbstractController
     public function __construct()
     {
         $this->className = get_class($this);
-        $this->livelloPagina = self::$LIVELLO_MOD;
+        $this-> isAdminAction = false;
+
     }
 
     public function loginpageAction(Request $request)
@@ -36,7 +37,7 @@ class AmministrazioneController extends  AbstractController
         global $response;
         $response->setProperty("url",Utils::getURLPath());
         $response->setProperty("host",Utils::getHost());
-        $this->includer->includePage(self::$HOME_FORWARD);
+        $this->loginpageAction($request);
     }
     public function loginAction(Request $request)
     {

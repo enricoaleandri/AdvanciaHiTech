@@ -8,7 +8,7 @@
  */
 class Dispatcher
 {
-    public static function Run($querystring = '')
+    public static function Run($querystring = '', $isAdministration = false)
     {
         $uri = (isset($_SERVER['REQUEST_URI']))?$_SERVER['REQUEST_URI']: false;
         $query = (isset($_SERVER['QUERY_STRING']))? $_SERVER['QUERY_STRING']: '';
@@ -22,8 +22,7 @@ class Dispatcher
             $url = str_replace('//', '/', $url);
         }
         Logger::log(Logger::$DEBUG, "url : $url ");
-        $isAdministration = false;
-        if(substr($url,0, 6) == "/admin")
+        if($isAdministration)
         {
             $isAdministration = true;
             $url = substr($url,6, strlen($url));
@@ -40,7 +39,7 @@ class Dispatcher
         //All public methods have suffix "Action" -> myMethodAction
         //If there is no method named, use DefaultAction
 
-        $actionFunctionName = count($arr) > 0 && method_exists($controllerClassName, ucfirst($arr[0]).'Action') ? ucfirst(array_shift($arr)) : 'default';
+        $actionFunctionName = count($arr) > 0 && method_exists($controllerClassName, ucfirst($arr[0]).'Action') ? ucfirst(array_shift($arr)) : 'defaultAction';
 
 
         Logger::log(Logger::$DEBUG,"controllerClassName : $controllerClassName   actionFunctionName : $actionFunctionName");

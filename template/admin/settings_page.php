@@ -8,20 +8,26 @@ $settings = $response -> getProperty("settings");
 
 ?>
 <!DOCTYPE html>
-<html lang="it-IT">
+<!-- define angular app -->
+<html ng-app="uiRouteApp" lang="it-IT">
 <head>
 
     <?php
-    initConfig::getInstance() -> getIncluder() -> includePage("admin_header");
+        initConfig::getInstance() -> getIncluder() -> includePage("admin_header");
     ?>
 
     <?php
-    initConfig::getInstance() -> getIncluder() -> includePage("admin_scripts");
+         initConfig::getInstance() -> getIncluder() -> includePage("admin_scripts");
     ?>
+
+    <script type="text/javascript" src="<?php echo $url;?>/js/routing/settingsRouting.js" ></script>
+    <script type="text/javascript" src="<?php echo $url;?>/js/controller/accountController.js" ></script>
+    <script type="text/javascript" src="<?php echo $url;?>/js/controller/configurationController.js" ></script>
+    <script type="text/javascript" src="<?php echo $url;?>/js/controller/mainController.js" ></script>
 
     <title>Admin - Settings</title>
 </head>
-<body class="home page page-id-8 page-template page-template-template-home page-template-template-home-php regular_typo">
+<body ng-controller="mainController" class="home page page-id-8 page-template page-template-template-home page-template-template-home-php regular_typo">
 <script>
     jQuery("body").addClass("regular_typo");
     jQuery("body").addClass("");
@@ -51,36 +57,22 @@ $settings = $response -> getProperty("settings");
                <p style="padding-bottom: 10px;">Menu</p>
                <ul>
                    <li>
-                       <a href="#" data-template="configuration"   class="linkTemplate" >Configurazione</a>
+                       <a href="#configuration" class="linkTemplate" >Configurazione</a>
                    </li>
                    <li>
-                       <a href="#" data-template="account"   class="linkTemplate" >Account</a>
+                       <a href="#account" class="linkTemplate" >Account</a>
                    </li>
                </ul>
            </div>
         </div>
         <div class="content_settings" >
-            <div id="settings_template" class="settings_cont">
+            <div id="settings_template" class="settings_cont" ng-view >
                 <!-- Dynamic -->
                 <?php
                     initConfig::getInstance() -> getIncluder() -> includePage("admin_configuration");
                 ?>
             </div>
         </div>
-        <script>
-            $ = jQuery;
-            jQuery(document).ready(function () {
-                //$("#settings_template").load(host+"/settings/configuration/");
-                $(".linkTemplate").on("click", function(){
-                    var template = $(this).attr("data-template");
-                    changeTemplate(template);
-                });
-                function changeTemplate(template){
-                    $("#settings_template").load(host+"/settings/"+template);
-                };
-            });
-
-        </script>
         <!--End Sub Header-->
     </div>
     <!--End Inner Content-->
@@ -92,7 +84,7 @@ $settings = $response -> getProperty("settings");
 </div>
 <!--End Wrapper-->
 <?php
-    initConfig::getInstance() -> getIncluder() -> includePage("scripts_post");
+    initConfig::getInstance() -> getIncluder() -> includePage("admin_scripts_post");
 ?>
 </body>
 </html>

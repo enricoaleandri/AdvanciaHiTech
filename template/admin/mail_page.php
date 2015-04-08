@@ -37,13 +37,6 @@ $settings = initConfig::getInstance()->getSettings();
             initConfig::getInstance() -> getIncluder() -> includePage("admin_menu");
             ?>
             <!--End Header Tools-->
-            <div class="header_tools">
-                <!--Header Tools-->
-                <?php
-                initConfig::getInstance() -> getIncluder() -> includePage("admin_button");
-                ?>
-
-            </div>
         </div>
     </div>
     <!--End Header-->

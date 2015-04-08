@@ -24,6 +24,10 @@ $settings = $response -> getProperty("settings");
     <script type="text/javascript" src="<?php echo $url;?>/js/controller/accountController.js" ></script>
     <script type="text/javascript" src="<?php echo $url;?>/js/controller/configurationController.js" ></script>
     <script type="text/javascript" src="<?php echo $url;?>/js/controller/mainController.js" ></script>
+    <script type="text/javascript" src="<?php echo $url;?>/js/controller/deleteAccountController.js" ></script>
+    <script type="text/javascript" src="<?php echo $url;?>/js/controller/addAccountController.js" ></script>
+    <script type="text/javascript" src="<?php echo $url;?>/js/controller/changepwdAccountController.js" ></script>
+    <script type="text/javascript" src="<?php echo $url;?>/js/controller/updateConfigController.js" ></script>
 
     <title>Admin - Settings</title>
 </head>

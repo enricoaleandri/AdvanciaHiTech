@@ -28,7 +28,7 @@ scotchApp.config(function($routeProvider) {
         // route for the contact page
         .otherwise({
             templateUrl : "../../settings/configuration",
-            controller  : 'accountController'
+            controller  : 'configurationController'
         });
 });
 

@@ -41,8 +41,10 @@ class AmministrazioneController extends  AbstractController
     }
     public function loginAction(Request $request)
     {
+        Logger::log(Logger::$DEBUG,"sono in login");
         if($request -> is_set('username') && $request-> is_set('password'))
         {
+            Logger::log(Logger::$DEBUG,"sono in login");
             $clear= function ($value) { return Utils::clearUserValue($value);};
 
             $user = $clear($request -> get('username'));

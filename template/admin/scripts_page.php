@@ -18,7 +18,7 @@ $host =  $response -> getProperty("host");
 <link rel="stylesheet" id="patterns-css" href="<?php echo $url;?>../css/patterns.css" type="text/css" media="all">
 
 
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://code.angularjs.org/1.2.25/angular.min.js"></script>
 <script src="https://code.angularjs.org/1.2.25/angular-route.js"></script>
 <script src="https://code.angularjs.org/1.2.25/angular-sanitize.min.js"></script>

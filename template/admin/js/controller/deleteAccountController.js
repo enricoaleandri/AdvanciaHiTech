@@ -5,6 +5,8 @@
 
 angular.module('uiRouteApp').controller('deleteAccount', ['$scope', '$http','$route', function($scope,$http,$route) {
     $scope.usertodelete= {};
+    $scope.error=false;
+    $scope.success=false;
     $scope.submit = function() {
         var req = {
             method: 'post',
@@ -17,17 +19,17 @@ angular.module('uiRouteApp').controller('deleteAccount', ['$scope', '$http','$ro
             console.log("success");
             console.log(data.result);
             if(data.result){
-                jQuery("#delete_error_message").hide();
-                jQuery("#delete_message").show();
+                $scope.error=false;
+                $scope.success=true;
                 location.reload();
             }else{
-                jQuery("#delete_error_message").show();
-                jQuery("#delete_message").hide();
+                $scope.error=true;
+                $scope.success=false;
             }
         }).error(function(){
             console.log("error");
-            jQuery("#delete_error_message").show();
-            jQuery("#delete_message").hide();
+            $scope.error=true;
+            $scope.success=false;
         });
         return false;
     };

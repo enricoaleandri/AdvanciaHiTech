@@ -4,6 +4,8 @@
 
 angular.module('uiRouteApp').controller('addAccount', ['$scope', '$http','$route', function($scope,$http,$route) {
     $scope.usertoadd= {};
+    $scope.error=false;
+    $scope.success=false;
     $scope.submit = function() {
         var req = {
             method: 'post',
@@ -15,17 +17,17 @@ angular.module('uiRouteApp').controller('addAccount', ['$scope', '$http','$route
         $http(req).success(function(data){
             console.log("success");
             if(data.result){
-                jQuery("#add_error_message").hide();
-                jQuery("#add_message").show();
+                $scope.error=false;
+                $scope.success=true;
                 location.reload();
             }else{
-                jQuery("#add_error_message").show();
-                jQuery("#add_message").hide();
+                $scope.error=true;
+                $scope.success=false;
             }
         }).error(function(){
             console.log("error");
-            jQuery("#add_error_message").show();
-            jQuery("#add_message").hide();
+            $scope.error=true;
+            $scope.success=false;
         });
         return false;
     };

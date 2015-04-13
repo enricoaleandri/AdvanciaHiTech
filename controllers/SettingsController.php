@@ -53,9 +53,9 @@ class SettingsController extends  AbstractController
 
     public function updateAction(Request $request)
     {
-        Logger::log(Logger::$DEBUG, "update [SettingsController] ");
-        /* if($request ->is_set('values') && $request->is_set('keys'))
-        {*/
+        Logger::log(Logger::$DEBUG,"update [SettingsController]");
+        if($request ->is_set('values') && $request->is_set('keys'))
+        {
             $path ="";
             $adminDAO = new adminDAO($this->connection);
             $settingsDAO = new settingsDAO($this->connection);
@@ -64,27 +64,8 @@ class SettingsController extends  AbstractController
             $this -> response -> setProperty("settings",initConfig::getInstance()->getSettings());
 
             $settings = initConfig::getInstance()->getSettings();
-
-            $keys = array(
-                "comunication_mail",
-                "job_mail",
-                "comunication_number",
-                "fb_link_page",
-                "twitter_link_page",
-                "meta_tag",
-                "google_analytics_javascript"
-            );
-
-            $values = array(
-                $request->get($keys[0]),
-                $request->get($keys[1]),
-                $request->get($keys[2]),
-                $request->get($keys[3]),
-                $request->get($keys[4]),
-                $request->get($keys[5]),
-                $request->get($keys[6])
-            );
-
+            $keys = $request->get('keys');
+            $values = $request->get('values');
             for($i = 0; $i < count($keys); $i++)
             {
 
@@ -170,13 +151,13 @@ class SettingsController extends  AbstractController
             $message = "Salvataggio Effettuato!";
             $this -> response -> setProperty("message", $message);
             $this->response->addContent('{"result":true}');
-        /*}
+        }
         else
-       {
+        {
             $errorMessage = "Parametri mancanti!";
             $this -> response -> setError("errorMessage", $errorMessage);
             $this->response->addContent('{"result":false}');
-        }*/
+        }
     }
 
     public function adduserAction(Request $request)

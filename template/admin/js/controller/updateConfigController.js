@@ -5,39 +5,34 @@
 
 
 angular.module('uiRouteApp').controller('updateConfig', ['$scope', '$http','$route', function($scope,$http,$route) {
-    $scope.updateconfig={
-        "comunication_mail":jQuery("#com_mail").val(),
-        "job_mail":jQuery("#job_mail").val(),
-        "comunication_number":jQuery("#numero").val(),
-        "fb_link_page":jQuery("#link_fb").val(),
-        "twitter_link_page":jQuery("#link_twitter").val(),
-        "meta_tag":jQuery("#meta_tag_value").val(),
-        "google_analytics_javascript":jQuery("#google_analytics_javascript_value").val()
-    };
+    $scope.keys=[];
+    $scope.values=[];
+    $scope.error=false;
+    $scope.success=false;
+    console.log($scope.keys);
+    console.log($scope.values);
     $scope.submit = function() {
-        $scope.updateconfig.meta_tag=jQuery("#meta_tag_value").val();
-        $scope.updateconfig.google_analytics_javascript=jQuery("#google_analytics_javascript_value").val();
         var req = {
             method: 'post',
             url: host+'/settings/update',
             dataType:'json',
             headers : {'Content-Type': 'application/x-www-form-urlencoded'} ,
-            data: jQuery.param($scope.updateconfig)
+            data: jQuery.param({"values":$scope.values,"keys":$scope.keys})
         }
         $http(req).success(function(data){
             console.log("success");
             if(data.result){
-                jQuery("#error_message").hide();
-                jQuery("#message").show();
+                $scope.error=false;
+                $scope.success=true;
                 location.reload();
             }else{
-                jQuery("#error_message").show();
-                jQuery("#message").hide();
+                $scope.error=true;
+                $scope.success=false;
             }
         }).error(function(){
             console.log("error");
-            jQuery("#error_message").show();
-            jQuery("#message").hide();
+            $scope.error=true;
+            $scope.success=false;
         });
         return false;
     };

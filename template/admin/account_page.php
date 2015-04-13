@@ -43,8 +43,8 @@ $admins = $response -> getProperty("admins");
                         <input pattern=".{3,32}" ng-model="pwdtochange.repassword" required style="height:40px;background-color: #F3F3F3;border:none;padding:3px;font-size: 15px;width:98%"  type="password" value="" name="password[]" /><br><br>
                         <input type="submit" style="width: 100%" value="Modifica">
                     </div>
-                    <div id="change_error_message" style="color:red;font-size:16px;width:100%;margin-top:10%" hidden>Errore, password non cambiata </div>
-                    <div id="change_message" style="color:green;font-size:16px;width:100%;margin-top:10%" hidden>Password aggiornata correttamente</div>
+                    <div id="change_error_message" style="color:red;font-size:16px;width:100%;margin-top:10%" ng-show="error">Errore, password non cambiata </div>
+                    <div id="change_message" style="color:green;font-size:16px;width:100%;margin-top:10%" ng-show="success">Password aggiornata correttamente</div>
                 </form>
             </div>
         </div>
@@ -62,8 +62,8 @@ $admins = $response -> getProperty("admins");
                         <input pattern=".{3,32}" ng-model="usertoadd.repassword" required style="width:98%;height:40px;background-color: #F3F3F3;border:none;padding:3px;font-size: 15px;" size="20" type="password" value="" name="password[]" /><br><br>
                         <input type="submit" style="width: 100%" value="Aggiungi">
                     </div>
-                    <div id="add_error_message" style="color:red;font-size:16px;width:100%;margin-top:10%" hidden>Errore, utente non inserito</div>
-                    <div id="add_message" style="color:green;font-size:16px;width:100%;margin-top:10%" hidden>Utente inserito correttamente</div>
+                    <div id="add_error_message" style="color:red;font-size:16px;width:100%;margin-top:10%" ng-show="error">Errore, utente non inserito</div>
+                    <div id="add_message" style="color:green;font-size:16px;width:100%;margin-top:10%" ng-show="success">Utente inserito correttamente</div>
                 </form>
             </div>
         </div>
@@ -87,8 +87,8 @@ $admins = $response -> getProperty("admins");
                     </div>
                 </form>
             </div>
-            <div id="delete_error_message" style="color:red;font-size:16px;width:100%;margin-top:10%" hidden>Errore, utente non eliminato</div>
-            <div id="delete_message" style="color:green;font-size:16px;width:100%;margin-top:10%" hidden>Utente eliminato correttamente</div>
+            <div id="delete_error_message" style="color:red;font-size:16px;width:100%;margin-top:10%" ng-show="error">Errore, utente non eliminato</div>
+            <div id="delete_message" style="color:green;font-size:16px;width:100%;margin-top:10%" ng-show="success">Utente eliminato correttamente</div>
         </div>
     </div>
     <!-- <div style="width: 100%;height: 2px;background-color:lightgray;float:left" />-->
